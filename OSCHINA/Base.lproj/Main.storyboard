@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FUg-Ct-Uai">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--综合-->
+        <scene sceneID="ahS-5b-chW">
+            <objects>
+                <navigationController id="KyF-w6-xCb" customClass="BaseNavigationController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="综合" image="tabbar-news" id="GPg-et-DOQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="980-op-XkI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WdU-5G-vkt" kind="relationship" relationship="rootViewController" id="bpT-Ca-ZzU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQT-2F-cHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1767" y="-1484"/>
+        </scene>
+        <!--Base Tab Bar Controller-->
+        <scene sceneID="fFM-w0-xaY">
+            <objects>
+                <tabBarController id="FUg-Ct-Uai" customClass="BaseTabBarController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="KJn-bK-Myl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KyF-w6-xCb" kind="relationship" relationship="viewControllers" id="O50-8J-NQ1"/>
+                        <segue destination="i1z-Ib-UHw" kind="relationship" relationship="viewControllers" id="6aW-XU-zfy"/>
+                        <segue destination="d9j-sl-USc" kind="relationship" relationship="viewControllers" id="FgK-a4-kZ6"/>
+                        <segue destination="aMU-im-rom" kind="relationship" relationship="viewControllers" id="xxc-AY-1Mk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpc-ty-iYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2212" y="-510"/>
+        </scene>
+        <!--动弹-->
+        <scene sceneID="AWk-8S-gVD">
+            <objects>
+                <navigationController id="i1z-Ib-UHw" customClass="BaseNavigationController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="动弹" image="tabbar-tweet" selectedImage="tabbar-tweet-selected" id="RiX-9k-PBl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGc-sJ-tf6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e79-Vg-jqp" kind="relationship" relationship="rootViewController" id="zgi-yX-9K3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Obu-dJ-v07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1755" y="400"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="kV4-GC-n4v">
+            <objects>
+                <navigationController id="d9j-sl-USc" customClass="BaseNavigationController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar-discover" selectedImage="tabbar-discover-selected" id="kDk-rz-8dF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IiP-9M-w5L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="c6f-E8-BYx" kind="relationship" relationship="rootViewController" id="ee2-9j-wOZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KnE-Hv-PCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1755" y="-848"/>
+        </scene>
+        <!--我-->
+        <scene sceneID="UVM-jj-fO4">
+            <objects>
+                <navigationController id="aMU-im-rom" customClass="BaseNavigationController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我" image="tabbar-me" selectedImage="tabbar-me-selected" id="O5T-cj-Jml"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SCN-He-nNT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y48-wr-I67" kind="relationship" relationship="rootViewController" id="mJO-IM-egw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xo-hR-UpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1755" y="-229"/>
+        </scene>
+        <!--我-->
+        <scene sceneID="ne2-vk-JIv">
+            <objects>
+                <viewController id="y48-wr-I67" customClass="MineController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oil-Az-1T8"/>
+                        <viewControllerLayoutGuide type="bottom" id="TzB-nY-gJ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FXs-41-PWD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我" id="VnT-0d-sWi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTL-R2-CiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1352" y="-224"/>
+        </scene>
+        <!--动弹-->
+        <scene sceneID="skg-Ru-kS1">
+            <objects>
+                <viewController id="e79-Vg-jqp" customClass="TweetController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CgM-we-MSG"/>
+                        <viewControllerLayoutGuide type="bottom" id="naU-Ml-deN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dsm-3h-wl6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="动弹" id="GDv-cc-Cpr" userLabel="动弹"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ToI-2C-Skz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1318" y="400"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="DQm-hK-1Yv">
+            <objects>
+                <viewController id="c6f-E8-BYx" customClass="DiscoverController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SSZ-d3-JSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fbz-qZ-ky5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YUo-NN-3Y0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="发现" id="Xw7-K3-Ndf" userLabel="发现"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaQ-qx-DLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1341" y="-848"/>
+        </scene>
+        <!--综合-->
+        <scene sceneID="IkZ-LP-CSZ">
+            <objects>
+                <viewController id="WdU-5G-vkt" customClass="HomeController" customModule="OSCHINA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a60-lF-rY0"/>
+                        <viewControllerLayoutGuide type="bottom" id="vlm-82-Ne2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MEV-59-CWH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="综合" id="afc-vE-1ca"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vy5-Nj-KgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1429" y="-1484"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar-discover" width="25" height="25"/>
+        <image name="tabbar-discover-selected" width="25" height="25"/>
+        <image name="tabbar-me" width="26" height="26"/>
+        <image name="tabbar-me-selected" width="26" height="25"/>
+        <image name="tabbar-news" width="24" height="25"/>
+        <image name="tabbar-tweet" width="26" height="28"/>
+        <image name="tabbar-tweet-selected" width="26" height="28"/>
+    </resources>
+</document>
