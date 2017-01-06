@@ -28,18 +28,18 @@ class TweetController: BaseController {
         tableView.registerReusableCell(TweetCell)
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
-        let viewModel = TweetViewModel()
-        viewModel.fetch().subscribe(
-            onNext: { entities in
-                self.tweets = entities!
-            }, onError: { error in
-                log.info("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
+//        let viewModel = TweetViewModel()
+//        viewModel.fetch().subscribe(
+//            onNext: { entities in
+//                self.tweets = entities!
+//            }, onError: { error in
+//                log.info("\(error)")
+//            }, onCompleted: {
+//                log.info("completed")
+//            }, onDisposed: {
+//                log.info("disposed")
+//
+//        }).addDisposableTo(self.disposeBag)
     }
 }
 
@@ -55,7 +55,7 @@ extension TweetController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as? TweetCell
         let data = tweets[indexPath.row]
-        cell?.imageView?.kf_setImageWithURL(URL(string: data.author!.portrait!)!, placeholderImage: UIImage(named: "ic_me_avart_default"), optionsInfo: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+        cell?.imageView?.setImageWithURL(URL(string: data.author!.portrait!)!, placeholderImage: UIImage(named: "ic_me_avart_default"), optionsInfo: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
             cell?.imageView?.image = image?.cs_imageWithCornerRadius(29 / 2, sizeToFit: CGSize(width: 29, height: 29))
         })
         cell?.textLabel?.text = data.author?.name

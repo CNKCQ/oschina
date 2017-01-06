@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import CYLTabBarController
+//import CYLTabBarController
 
-class BaseTabBarController: CYLTabBarController {
+class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = appColor

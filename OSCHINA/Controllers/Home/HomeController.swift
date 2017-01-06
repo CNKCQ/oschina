@@ -8,7 +8,7 @@ import UIKit
 
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate var componentType: ComponentType {
-        return .All(menuOptions: MenuOptions(), pagingControllers: [NewsList(), BlogList(), EventList()])
+        return .all(menuOptions: MenuOptions(), pagingControllers: [NewsList(), BlogList(), EventList()])
     }
 
     fileprivate struct MenuOptions: MenuViewCustomizable {
@@ -19,10 +19,10 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return 0
         }
         var displayMode: MenuDisplayMode {
-            return .SegmentedControl
+            return .segmentedControl
         }
         var focusMode: MenuFocusMode {
-            return .Underline(height: 3, color: UIColor.orangeColor(), horizontalPadding: 36.5, verticalPadding: 0)
+            return .underline(height: 3, color: UIColor.orange, horizontalPadding: 36.5, verticalPadding: 0)
         }
         var itemsOptions: [MenuItemViewCustomizable] {
             return [NewsItem(), BlogItem(), EventItem()]
@@ -34,7 +34,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return SCREEN_WIDTH / 3
         }
         var displayMode: MenuItemDisplayMode {
-            return .Text(title: MenuItemText(text: "资讯", color: UIColor.grayColor(), selectedColor: UIColor.orangeColor(), font: UIFont.systemFontOfSize(UIFont.systemFontSize())))
+            return .text(title: MenuItemText(text: "资讯", color: UIColor.gray, selectedColor: UIColor.orange, font: UIFont.systemFont(ofSize: UIFont.systemFontSize)))
         }
     }
 
@@ -43,7 +43,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return SCREEN_WIDTH / 3
         }
         var displayMode: MenuItemDisplayMode {
-            return .Text(title: MenuItemText(text: "博客", color: UIColor.grayColor(), selectedColor: UIColor.orangeColor(), font: UIFont.systemFontOfSize(UIFont.systemFontSize())))
+            return .text(title: MenuItemText(text: "博客", color: UIColor.gray, selectedColor: UIColor.orange, font: UIFont.systemFont(ofSize: UIFont.systemFontSize)))
         }
     }
 
@@ -52,7 +52,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return SCREEN_WIDTH / 3
         }
         var displayMode: MenuItemDisplayMode {
-            return .Text(title: MenuItemText(text: "活动", color: UIColor.grayColor(), selectedColor: UIColor.orangeColor(), font: UIFont.systemFontOfSize(UIFont.systemFontSize())))
+            return .text(title: MenuItemText(text: "活动", color: UIColor.gray, selectedColor: UIColor.orange, font: UIFont.systemFont(ofSize: UIFont.systemFontSize)))
         }
     }
 
@@ -68,7 +68,7 @@ class HomeController: BaseController {
         pagingMenuController.view.frame.size.height -= 64
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)
-        pagingMenuController.didMoveToParentViewController(self)
+        pagingMenuController.didMove(toParentViewController: self)
 
     }
 }

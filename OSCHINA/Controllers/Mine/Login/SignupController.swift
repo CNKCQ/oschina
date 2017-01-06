@@ -59,72 +59,72 @@ class SignupController: BaseController {
         view.addSubview(repeatedField)
         view.addSubview(repeatedLabel)
         view.addSubview(loginButton)
-        let viewModel = SignupViewModel(
-            input: (
-                username: userField.rx_text.asObservable(),
-                password: pwdField.rx_text.asObservable(),
-                repeatedPassword: repeatedField.rx_text.asObservable(),
-                loginTaps: loginButton.rx_tap.asObservable()
-            ),
-            dependency: (
-                API: SignupDefaultAPI.sharedAPI,
-                validationService: SignupDefaultValidationService.sharedValidationService,
-                wireframe: DefaultWireframe.sharedInstance
-            )
-        )
-        
-        viewModel.signupEnabled
-            .subscribeNext { [weak self] valid  in
-                self?.loginButton.enabled = valid
-                self?.loginButton.alpha = valid ? 1.0 : 0.5
-            }
-            .addDisposableTo(disposeBag)
-        
-        viewModel.validatedUsername
-            .bindTo(userLabel.ex_validationResult)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.validatedPassword
-            .bindTo(pwdLabel.ex_validationResult)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.validatedPasswordRepeated
-            .bindTo(repeatedLabel.ex_validationResult)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.signingIn
-            .bindTo(indicatorView.rx_animating)
-            .addDisposableTo(disposeBag)
-        
-        viewModel.signedIn
-            .subscribeNext { signedIn in
-                print("User signed in \(signedIn)")
-            }
-            .addDisposableTo(disposeBag)
+//        let viewModel = SignupViewModel(
+//            input: (
+//                username: userField.rx_text.asObservable(),
+//                password: pwdField.rx_text.asObservable(),
+//                repeatedPassword: repeatedField.rx_text.asObservable(),
+//                loginTaps: loginButton.rx_tap.asObservable()
+//            ),
+//            dependency: (
+//                API: SignupDefaultAPI.sharedAPI,
+//                validationService: SignupDefaultValidationService.sharedValidationService,
+//                wireframe: DefaultWireframe.sharedInstance
+//            )
+//        )
+//        
+//        viewModel.signupEnabled
+//            .subscribeNext { [weak self] valid  in
+//                self?.loginButton.enabled = valid
+//                self?.loginButton.alpha = valid ? 1.0 : 0.5
+//            }
+//            .addDisposableTo(disposeBag)
+//        
+//        viewModel.validatedUsername
+//            .bindTo(userLabel.ex_validationResult)
+//            .addDisposableTo(disposeBag)
+//        
+//        viewModel.validatedPassword
+//            .bindTo(pwdLabel.ex_validationResult)
+//            .addDisposableTo(disposeBag)
+//        
+//        viewModel.validatedPasswordRepeated
+//            .bindTo(repeatedLabel.ex_validationResult)
+//            .addDisposableTo(disposeBag)
+//        
+//        viewModel.signingIn
+//            .bindTo(indicatorView.rx_animating)
+//            .addDisposableTo(disposeBag)
+//        
+//        viewModel.signedIn
+//            .subscribeNext { signedIn in
+//                print("User signed in \(signedIn)")
+//            }
+//            .addDisposableTo(disposeBag)
         //}
         
         let tapBackground = UITapGestureRecognizer()
-        tapBackground.rx_event
-            .subscribeNext { [weak self] _ in
-                self?.view.endEditing(true)
-            }
-            .addDisposableTo(disposeBag)
+//        tapBackground.rx_event
+//            .subscribeNext { [weak self] _ in
+//                self?.view.endEditing(true)
+//            }
+//            .addDisposableTo(disposeBag)
         view.addGestureRecognizer(tapBackground)
     }
     
     func login() {
-        let viewModel = LoginViewModel()
-        viewModel.login(userField.text!, pwd: pwdField.text!).subscribe(
-            onNext: { result in
-                log.info("\(result?.token)")
-                log.info("\(result?.name)")
-            }, onError: { error in
-                log.info("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-        }).addDisposableTo(self.disposeBag)
+//        let viewModel = LoginViewModel()
+//        viewModel.login(userField.text!, pwd: pwdField.text!).subscribe(
+//            onNext: { result in
+////                log.info("\(result?.token)")
+////                log.info("\(result?.name)")
+//            }, onError: { error in
+////                log.info("\(error)")
+//            }, onCompleted: {
+////                log.info("completed")
+//            }, onDisposed: {
+////                log.info("disposed")
+//        }).addDisposableTo(self.disposeBag)
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {

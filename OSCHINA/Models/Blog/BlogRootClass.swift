@@ -14,12 +14,12 @@ class BlogRootClass: NSObject, NSCoding, Mappable {
 	class func newInstance(_ map: Map) -> Mappable? {
 		return BlogRootClass()
 	}
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         super.init()
     }
 	fileprivate override init() {}
 
-	func mapping(_ map: Map) {
+	func mapping(map: Map) {
 		code <- map["code"]
 		objList <- map["obj_list"]
 

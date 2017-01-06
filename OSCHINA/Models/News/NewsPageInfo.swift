@@ -15,13 +15,13 @@ class NewsPageInfo : NSObject, NSCoding, Mappable{
 	class func newInstance(_ map: Map) -> Mappable?{
 		return NewsPageInfo()
 	}
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         super.init()
     }
     
 	fileprivate override init(){}
 
-	func mapping(_ map: Map)
+	func mapping(map: Map)
 	{
 		resultsPerPage <- map["resultsPerPage"]
 		totalResults <- map["totalResults"]

@@ -22,13 +22,13 @@ class TweetObjList : NSObject, NSCoding, Mappable{
 	class func newInstance(_ map: Map) -> Mappable?{
 		return TweetObjList()
 	}
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         super.init()
     }
 
 	fileprivate override init(){}
 
-	func mapping(_ map: Map)
+	func mapping(map: Map)
 	{
 		appclient <- map["appclient"]
 		author <- map["author"]

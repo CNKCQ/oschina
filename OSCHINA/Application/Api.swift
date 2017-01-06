@@ -50,13 +50,13 @@ extension OSCIOService: TargetType {
     var method: Moya.Method {
         switch self {
         case .login:
-            return .POST
+            return .post
         default:
-            return .GET
+            return .get
         }
     }
 
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         switch self {
         case .login(let username, let password):
             return ["username": username as AnyObject, "pwd": password as AnyObject]
@@ -77,5 +77,13 @@ extension OSCIOService: TargetType {
 
     var multipartBody: [MultipartFormData]? {
         return nil
+    }
+    
+    public var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+    
+    public var task: Task {
+        return .request
     }
 }

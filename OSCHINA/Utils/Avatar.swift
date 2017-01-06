@@ -43,33 +43,6 @@ extension UIView {
         context?.setStrokeColor(borderColor.cgColor)
         context?.setFillColor(backgroundColor.cgColor)
         
-        context?.move(to: CGPoint(x: width - borderWidth / 2, y: radius + borderWidth / 2))  // 开始坐标
-        CGContextAddArcToPoint(context,
-                               width - borderWidth / 2,
-                               height - borderWidth / 2,
-                               width - radius - borderWidth / 2,
-                               height - borderWidth / 2,
-                               radius)  // 右下角
-        CGContextAddArcToPoint(context,
-                               borderWidth / 2,
-                               height - borderWidth / 2,
-                               borderWidth / 2,
-                               height - radius - borderWidth / 2,
-                               radius) // 左下角
-        CGContextAddArcToPoint(context,
-                               borderWidth / 2,
-                               borderWidth / 2,
-                               width - borderWidth / 2,
-                               borderWidth / 2,
-                               radius) // 左上角
-        CGContextAddArcToPoint(context,
-                               width - borderWidth / 2,
-                               borderWidth / 2,
-                               width - borderWidth / 2,
-                               radius + borderWidth / 2,
-                               radius) // 右上角
-        
-        context?.drawPath(using: .fillStroke)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         

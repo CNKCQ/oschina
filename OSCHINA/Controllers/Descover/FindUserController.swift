@@ -26,7 +26,7 @@ class FindUserController: BaseController {
         searchBar.placeholder = "请输入用户昵称"
         tableView = UITableView(frame: view.bounds)
         tableView.y = searchBar.bottom
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell()))
         tableView.delegate = self
         tableView.dataSource = self
 //        let viewModel = FindViewModel()
@@ -53,9 +53,9 @@ extension FindUserController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell))!
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell()))!
         let url = URL(string: items![indexPath.row].portrait!)!
-        cell.imageView?.kf_setImageWithURL(url)
+        _ = cell.imageView?.setImageWithURL(url)
         cell.textLabel?.text = items![indexPath.row].name
         return cell
     }
@@ -71,18 +71,18 @@ extension FindUserController: UITableViewDataSource, UITableViewDelegate {
 
 extension FindUserController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let viewModel = FindViewModel()
-            if let text = searchBar.text {
-            viewModel.search(text).subscribe(
-                onNext: { entities in
-                    self.items = entities
-                }, onError: { error in
-                    log.info("\(error)")
-                }, onCompleted: {
-                    log.info("completed")
-                }, onDisposed: {
-                    log.info("disposed")
-            }).addDisposableTo(disposeBag)
-        }
+//        let viewModel = FindViewModel()
+//            if let text = searchBar.text {
+//            viewModel.search(text).subscribe(
+//                onNext: { entities in
+//                    self.items = entities
+//                }, onError: { error in
+////                    log.info("\(error)")
+//                }, onCompleted: {
+////                    log.info("completed")
+//                }, onDisposed: {
+////                    log.info("disposed")
+//            }).addDisposableTo(disposeBag)
+//        }
     }
 }

@@ -31,19 +31,19 @@ class BlogList: BaseController {
         tableView.height = view.height - 49 - 40 - 64
         tableView.separatorStyle = .none
         view.addSubview(tableView)
-        let viewModel = BlogViewModel()
-        viewModel.fetch().subscribe(
-            onNext: { entities in
-                self.blogItems = entities!
-                log.info("你好")
-            }, onError: { error in
-                log.error("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
+//        let viewModel = BlogViewModel()
+//        viewModel.fetch().subscribe(
+//            onNext: { entities in
+//                self.blogItems = entities!
+////                log.info("你好")
+//            }, onError: { error in
+////                log.error("\(error)")
+//            }, onCompleted: {
+////                log.info("completed")
+//            }, onDisposed: {
+////                log.info("disposed")
+//
+//        }).addDisposableTo(self.disposeBag)
     }
 
 }

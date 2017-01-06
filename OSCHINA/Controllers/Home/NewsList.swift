@@ -9,7 +9,7 @@ import UIKit
 import Moya
 import ObjectMapper
 import RxSwift
-import AutoCycleAdview
+//import AutoCycleAdview
 
 class NewsList: BaseController {
     let disposeBag = DisposeBag()
@@ -40,41 +40,41 @@ class NewsList: BaseController {
         tableView.separatorStyle = .none
         view.addSubview(tableView)
 //        let headerBanner = SycleAdContainer(frame: CGRect(x: 0, y: 0, width: view.width, height: 150))
-        let bannerViewModel = BannerViewModel()
-        bannerViewModel.fetchBanner().subscribe(
-            onNext: { entities in
-                //                headerBanner.configAd(entities.fi, style: .Center) { (idx) in
-                //                    print(idx)
-                //                    print(imageUrls[idx])
-                //                }
-                log.warning(entities?.description)
-                self.bannerItems = entities
-                log.info("ok")
-
-            }, onError: { error in
-                log.error("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
-
-        let viewModel = NewsViewModel()
-        viewModel.fetch().subscribe(
-            onNext: { entities in
-                if let result = entities {
-                    self.newsItems = result
-                }
-                log.info("你好")
-            }, onError: { error in
-                log.error("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
+//        let bannerViewModel = BannerViewModel()
+//        bannerViewModel.fetchBanner().subscribe(
+//            onNext: { entities in
+//                //                headerBanner.configAd(entities.fi, style: .Center) { (idx) in
+//                //                    print(idx)
+//                //                    print(imageUrls[idx])
+//                //                }
+////                log.warning(entities?.description)
+//                self.bannerItems = entities
+////                log.info("ok")
+//
+//            }, onError: { error in
+////                log.error("\(error)")
+//            }, onCompleted: {
+////                log.info("completed")
+//            }, onDisposed: {
+////                log.info("disposed")
+//
+//        }).addDisposableTo(self.disposeBag)
+//
+//        let viewModel = NewsViewModel()
+//        viewModel.fetch().subscribe(
+//            onNext: { entities in
+//                if let result = entities {
+//                    self.newsItems = result
+//                }
+////                log.info("你好")
+//            }, onError: { error in
+////                log.error("\(error)")
+//            }, onCompleted: {
+////                log.info("completed")
+//            }, onDisposed: {
+////                log.info("disposed")
+//
+//        }).addDisposableTo(self.disposeBag)
     }
 
 }

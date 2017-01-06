@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
-import Kingfisher
+//import Kingfisher
 
 private let tableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 89 : 95
 private let beforeAppearOffset: CGFloat = 0
@@ -58,30 +58,30 @@ class MineController: BaseController {
         backgroundImageView.centerX = backgroundView.centerX
         backgroundView.addSubview(backgroundImageView)
         tableView.backgroundView = backgroundView
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell()))
         let dataSource = self.dataSource
         dataSource.configureCell = { (_, tableView, indexPath, element) in
-            let cell = tableView.dequeueReusableCellWithIdentifier(String(UITableViewCell))!
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell()))!
             cell.textLabel?.text = element
-            cell.accessoryType = .DisclosureIndicator
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
-        items
-            .bindTo(tableView.rx_itemsWithDataSource(dataSource))
-            .addDisposableTo(disposeBag)
-
-        tableView
-            .rx_itemSelected
-            .map { indexPath in
-                return (indexPath, dataSource.itemAtIndexPath(indexPath))
-            }
-            .subscribeNext { indexPath, model in
-                DefaultWireframe.presentAlert("taped @ \(model)")
-            }
-            .addDisposableTo(disposeBag)
-        tableView
-            .rx_setDelegate(self)
-            .addDisposableTo(disposeBag)
+//        items
+//            .bindTo(tableView.rx_itemsWithDataSource(dataSource))
+//            .addDisposableTo(disposeBag)
+//
+//        tableView
+//            .rx_itemSelected
+//            .map { indexPath in
+//                return (indexPath, dataSource.itemAtIndexPath(indexPath))
+//            }
+//            .subscribeNext { indexPath, model in
+//                DefaultWireframe.presentAlert("taped @ \(model)")
+//            }
+//            .addDisposableTo(disposeBag)
+//        tableView
+//            .rx_setDelegate(self)
+//            .addDisposableTo(disposeBag)
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: 120))
         avartView = UIImageView()
         avartView.size = CGSize(width: 64, height: 64)
@@ -92,9 +92,10 @@ class MineController: BaseController {
         loginButton = UIButton(frame: CGRect(x: 15, y: avartView.bottom, width: view.bounds.width / 2, height: 25))
         avartView.addAction(self, action: #selector(login))
         loginButton.centerX = headerView.centerX
-        loginButton.rx_tap.subscribeNext ({ [weak self] in
-            self?.login()
-        }).addDisposableTo(disposeBag)
+        loginButton.addAction(self, action: #selector(login))
+//        loginButton.rx_tap.subscribeNext ({ [weak self] in
+//            self?.login()
+//        }).addDisposableTo(disposeBag)
         headerView.addSubview(avartView)
         headerView.addSubview(loginButton)
         loginButton.setTitle("登录", for: UIControlState())
@@ -108,13 +109,13 @@ class MineController: BaseController {
 
     func login() {
         let dest = LoginController()
-        dest.destBack = { user in
-            if let url = URL(string: user!.portrait!) {
-                self.avartView.setImageWithURL(url)
-            }
-            self.loginButton.setTitle(user?.name, for: UIControlState())
-        }
-        navigationController?.pushViewController(dest, animated: true)
+//        dest.destBack = { user in
+//            if let url = URL(string: user!.portrait!) {
+//                _ = self.avartView.setImageWithURL(url)
+//            }
+//            self.loginButton.setTitle(user?.name, for: UIControlState())
+//        }
+//        navigationController?.pushViewController(dest, animated: true)
     }
 }
 

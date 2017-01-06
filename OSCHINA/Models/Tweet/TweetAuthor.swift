@@ -17,13 +17,13 @@ class TweetAuthor: NSObject, NSCoding, Mappable {
 		return TweetAuthor()
 	}
 
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         super.init()
     }
 
 	fileprivate override init() {}
 
-	func mapping(_ map: Map) {
+	func mapping(map: Map) {
 		id <- map["id"]
 		name <- map["name"]
 		portrait <- map["portrait"]

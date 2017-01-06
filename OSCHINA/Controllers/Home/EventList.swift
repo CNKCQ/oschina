@@ -30,19 +30,19 @@ class EventList: BaseController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         view.addSubview(tableView)
-        let viewModel = EventViewModel()
-        viewModel.fetch().subscribe(
-            onNext: { entities in
-                self.eventItems = entities!
-                log.info("你好")
-            }, onError: { error in
-                log.error("\(error)")
-            }, onCompleted: {
-                log.info("completed")
-            }, onDisposed: {
-                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
+//        let viewModel = EventViewModel()
+//        viewModel.fetch().subscribe(
+//            onNext: { entities in
+//                self.eventItems = entities!
+//                log.info("你好")
+//            }, onError: { error in
+//                log.error("\(error)")
+//            }, onCompleted: {
+//                log.info("completed")
+//            }, onDisposed: {
+//                log.info("disposed")
+//
+//        }).addDisposableTo(self.disposeBag)
     }
 }
 
