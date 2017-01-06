@@ -46,7 +46,7 @@ extension UIView {
     }
 
     var x: CGFloat {
-        get { return CGRectGetMinX(self.frame) }
+        get { return self.frame.minX }
         set {
             var frame = self.frame
             frame.origin.x = newValue
@@ -54,7 +54,7 @@ extension UIView {
         }
     }
     var y: CGFloat {
-        get { return CGRectGetMinY(self.frame) }
+        get { return self.frame.minY }
         set {
             var frame = self.frame
             frame.origin.y = newValue
@@ -65,19 +65,19 @@ extension UIView {
     var centerX: CGFloat {
         get { return self.center.x }
         set {
-            self.center = CGPointMake(newValue, self.center.y)
+            self.center = CGPoint(x: newValue, y: self.center.y)
         }
     }
 
     var centerY: CGFloat {
         get { return self.center.y }
         set {
-            self.center = CGPointMake(self.center.x, newValue)
+            self.center = CGPoint(x: self.center.x, y: newValue)
         }
     }
 
     var top: CGFloat {
-        get { return CGRectGetMinY(self.frame) }
+        get { return self.frame.minY }
         set {
             var frame = self.frame
             frame.origin.y = newValue
@@ -86,7 +86,7 @@ extension UIView {
     }
 
     var bottom: CGFloat {
-        get { return CGRectGetMaxY(self.frame)}
+        get { return self.frame.maxY}
         set {
             var frame = self.frame
             frame.origin.y = newValue - self.frame.size.height
@@ -95,7 +95,7 @@ extension UIView {
     }
 
     var right: CGFloat {
-        get { return CGRectGetMaxX(self.frame) }
+        get { return self.frame.maxX }
         set {
             var frame = self.frame
             frame.origin.x = newValue - self.frame.size.width
@@ -104,7 +104,7 @@ extension UIView {
     }
 
     var left: CGFloat {
-        get { return CGRectGetMinX(self.frame) }
+        get { return self.frame.minX }
         set {
             var frame = self.frame
             frame.origin.x  = newValue

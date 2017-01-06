@@ -23,15 +23,15 @@ class User: NSObject, NSCoding, Mappable {
 	var score: Int?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return User()
 	}
     required init?(_ map: Map) {
         super.init()
     }
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		devplatform <- map["devplatform"]
 		expertise <- map["expertise"]
 		fans <- map["fans"]
@@ -53,19 +53,19 @@ class User: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         devplatform = aDecoder.decodeObjectForKey("devplatform") as? String
-         expertise = aDecoder.decodeObjectForKey("expertise") as? String
-         fans = aDecoder.decodeObjectForKey("fans") as? Int
-         favoriteCount = aDecoder.decodeObjectForKey("favorite_count") as? Int
-         followers = aDecoder.decodeObjectForKey("followers") as? Int
-         from = aDecoder.decodeObjectForKey("from") as? String
-         gender = aDecoder.decodeObjectForKey("gender") as? Int
-         token = aDecoder.decodeObjectForKey("id") as? Int
-         jointime = aDecoder.decodeObjectForKey("jointime") as? String
-         latestonline = aDecoder.decodeObjectForKey("latestonline") as? String
-         name = aDecoder.decodeObjectForKey("name") as? String
-         portrait = aDecoder.decodeObjectForKey("portrait") as? String
-         score = aDecoder.decodeObjectForKey("score") as? Int
+         devplatform = aDecoder.decodeObject(forKey: "devplatform") as? String
+         expertise = aDecoder.decodeObject(forKey: "expertise") as? String
+         fans = aDecoder.decodeObject(forKey: "fans") as? Int
+         favoriteCount = aDecoder.decodeObject(forKey: "favorite_count") as? Int
+         followers = aDecoder.decodeObject(forKey: "followers") as? Int
+         from = aDecoder.decodeObject(forKey: "from") as? String
+         gender = aDecoder.decodeObject(forKey: "gender") as? Int
+         token = aDecoder.decodeObject(forKey: "id") as? Int
+         jointime = aDecoder.decodeObject(forKey: "jointime") as? String
+         latestonline = aDecoder.decodeObject(forKey: "latestonline") as? String
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         portrait = aDecoder.decodeObject(forKey: "portrait") as? String
+         score = aDecoder.decodeObject(forKey: "score") as? Int
 
 	}
 
@@ -73,45 +73,45 @@ class User: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if devplatform != nil {
-			aCoder.encodeObject(devplatform, forKey: "devplatform")
+			aCoder.encode(devplatform, forKey: "devplatform")
 		}
 		if expertise != nil {
-			aCoder.encodeObject(expertise, forKey: "expertise")
+			aCoder.encode(expertise, forKey: "expertise")
 		}
 		if fans != nil {
-			aCoder.encodeObject(fans, forKey: "fans")
+			aCoder.encode(fans, forKey: "fans")
 		}
 		if favoriteCount != nil {
-			aCoder.encodeObject(favoriteCount, forKey: "favorite_count")
+			aCoder.encode(favoriteCount, forKey: "favorite_count")
 		}
 		if followers != nil {
-			aCoder.encodeObject(followers, forKey: "followers")
+			aCoder.encode(followers, forKey: "followers")
 		}
 		if from != nil {
-			aCoder.encodeObject(from, forKey: "from")
+			aCoder.encode(from, forKey: "from")
 		}
 		if gender != nil {
-			aCoder.encodeObject(gender, forKey: "gender")
+			aCoder.encode(gender, forKey: "gender")
 		}
 		if token != nil {
-			aCoder.encodeObject(token, forKey: "id")
+			aCoder.encode(token, forKey: "id")
 		}
 		if jointime != nil {
-			aCoder.encodeObject(jointime, forKey: "jointime")
+			aCoder.encode(jointime, forKey: "jointime")
 		}
 		if latestonline != nil {
-			aCoder.encodeObject(latestonline, forKey: "latestonline")
+			aCoder.encode(latestonline, forKey: "latestonline")
 		}
 		if name != nil {
-			aCoder.encodeObject(name, forKey: "name")
+			aCoder.encode(name, forKey: "name")
 		}
 		if portrait != nil {
-			aCoder.encodeObject(portrait, forKey: "portrait")
+			aCoder.encode(portrait, forKey: "portrait")
 		}
 		if score != nil {
-			aCoder.encodeObject(score, forKey: "score")
+			aCoder.encode(score, forKey: "score")
 		}
 
 	}

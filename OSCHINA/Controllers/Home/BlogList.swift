@@ -20,8 +20,8 @@ class BlogList: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        tableView = UITableView(frame: view.bounds, style: .Plain)
+        self.view.backgroundColor = UIColor.white
+        tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerReusableCell(NewCell)
@@ -29,7 +29,7 @@ class BlogList: BaseController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         tableView.height = view.height - 49 - 40 - 64
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = .none
         view.addSubview(tableView)
         let viewModel = BlogViewModel()
         viewModel.fetch().subscribe(
@@ -49,11 +49,11 @@ class BlogList: BaseController {
 }
 
 extension BlogList: UITableViewDelegate, UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blogItems.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NewCell
             cell.titleLabel?.text = blogItems[indexPath.row].title
             cell.contentLabel?.text = blogItems[indexPath.row].body
@@ -62,7 +62,7 @@ extension BlogList: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dest = WebController()
         dest.urlStr = blogItems[indexPath.row].url
         dest.title = blogItems[indexPath.row].title

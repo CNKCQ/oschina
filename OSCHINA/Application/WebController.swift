@@ -13,30 +13,30 @@ class WebController: BaseController {
         webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
         webView.navigationDelegate = self
-        webView.UIDelegate = self
-        guard let url = NSURL(string: urlStr) else {
+        webView.uiDelegate = self
+        guard let url = URL(string: urlStr) else {
             fatalError("urlStr can't be nil")
         }
-        let request = NSURLRequest(URL: url)
-        webView.loadRequest(request)
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }
 
 extension WebController: WKNavigationDelegate {
 
-    func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
-        decisionHandler(.Allow)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
     }
 }
 
 extension WebController: WKUIDelegate {
 
-     func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
+     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
          completionHandler()
     }
 
-     func webView(webView: WKWebView, createWebViewWithConfiguration configuration: WKWebViewConfiguration, forNavigationAction navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        webView.loadRequest(navigationAction.request)
+     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        webView.load(navigationAction.request)
         return nil
     }
 }

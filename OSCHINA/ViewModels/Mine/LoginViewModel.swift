@@ -15,7 +15,7 @@ class LoginViewModel: NewsViewModel {
         super.init()
     }
 
-    func login(username: String, pwd: String) -> Observable<User?> {
+    func login(_ username: String, pwd: String) -> Observable<User?> {
         return Observable.create({ observer -> Disposable in
             self.provider.request(OSCIOService.Login(username: username, password: pwd)) { response in
                 switch response {

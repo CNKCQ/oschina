@@ -16,12 +16,12 @@ import CoreLocation
 class GeolocationService {
     
     static let instance = GeolocationService()
-    private (set) var authorized: Driver<Bool>
-    private (set) var location: Driver<CLLocationCoordinate2D>
+    fileprivate (set) var authorized: Driver<Bool>
+    fileprivate (set) var location: Driver<CLLocationCoordinate2D>
     
-    private let locationManager = CLLocationManager()
+    fileprivate let locationManager = CLLocationManager()
     
-    private init() {
+    fileprivate init() {
         
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation

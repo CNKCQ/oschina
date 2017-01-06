@@ -6,15 +6,15 @@
 import RxSwift
 
 enum SigninState {
-    case SignedIn(signedIn: Bool)
+    case signedIn(signedIn: Bool)
 }
 
 protocol SigninAPI {
-    func usernameAvailable(username: String) -> Observable<Bool>
-    func signin(username: String, password: String) -> Observable<Bool>
+    func usernameAvailable(_ username: String) -> Observable<Bool>
+    func signin(_ username: String, password: String) -> Observable<Bool>
 }
 
 protocol SigninValidationService {
-    func validateUsername(username: String) -> Observable<ValidationResult>
-    func validatePassword(password: String) -> ValidationResult
+    func validateUsername(_ username: String) -> Observable<ValidationResult>
+    func validatePassword(_ password: String) -> ValidationResult
 }

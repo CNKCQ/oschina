@@ -18,74 +18,74 @@ import UIKit
  - Center: 中中
  */
 public enum AlignType {
-    case TopLeft
-    case TopRight
-    case TopCenter
-    case BottomLeft
-    case BottomRight
-    case BottomCenter
-    case CenterLeft
-    case CenterRight
-    case Center
+    case topLeft
+    case topRight
+    case topCenter
+    case bottomLeft
+    case bottomRight
+    case bottomCenter
+    case centerLeft
+    case centerRight
+    case center
 
-    private func layoutAttributes(isInner: Bool, isVertical: Bool) -> LayoutAttributes {
+    fileprivate func layoutAttributes(_ isInner: Bool, isVertical: Bool) -> LayoutAttributes {
         let attributes = LayoutAttributes()
         switch self {
-        case .TopLeft:
-            attributes.horizontals(.Left, to: .Left).verticals(.Top, to: .Top)
+        case .topLeft:
+            attributes.horizontals(.left, to: .left).verticals(.top, to: .top)
             if isInner {
                 return attributes
             } else if isVertical {
-                return attributes.verticals(.Bottom, to: .Top)
+                return attributes.verticals(.bottom, to: .top)
             } else {
-                return attributes.horizontals(.Right, to: .Left)
+                return attributes.horizontals(.right, to: .left)
             }
-        case .TopRight:
-            attributes.horizontals(.Right, to: .Right).verticals(.Top, to: .Top)
+        case .topRight:
+            attributes.horizontals(.right, to: .right).verticals(.top, to: .top)
             if isInner {
                 return attributes
             } else if isVertical {
-                return attributes.verticals(.Bottom, to: .Top)
+                return attributes.verticals(.bottom, to: .top)
             } else {
-                return attributes.horizontals(.Left, to: .Right)
+                return attributes.horizontals(.left, to: .right)
             }
-        case .BottomLeft:
-            attributes.horizontals(.Left, to: .Left).verticals(.Bottom, to: .Bottom)
+        case .bottomLeft:
+            attributes.horizontals(.left, to: .left).verticals(.bottom, to: .bottom)
             if isInner {
                 return attributes
             } else if isVertical {
-                return attributes.verticals(.Top, to: .Bottom)
+                return attributes.verticals(.top, to: .bottom)
             } else {
-                return attributes.horizontals(.Right, to: .Left)
+                return attributes.horizontals(.right, to: .left)
             }
-        case .BottomRight:
-            attributes.horizontals(.Right, to: .Right).verticals(.Bottom, to: .Bottom)
+        case .bottomRight:
+            attributes.horizontals(.right, to: .right).verticals(.bottom, to: .bottom)
             if isInner {
                 return attributes
             } else if isVertical {
-                return attributes.verticals(.Top, to: .Bottom)
+                return attributes.verticals(.top, to: .bottom)
             } else {
-                return attributes.horizontals(.Left, to: .Right)
+                return attributes.horizontals(.left, to: .right)
             }
         // 仅内部 & 垂直参照需要
-        case .TopCenter:
-            attributes.horizontals(.CenterX, to: .CenterX).verticals(.Top, to: .Top)
-            return isInner ? attributes : attributes.verticals(.Bottom, to: .Top)
+        case .topCenter:
+            attributes.horizontals(.centerX, to: .centerX).verticals(.top, to: .top)
+            return isInner ? attributes : attributes.verticals(.bottom, to: .top)
         // 仅内部 & 垂直参照需要
-        case .BottomCenter:
-            attributes.horizontals(.CenterX, to: .CenterX).verticals(.Bottom, to: .Bottom)
-            return isInner ? attributes : attributes.verticals(.Top, to: .Bottom)
+        case .bottomCenter:
+            attributes.horizontals(.centerX, to: .centerX).verticals(.bottom, to: .bottom)
+            return isInner ? attributes : attributes.verticals(.top, to: .bottom)
         // 仅内部 & 水平参照需要
-        case .CenterLeft:
-            attributes.horizontals(.Left, to: .Left).verticals(.CenterY, to: .CenterY)
-            return isInner ? attributes : attributes.horizontals(.Right, to: .Left)
+        case .centerLeft:
+            attributes.horizontals(.left, to: .left).verticals(.centerY, to: .centerY)
+            return isInner ? attributes : attributes.horizontals(.right, to: .left)
         // 仅内部 & 水平参照需要
-        case .CenterRight:
-            attributes.horizontals(.Right, to: .Right).verticals(.CenterY, to: .CenterY)
-            return isInner ? attributes : attributes.horizontals(.Left, to: .Right)
+        case .centerRight:
+            attributes.horizontals(.right, to: .right).verticals(.centerY, to: .centerY)
+            return isInner ? attributes : attributes.horizontals(.left, to: .right)
         // 仅内部参照需要
-        case .Center:
-            return LayoutAttributes(horizontal: .CenterX, referHorizontal: .CenterX, vertical: .CenterY, referVertical: .CenterY)
+        case .center:
+            return LayoutAttributes(horizontal: .centerX, referHorizontal: .centerX, vertical: .centerY, referVertical: .centerY)
         }
     }
 }
@@ -97,11 +97,11 @@ extension UIView {
      :param: insets    间距
      :returns: 约束数组
      */
-    public func Fill(referView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+    public func Fill(_ referView: UIView, insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         var cons = [NSLayoutConstraint]()
-        cons += NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(insets.left)-[subView]-\(insets.right)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView" : self])
-        cons += NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(insets.top)-[subView]-\(insets.bottom)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView" : self])
+        cons += NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(insets.left)-[subView]-\(insets.right)-|", options: NSLayoutFormatOptions.alignAllBaseline, metrics: nil, views: ["subView" : self])
+        cons += NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(insets.top)-[subView]-\(insets.bottom)-|", options: NSLayoutFormatOptions.alignAllBaseline, metrics: nil, views: ["subView" : self])
         superview?.addConstraints(cons)
         return cons
     }
@@ -114,7 +114,7 @@ extension UIView {
      :param: offset    偏移量，默认是 CGPoint(x: 0, y: 0)
      :returns: 约束数组
      */
-    public func AlignInner(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
+    public func AlignInner(type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
 
         return AlignLayout(referView, attributes: type.layoutAttributes(true, isVertical: true), size: size, offset: offset)
     }
@@ -127,7 +127,7 @@ extension UIView {
      :param: offset    偏移量，默认是 CGPoint(x: 0, y: 0)
      :returns: 约束数组
      */
-    public func AlignVertical(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
+    public func AlignVertical(type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
         return AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: true), size: size, offset: offset)
     }
 
@@ -139,7 +139,7 @@ extension UIView {
      :param: offset    偏移量，默认是 CGPoint(x: 0, y: 0)
      :returns: 约束数组
      */
-    public func AlignHorizontal(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
+    public func AlignHorizontal(type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
         return AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
     }
     /**
@@ -148,22 +148,22 @@ extension UIView {
      :param: insets 间距
      :returns: 约束数组
      */
-    public func HorizontalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func HorizontalTile(_ views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         assert(!views.isEmpty, "views should not be empty")
         var cons = [NSLayoutConstraint]()
         let firstView = views[0]
-        firstView.AlignInner(type: AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
-        cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -insets.bottom))
+        firstView.AlignInner(type: AlignType.topLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: -insets.bottom))
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
             cons += subView.sizeConstraints(firstView)
-            subView.AlignHorizontal(type: AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
+            subView.AlignHorizontal(type: AlignType.topRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
             preView = subView
         }
         let lastView = views.last!
-        cons.append(NSLayoutConstraint(item: lastView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -insets.right))
+        cons.append(NSLayoutConstraint(item: lastView, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.right, multiplier: 1.0, constant: -insets.right))
         addConstraints(cons)
         return cons
     }
@@ -173,22 +173,22 @@ extension UIView {
      :param: insets 间距
      :returns: 约束数组
      */
-    public func VerticalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func VerticalTile(_ views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         assert(!views.isEmpty, "views should not be empty")
         var cons = [NSLayoutConstraint]()
         let firstView = views[0]
-        firstView.AlignInner(type: AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
-        cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -insets.right))
+        firstView.AlignInner(type: AlignType.topLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.right, multiplier: 1.0, constant: -insets.right))
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
             cons += subView.sizeConstraints(firstView)
-            subView.AlignVertical(type: AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
+            subView.AlignVertical(type: AlignType.bottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
             preView = subView
         }
         let lastView = views.last!
-        cons.append(NSLayoutConstraint(item: lastView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -insets.bottom))
+        cons.append(NSLayoutConstraint(item: lastView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: -insets.bottom))
         addConstraints(cons)
         return cons
     }
@@ -199,7 +199,7 @@ extension UIView {
      :param: attribute       约束属性
      :returns: 对应的约束
      */
-    public func Constraint(constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    public func Constraint(_ constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
         for constraint in constraintsList {
             if constraint.firstItem as! NSObject == self && constraint.firstAttribute == attribute {
                 return constraint
@@ -217,7 +217,7 @@ extension UIView {
      :param: offset     偏移量，默认是 CGPoint(x: 0, y: 0)
      :returns: 约束数组
      */
-    private func AlignLayout(referView: UIView, attributes: LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
+    fileprivate func AlignLayout(_ referView: UIView, attributes: LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         var cons = [NSLayoutConstraint]()
         cons += positionConstraints(referView, attributes: attributes, offset: offset)
@@ -233,10 +233,10 @@ extension UIView {
      :param: size 视图大小
      :returns: 约束数组
      */
-    private func sizeConstraints(size: CGSize) -> [NSLayoutConstraint] {
+    fileprivate func sizeConstraints(_ size: CGSize) -> [NSLayoutConstraint] {
         var cons = [NSLayoutConstraint]()
-        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: size.width))
-        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: size.height))
+        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: size.width))
+        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: size.height))
         return cons
     }
 
@@ -245,10 +245,10 @@ extension UIView {
      :param: referView 参考视图，与参考视图大小一致
      :returns: 约束数组
      */
-    private func sizeConstraints(referView: UIView) -> [NSLayoutConstraint] {
+    fileprivate func sizeConstraints(_ referView: UIView) -> [NSLayoutConstraint] {
         var cons = [NSLayoutConstraint]()
-        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: referView, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0))
-        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: referView, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0))
+        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: referView, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+        cons.append(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: referView, attribute: NSLayoutAttribute.height, multiplier: 1.0, constant: 0))
         return cons
     }
 
@@ -259,11 +259,11 @@ extension UIView {
      :param: offset     偏移量
      :returns: 约束数组
      */
-    private func positionConstraints(referView: UIView, attributes: LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
+    fileprivate func positionConstraints(_ referView: UIView, attributes: LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
 
         var cons = [NSLayoutConstraint]()
-        cons.append(NSLayoutConstraint(item: self, attribute: attributes.horizontal, relatedBy: NSLayoutRelation.Equal, toItem: referView, attribute: attributes.referHorizontal, multiplier: 1.0, constant: offset.x))
-        cons.append(NSLayoutConstraint(item: self, attribute: attributes.vertical, relatedBy: NSLayoutRelation.Equal, toItem: referView, attribute: attributes.referVertical, multiplier: 1.0, constant: offset.y))
+        cons.append(NSLayoutConstraint(item: self, attribute: attributes.horizontal, relatedBy: NSLayoutRelation.equal, toItem: referView, attribute: attributes.referHorizontal, multiplier: 1.0, constant: offset.x))
+        cons.append(NSLayoutConstraint(item: self, attribute: attributes.vertical, relatedBy: NSLayoutRelation.equal, toItem: referView, attribute: attributes.referVertical, multiplier: 1.0, constant: offset.y))
         return cons
     }
 }
@@ -276,10 +276,10 @@ private final class LayoutAttributes {
     var referVertical: NSLayoutAttribute
 
     init() {
-        horizontal = NSLayoutAttribute.Left
-        referHorizontal = NSLayoutAttribute.Left
-        vertical = NSLayoutAttribute.Top
-        referVertical = NSLayoutAttribute.Top
+        horizontal = NSLayoutAttribute.left
+        referHorizontal = NSLayoutAttribute.left
+        vertical = NSLayoutAttribute.top
+        referVertical = NSLayoutAttribute.top
     }
 
     init(horizontal: NSLayoutAttribute, referHorizontal: NSLayoutAttribute, vertical: NSLayoutAttribute, referVertical: NSLayoutAttribute) {
@@ -289,13 +289,13 @@ private final class LayoutAttributes {
         self.referVertical = referVertical
     }
 
-    private func horizontals(from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
+    fileprivate func horizontals(_ from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
         horizontal = from
         referHorizontal = to
         return self
     }
 
-    private func verticals(from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
+    fileprivate func verticals(_ from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
         vertical = from
         referVertical = to
         return self

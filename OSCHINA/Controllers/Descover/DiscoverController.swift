@@ -15,8 +15,8 @@ class DiscoverController: BaseController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView = UITableView(frame: view.bounds, style: .Grouped)
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: String(UITableViewCell))
+        tableView = UITableView(frame: view.bounds, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell))
         let dataSource = self.dataSource
         let items = Observable.just([
             SectionModel(model: "", items: [
@@ -60,7 +60,7 @@ class DiscoverController: BaseController, UITableViewDelegate {
         view.addSubview(tableView)
     }
 
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel(frame: CGRect.zero)
         label.text = dataSource.sectionAtIndex(section).model ?? ""
         return label

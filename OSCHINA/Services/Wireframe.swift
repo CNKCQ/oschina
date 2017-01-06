@@ -18,44 +18,44 @@ import Cocoa
 #endif
 
 enum RetryResult {
-    case Retry
-    case Cancel
+    case retry
+    case cancel
 }
 
 protocol Wireframe {
-    func openURL(URL: NSURL)
-    func promptFor<Action: CustomStringConvertible>(message: String, cancelAction: Action, actions: [Action]) -> Observable<Action>
+    func openURL(_ URL: URL)
+    func promptFor<Action: CustomStringConvertible>(_ message: String, cancelAction: Action, actions: [Action]) -> Observable<Action>
 }
 
 
 class DefaultWireframe: Wireframe {
     static let sharedInstance = DefaultWireframe()
 
-    func openURL(URL: NSURL) {
+    func openURL(_ URL: Foundation.URL) {
         #if os(iOS)
-            UIApplication.sharedApplication().openURL(URL)
+            UIApplication.shared.openURL(URL)
         #elseif os(OSX)
             NSWorkspace.sharedWorkspace().openURL(URL)
         #endif
     }
 
     #if os(iOS)
-    private static func rootViewController() -> UIViewController {
+    fileprivate static func rootViewController() -> UIViewController {
         // cheating, I know
-        return UIApplication.sharedApplication().keyWindow!.rootViewController!
+        return UIApplication.shared.keyWindow!.rootViewController!
     }
     #endif
 
-    static func presentAlert(message: String) {
+    static func presentAlert(_ message: String) {
         #if os(iOS)
-            let alertView = UIAlertController(title: "温馨提示", message: message, preferredStyle: .Alert)
-            alertView.addAction(UIAlertAction(title: "OK", style: .Cancel) { _ in
+            let alertView = UIAlertController(title: "温馨提示", message: message, preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
             })
-            rootViewController().presentViewController(alertView, animated: true, completion: nil)
+            rootViewController().present(alertView, animated: true, completion: nil)
         #endif
     }
 
-    func promptFor<Action: CustomStringConvertible>(message: String, cancelAction: Action, actions: [Action]) -> Observable<Action> {
+    func promptFor<Action: CustomStringConvertible>(_ message: String, cancelAction: Action, actions: [Action]) -> Observable<Action> {
         #if os(iOS)
         return Observable.create { observer in
             let alertView = UIAlertController(title: "温馨提示", message: message, preferredStyle: .Alert)
@@ -85,9 +85,9 @@ class DefaultWireframe: Wireframe {
 extension RetryResult : CustomStringConvertible {
     var description: String {
         switch self {
-        case .Retry:
+        case .retry:
             return "Retry"
-        case .Cancel:
+        case .cancel:
             return "Cancel"
         }
     }

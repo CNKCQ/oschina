@@ -16,7 +16,7 @@ class BannerItem: NSObject, NSCoding, Mappable {
 	var type: Int?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return BannerItem()
 	}
 
@@ -24,9 +24,9 @@ class BannerItem: NSObject, NSCoding, Mappable {
         super.init()
     }
 
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		detail <- map["detail"]
 		href <- map["href"]
 		id <- map["id"]
@@ -42,13 +42,13 @@ class BannerItem: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         detail = aDecoder.decodeObjectForKey("detail") as? String
-         href = aDecoder.decodeObjectForKey("href") as? String
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         img = aDecoder.decodeObjectForKey("img") as? String
-         name = aDecoder.decodeObjectForKey("name") as? String
-         pubDate = aDecoder.decodeObjectForKey("pubDate") as? String
-         type = aDecoder.decodeObjectForKey("type") as? Int
+         detail = aDecoder.decodeObject(forKey: "detail") as? String
+         href = aDecoder.decodeObject(forKey: "href") as? String
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         img = aDecoder.decodeObject(forKey: "img") as? String
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         pubDate = aDecoder.decodeObject(forKey: "pubDate") as? String
+         type = aDecoder.decodeObject(forKey: "type") as? Int
 
 	}
 
@@ -56,27 +56,27 @@ class BannerItem: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if detail != nil {
-			aCoder.encodeObject(detail, forKey: "detail")
+			aCoder.encode(detail, forKey: "detail")
 		}
 		if href != nil {
-			aCoder.encodeObject(href, forKey: "href")
+			aCoder.encode(href, forKey: "href")
 		}
 		if id != nil {
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if img != nil {
-			aCoder.encodeObject(img, forKey: "img")
+			aCoder.encode(img, forKey: "img")
 		}
 		if name != nil {
-			aCoder.encodeObject(name, forKey: "name")
+			aCoder.encode(name, forKey: "name")
 		}
 		if pubDate != nil {
-			aCoder.encodeObject(pubDate, forKey: "pubDate")
+			aCoder.encode(pubDate, forKey: "pubDate")
 		}
 		if type != nil {
-			aCoder.encodeObject(type, forKey: "type")
+			aCoder.encode(type, forKey: "type")
 		}
 
 	}

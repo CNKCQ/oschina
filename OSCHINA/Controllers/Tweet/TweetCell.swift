@@ -13,7 +13,7 @@ let TABLE_VIEW_BIGROW_HEIGHT: CGFloat = 60
 class TweetCell: UITableViewCell, Reusable {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
 
     required init?(coder aDecoder: NSCoder) {

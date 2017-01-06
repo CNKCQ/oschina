@@ -8,7 +8,7 @@ import RxSwift
 import ObjectMapper
 
 class FindViewModel: NewsViewModel {
-    func search(name: String) -> Observable<[FindObjList]?> {
+    func search(_ name: String) -> Observable<[FindObjList]?> {
         return Observable.create({ observer -> Disposable in
             self.provider.request(OSCIOService.FindUser(name: name)) { response in
                 switch response {

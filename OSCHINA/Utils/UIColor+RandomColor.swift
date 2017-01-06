@@ -11,7 +11,7 @@ import UIKit
 extension UIColor{
     
     /** 16进制颜色 */
-    public class func colorWithHex(hexColor: Int, alpha: CGFloat = 1) -> UIColor {
+    public class func colorWithHex(_ hexColor: Int, alpha: CGFloat = 1) -> UIColor {
         return UIColor(
             red: CGFloat((hexColor & 0xFF0000) >> 16) / 255,
             green: CGFloat((hexColor & 0xFF00) >> 8) / 255,

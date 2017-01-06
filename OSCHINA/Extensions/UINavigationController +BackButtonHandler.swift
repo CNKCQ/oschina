@@ -3,13 +3,26 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 public protocol BackBarButtonItemDelegate {
     func viewControllerShouldPopOnBackBarButtonItem() -> Bool
 }
 
 extension UINavigationController {
-    public func navigationBar(navigationBar: UINavigationBar, shouldPopItem item: UINavigationItem) -> Bool {
+    public func navigationBar(_ navigationBar: UINavigationBar, shouldPopItem item: UINavigationItem) -> Bool {
         if viewControllers.count < navigationBar.items?.count {
             return true
         }
@@ -18,14 +31,14 @@ extension UINavigationController {
             shouldPop = viewController.viewControllerShouldPopOnBackBarButtonItem()
         }
         if shouldPop {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.popViewControllerAnimated(true)
+            DispatchQueue.main.async {
+                self.popViewController(animated: true)
             }
         } else {
             // Prevent the back button from staying in an disabled state
             for view in navigationBar.subviews {
                 if view.alpha < 1.0 {
-                    UIView.animateWithDuration(0.25, animations: { () in
+                    UIView.animate(withDuration: 0.25, animations: { () in
                         view.alpha = 1.0
                     })
                 }

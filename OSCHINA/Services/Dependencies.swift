@@ -19,19 +19,19 @@ class Dependencies {
     // *****************************************************************************************
     static let sharedDependencies = Dependencies() // Singleton
     
-    let URLSession = NSURLSession.sharedSession()
+    let URLSession = Foundation.URLSession.shared
     let backgroundWorkScheduler: ImmediateSchedulerType
     let mainScheduler: SerialDispatchQueueScheduler
     let wireframe: Wireframe
     let reachabilityService: ReachabilityService
     
-    private init() {
+    fileprivate init() {
         wireframe = DefaultWireframe()
         
-        let operationQueue = NSOperationQueue()
+        let operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 2
         #if !RX_NO_MODULE
-        operationQueue.qualityOfService = NSQualityOfService.UserInitiated
+        operationQueue.qualityOfService = QualityOfService.userInitiated
         #endif
         backgroundWorkScheduler = OperationQueueScheduler(operationQueue: operationQueue)
         

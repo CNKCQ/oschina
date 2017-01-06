@@ -16,7 +16,7 @@ class FindObjList : NSObject, NSCoding, Mappable{
 	var relation : Int?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return FindObjList()
 	}
     
@@ -24,9 +24,9 @@ class FindObjList : NSObject, NSCoding, Mappable{
         super.init()
     }
     
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		from <- map["from"]
 		gender <- map["gender"]
@@ -43,12 +43,12 @@ class FindObjList : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         from = aDecoder.decodeObjectForKey("from") as? String
-         gender = aDecoder.decodeObjectForKey("gender") as? Int
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         name = aDecoder.decodeObjectForKey("name") as? String
-         portrait = aDecoder.decodeObjectForKey("portrait") as? String
-         relation = aDecoder.decodeObjectForKey("relation") as? Int
+         from = aDecoder.decodeObject(forKey: "from") as? String
+         gender = aDecoder.decodeObject(forKey: "gender") as? Int
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         portrait = aDecoder.decodeObject(forKey: "portrait") as? String
+         relation = aDecoder.decodeObject(forKey: "relation") as? Int
 
 	}
 
@@ -56,25 +56,25 @@ class FindObjList : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if from != nil{
-			aCoder.encodeObject(from, forKey: "from")
+			aCoder.encode(from, forKey: "from")
 		}
 		if gender != nil{
-			aCoder.encodeObject(gender, forKey: "gender")
+			aCoder.encode(gender, forKey: "gender")
 		}
 		if id != nil{
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if name != nil{
-			aCoder.encodeObject(name, forKey: "name")
+			aCoder.encode(name, forKey: "name")
 		}
 		if portrait != nil{
-			aCoder.encodeObject(portrait, forKey: "portrait")
+			aCoder.encode(portrait, forKey: "portrait")
 		}
 		if relation != nil{
-			aCoder.encodeObject(relation, forKey: "relation")
+			aCoder.encode(relation, forKey: "relation")
 		}
 
 	}

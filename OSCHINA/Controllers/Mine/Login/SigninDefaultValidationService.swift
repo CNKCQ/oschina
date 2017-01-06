@@ -19,7 +19,7 @@ class SigninDefaultValidationService: SigninValidationService {
 
     let minPasswordCount = 5
 
-    func validateUsername(username: String) -> Observable<ValidationResult> {
+    func validateUsername(_ username: String) -> Observable<ValidationResult> {
         if username.characters.count == 0 {
             return Observable.just(.Empty)
         }
@@ -29,7 +29,7 @@ class SigninDefaultValidationService: SigninValidationService {
 //            return Observable.just(.Failed(message: "Username can only contain numbers or digits"))
 //        }
 
-        let loadingValue = ValidationResult.Validating
+        let loadingValue = ValidationResult.validating
 
         return API
             .usernameAvailable(username)
@@ -43,35 +43,35 @@ class SigninDefaultValidationService: SigninValidationService {
             .startWith(loadingValue)
     }
 
-    func validatePassword(password: String) -> ValidationResult {
+    func validatePassword(_ password: String) -> ValidationResult {
         let numberOfCharacters = password.characters.count
         if numberOfCharacters == 0 {
-            return .Empty
+            return .empty
         }
 
         if numberOfCharacters < minPasswordCount {
-            return .Failed(message: "Password must be at least \(minPasswordCount) characters")
+            return .failed(message: "Password must be at least \(minPasswordCount) characters")
         }
 
-        return .OK(message: "Password acceptable")
+        return .ok(message: "Password acceptable")
     }
 }
 
 class SigninDefaultAPI: SigninAPI {
-    let URLSession: NSURLSession
+    let URLSession: Foundation.URLSession
 
     static let sharedAPI = SigninDefaultAPI(
-        URLSession: NSURLSession.sharedSession()
+        URLSession: Foundation.URLSession.shared
     )
 
-    init(URLSession: NSURLSession) {
+    init(URLSession: Foundation.URLSession) {
         self.URLSession = URLSession
     }
 
-    func usernameAvailable(username: String) -> Observable<Bool> {
+    func usernameAvailable(_ username: String) -> Observable<Bool> {
         // this is ofc just mock, but good enough
-        let URL = NSURL(string: "http://www.oschina.net/action/apiv2/login_validate\(username.URLEscaped)")!
-        let request = NSURLRequest(URL: URL)
+        let URL = URL(string: "http://www.oschina.net/action/apiv2/login_validate\(username.URLEscaped)")!
+        let request = URLRequest(URL: URL)
         return self.URLSession.rx_response(request)
             .map { (maybeData, response) in
                 return response.statusCode == 404
@@ -79,7 +79,7 @@ class SigninDefaultAPI: SigninAPI {
             .catchErrorJustReturn(false)
     }
 
-    func signin(username: String, password: String) -> Observable<Bool> {
+    func signin(_ username: String, password: String) -> Observable<Bool> {
         // this is also just a mock
         let signinResult = arc4random() % 5 == 0 ? false : true
         return Observable.just(signinResult)

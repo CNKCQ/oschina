@@ -11,45 +11,45 @@ import Moya
 
 
 enum OSCIOService {
-    case NewsList, NewBanner, TweetList, BlogList, EventList, EventBanner
-    case Login(username: String, password: String)
-    case FindUser(name: String)
-    case Search(content: String)
+    case newsList, newBanner, tweetList, blogList, eventList, eventBanner
+    case login(username: String, password: String)
+    case findUser(name: String)
+    case search(content: String)
 }
 
 extension OSCIOService: TargetType {
 
-    var baseURL: NSURL {
+    var baseURL: URL {
 //        return NSURL(string: "http://www.oschina.net/action/api")! //XML格式
-        return NSURL(string: "http://www.oschina.net/action/apiv2")! //JSON格式
+        return URL(string: "http://www.oschina.net/action/apiv2")! //JSON格式
     }
 
     var path: String {
         switch self {
-        case .NewsList:
+        case .newsList:
             return "/news"
-        case .NewBanner:
+        case .newBanner:
             return "/banner"
-        case .TweetList:
+        case .tweetList:
             return "/tweet_list"
-        case .BlogList:
+        case .blogList:
             return "/blog_list"
-        case .EventList:
+        case .eventList:
             return "/event_list"
-        case .EventBanner:
+        case .eventBanner:
             return "/banner"
-        case .Login( _, _):
+        case .login( _, _):
             return "/login_validate"
-        case .FindUser(_):
+        case .findUser(_):
             return "/find_user"
-        case .Search(_):
+        case .search(_):
             return "/search_list"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .Login:
+        case .login:
             return .POST
         default:
             return .GET
@@ -58,21 +58,21 @@ extension OSCIOService: TargetType {
 
     var parameters: [String: AnyObject]? {
         switch self {
-        case .Login(let username, let password):
-            return ["username": username, "pwd": password]
-        case .NewBanner:
-            return ["catalog": 1]
-        case .EventBanner:
-            return ["catalog": 3]
-        case .FindUser(let name):
-            return ["name":name]
+        case .login(let username, let password):
+            return ["username": username as AnyObject, "pwd": password as AnyObject]
+        case .newBanner:
+            return ["catalog": 1 as AnyObject]
+        case .eventBanner:
+            return ["catalog": 3 as AnyObject]
+        case .findUser(let name):
+            return ["name":name as AnyObject]
         default:
              return nil
         }
     }
 
-    var sampleData: NSData {
-        return "{}".dataUsingEncoding(NSUTF8StringEncoding)! // for test
+    var sampleData: Data {
+        return "{}".data(using: String.Encoding.utf8)! // for test
     }
 
     var multipartBody: [MultipartFormData]? {

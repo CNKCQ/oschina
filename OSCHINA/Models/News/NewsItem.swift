@@ -20,7 +20,7 @@ class NewsItem : NSObject, NSCoding, Mappable{
 	var viewCount : Int?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return NewsItem()
 	}
     
@@ -28,9 +28,9 @@ class NewsItem : NSObject, NSCoding, Mappable{
         super.init()
     }
     
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		author <- map["author"]
 		body <- map["body"]
@@ -51,16 +51,16 @@ class NewsItem : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         author = aDecoder.decodeObjectForKey("author") as? String
-         body = aDecoder.decodeObjectForKey("body") as? String
-         commentCount = aDecoder.decodeObjectForKey("commentCount") as? Int
-         href = aDecoder.decodeObjectForKey("href") as? String
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         pubDate = aDecoder.decodeObjectForKey("pubDate") as? String
-         recommend = aDecoder.decodeObjectForKey("recommend") as? Bool
-         title = aDecoder.decodeObjectForKey("title") as? String
-         type = aDecoder.decodeObjectForKey("type") as? Int
-         viewCount = aDecoder.decodeObjectForKey("viewCount") as? Int
+         author = aDecoder.decodeObject(forKey: "author") as? String
+         body = aDecoder.decodeObject(forKey: "body") as? String
+         commentCount = aDecoder.decodeObject(forKey: "commentCount") as? Int
+         href = aDecoder.decodeObject(forKey: "href") as? String
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         pubDate = aDecoder.decodeObject(forKey: "pubDate") as? String
+         recommend = aDecoder.decodeObject(forKey: "recommend") as? Bool
+         title = aDecoder.decodeObject(forKey: "title") as? String
+         type = aDecoder.decodeObject(forKey: "type") as? Int
+         viewCount = aDecoder.decodeObject(forKey: "viewCount") as? Int
 
 	}
 
@@ -68,37 +68,37 @@ class NewsItem : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if author != nil{
-			aCoder.encodeObject(author, forKey: "author")
+			aCoder.encode(author, forKey: "author")
 		}
 		if body != nil{
-			aCoder.encodeObject(body, forKey: "body")
+			aCoder.encode(body, forKey: "body")
 		}
 		if commentCount != nil{
-			aCoder.encodeObject(commentCount, forKey: "commentCount")
+			aCoder.encode(commentCount, forKey: "commentCount")
 		}
 		if href != nil{
-			aCoder.encodeObject(href, forKey: "href")
+			aCoder.encode(href, forKey: "href")
 		}
 		if id != nil{
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if pubDate != nil{
-			aCoder.encodeObject(pubDate, forKey: "pubDate")
+			aCoder.encode(pubDate, forKey: "pubDate")
 		}
 		if recommend != nil{
-			aCoder.encodeObject(recommend, forKey: "recommend")
+			aCoder.encode(recommend, forKey: "recommend")
 		}
 		if title != nil{
-			aCoder.encodeObject(title, forKey: "title")
+			aCoder.encode(title, forKey: "title")
 		}
 		if type != nil{
-			aCoder.encodeObject(type, forKey: "type")
+			aCoder.encode(type, forKey: "type")
 		}
 		if viewCount != nil{
-			aCoder.encodeObject(viewCount, forKey: "viewCount")
+			aCoder.encode(viewCount, forKey: "viewCount")
 		}
 
 	}

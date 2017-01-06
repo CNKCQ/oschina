@@ -19,14 +19,14 @@ class NewCell: UITableViewCell, Reusable {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .groupTableViewBackgroundColor()
+        backgroundColor = .groupTableViewBackground
         paddingView = UIView()
-        paddingView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        paddingView.backgroundColor = UIColor.groupTableViewBackground
         titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFontOfSize(UIFont.labelFontSize())
+        titleLabel.font = UIFont.systemFont(ofSize: UIFont.labelFontSize)
         contentLabel = UILabel()
-        contentLabel.font = UIFont.systemFontOfSize(UIFont.systemFontSize())
-        contentLabel.textColor = UIColor.grayColor()
+        contentLabel.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        contentLabel.textColor = UIColor.gray
         contentLabel.numberOfLines = 0
         bottomView = UIView()
 //        bottomView.backgroundColor = UIColor.blueColor()
@@ -34,7 +34,7 @@ class NewCell: UITableViewCell, Reusable {
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
         contentView.addSubview(bottomView)
-        contentView.backgroundColor = UIColor.whiteColor()
+        contentView.backgroundColor = UIColor.white
 
     }
 

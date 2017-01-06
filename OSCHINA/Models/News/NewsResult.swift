@@ -13,16 +13,16 @@ class NewsResult : NSObject, NSCoding, Mappable{
 	var prevPageToken : String?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return NewsResult()
 	}
     required init?(_ map: Map) {
         super.init()
     }
     
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		items <- map["items"]
 		nextPageToken <- map["nextPageToken"]
@@ -37,10 +37,10 @@ class NewsResult : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         items = aDecoder.decodeObjectForKey("items") as? [NewsItem]
-         nextPageToken = aDecoder.decodeObjectForKey("nextPageToken") as? String
-         pageInfo = aDecoder.decodeObjectForKey("pageInfo") as? NewsPageInfo
-         prevPageToken = aDecoder.decodeObjectForKey("prevPageToken") as? String
+         items = aDecoder.decodeObject(forKey: "items") as? [NewsItem]
+         nextPageToken = aDecoder.decodeObject(forKey: "nextPageToken") as? String
+         pageInfo = aDecoder.decodeObject(forKey: "pageInfo") as? NewsPageInfo
+         prevPageToken = aDecoder.decodeObject(forKey: "prevPageToken") as? String
 
 	}
 
@@ -48,19 +48,19 @@ class NewsResult : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if items != nil{
-			aCoder.encodeObject(items, forKey: "items")
+			aCoder.encode(items, forKey: "items")
 		}
 		if nextPageToken != nil{
-			aCoder.encodeObject(nextPageToken, forKey: "nextPageToken")
+			aCoder.encode(nextPageToken, forKey: "nextPageToken")
 		}
 		if pageInfo != nil{
-			aCoder.encodeObject(pageInfo, forKey: "pageInfo")
+			aCoder.encode(pageInfo, forKey: "pageInfo")
 		}
 		if prevPageToken != nil{
-			aCoder.encodeObject(prevPageToken, forKey: "prevPageToken")
+			aCoder.encode(prevPageToken, forKey: "prevPageToken")
 		}
 
 	}

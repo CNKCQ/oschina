@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2595F844CAD78598BB899CF8 /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0859B6E30B3CD3DE9AEA6DB /* Pods_OSCHINA.framework */; };
 		3C1F4CAE1D77C43100ABDF1D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F4CAD1D77C43100ABDF1D /* BaseModel.swift */; };
 		3C1F4CBC1D77C92C00ABDF1D /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F4CB81D77C92C00ABDF1D /* NewsItem.swift */; };
 		3C1F4CBD1D77C92C00ABDF1D /* NewsPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F4CB91D77C92C00ABDF1D /* NewsPageInfo.swift */; };
@@ -221,9 +220,6 @@
 		3CDF83241D7AFE9D00313A66 /* UIView+FrameLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FrameLayout.swift"; sourceTree = "<group>"; };
 		3CDF83261D7AFE9D00313A66 /* FileTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTool.swift; sourceTree = "<group>"; };
 		3CDF83271D7AFE9D00313A66 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
-		5C2409EFDECC034EBF7C60BA /* Pods-OSCHINA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.release.xcconfig"; sourceTree = "<group>"; };
-		B0859B6E30B3CD3DE9AEA6DB /* Pods_OSCHINA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSCHINA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE3B9158D03C156BE3C680A7 /* Pods-OSCHINA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +227,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2595F844CAD78598BB899CF8 /* Pods_OSCHINA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +288,6 @@
 			children = (
 				3C61862E1D5985D600982E39 /* OSCHINA */,
 				3C61862D1D5985D600982E39 /* Products */,
-				C37179A81DA2F63CA4D0FB8F /* Pods */,
-				3F9B6DC56BEDF18B61B5D26E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -602,23 +595,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		3F9B6DC56BEDF18B61B5D26E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B0859B6E30B3CD3DE9AEA6DB /* Pods_OSCHINA.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C37179A81DA2F63CA4D0FB8F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE3B9158D03C156BE3C680A7 /* Pods-OSCHINA.debug.xcconfig */,
-				5C2409EFDECC034EBF7C60BA /* Pods-OSCHINA.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,12 +602,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C61863E1D5985D600982E39 /* Build configuration list for PBXNativeTarget "OSCHINA" */;
 			buildPhases = (
-				D7FF5CF0DB952560B9C6DC32 /* Check Pods Manifest.lock */,
 				3C6186281D5985D600982E39 /* Sources */,
 				3C6186291D5985D600982E39 /* Frameworks */,
 				3C61862A1D5985D600982E39 /* Resources */,
-				B5E29732072FBACF2DE37D95 /* Embed Pods Frameworks */,
-				7C8D4384AFA0CD834C44033E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -654,6 +627,7 @@
 				TargetAttributes = {
 					3C61862B1D5985D600982E39 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -690,54 +664,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7C8D4384AFA0CD834C44033E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5E29732072FBACF2DE37D95 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7FF5CF0DB952560B9C6DC32 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C6186281D5985D600982E39 /* Sources */ = {
@@ -953,7 +879,6 @@
 		};
 		3C61863F1D5985D600982E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE3B9158D03C156BE3C680A7 /* Pods-OSCHINA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -965,12 +890,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OSCHINA/OSCHINA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		3C6186401D5985D600982E39 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C2409EFDECC034EBF7C60BA /* Pods-OSCHINA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -980,6 +905,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KingCQ.OSCHINA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OSCHINA/OSCHINA-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

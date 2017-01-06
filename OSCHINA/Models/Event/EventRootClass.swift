@@ -11,16 +11,16 @@ class EventRootClass: NSObject, NSCoding, Mappable {
 	var objList: [EventObjList]?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return EventRootClass()
 	}
     required init?(_ map: Map) {
         super.init()
     }
 
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		code <- map["code"]
 		objList <- map["obj_list"]
 
@@ -31,8 +31,8 @@ class EventRootClass: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         code = aDecoder.decodeObjectForKey("code") as? Int
-         objList = aDecoder.decodeObjectForKey("obj_list") as? [EventObjList]
+         code = aDecoder.decodeObject(forKey: "code") as? Int
+         objList = aDecoder.decodeObject(forKey: "obj_list") as? [EventObjList]
 
 	}
 
@@ -40,12 +40,12 @@ class EventRootClass: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if code != nil {
-			aCoder.encodeObject(code, forKey: "code")
+			aCoder.encode(code, forKey: "code")
 		}
 		if objList != nil {
-			aCoder.encodeObject(objList, forKey: "obj_list")
+			aCoder.encode(objList, forKey: "obj_list")
 		}
 
 	}

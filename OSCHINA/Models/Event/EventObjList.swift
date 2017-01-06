@@ -20,16 +20,16 @@ class EventObjList : NSObject, NSCoding, Mappable{
 	var url : String?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return EventObjList()
 	}
     required init?(_ map: Map) {
         super.init()
     }
 
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		applyStatus <- map["apply_status"]
 		city <- map["city"]
@@ -51,17 +51,17 @@ class EventObjList : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         applyStatus = aDecoder.decodeObjectForKey("apply_status") as? Int
-         city = aDecoder.decodeObjectForKey("city") as? String
-         cover = aDecoder.decodeObjectForKey("cover") as? String
-         createTime = aDecoder.decodeObjectForKey("create_time") as? String
-         endTime = aDecoder.decodeObjectForKey("end_time") as? String
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         spot = aDecoder.decodeObjectForKey("spot") as? String
-         startTime = aDecoder.decodeObjectForKey("start_time") as? String
-         status = aDecoder.decodeObjectForKey("status") as? Int
-         title = aDecoder.decodeObjectForKey("title") as? String
-         url = aDecoder.decodeObjectForKey("url") as? String
+         applyStatus = aDecoder.decodeObject(forKey: "apply_status") as? Int
+         city = aDecoder.decodeObject(forKey: "city") as? String
+         cover = aDecoder.decodeObject(forKey: "cover") as? String
+         createTime = aDecoder.decodeObject(forKey: "create_time") as? String
+         endTime = aDecoder.decodeObject(forKey: "end_time") as? String
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         spot = aDecoder.decodeObject(forKey: "spot") as? String
+         startTime = aDecoder.decodeObject(forKey: "start_time") as? String
+         status = aDecoder.decodeObject(forKey: "status") as? Int
+         title = aDecoder.decodeObject(forKey: "title") as? String
+         url = aDecoder.decodeObject(forKey: "url") as? String
 
 	}
 
@@ -69,40 +69,40 @@ class EventObjList : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if applyStatus != nil{
-			aCoder.encodeObject(applyStatus, forKey: "apply_status")
+			aCoder.encode(applyStatus, forKey: "apply_status")
 		}
 		if city != nil{
-			aCoder.encodeObject(city, forKey: "city")
+			aCoder.encode(city, forKey: "city")
 		}
 		if cover != nil{
-			aCoder.encodeObject(cover, forKey: "cover")
+			aCoder.encode(cover, forKey: "cover")
 		}
 		if createTime != nil{
-			aCoder.encodeObject(createTime, forKey: "create_time")
+			aCoder.encode(createTime, forKey: "create_time")
 		}
 		if endTime != nil{
-			aCoder.encodeObject(endTime, forKey: "end_time")
+			aCoder.encode(endTime, forKey: "end_time")
 		}
 		if id != nil{
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if spot != nil{
-			aCoder.encodeObject(spot, forKey: "spot")
+			aCoder.encode(spot, forKey: "spot")
 		}
 		if startTime != nil{
-			aCoder.encodeObject(startTime, forKey: "start_time")
+			aCoder.encode(startTime, forKey: "start_time")
 		}
 		if status != nil{
-			aCoder.encodeObject(status, forKey: "status")
+			aCoder.encode(status, forKey: "status")
 		}
 		if title != nil{
-			aCoder.encodeObject(title, forKey: "title")
+			aCoder.encode(title, forKey: "title")
 		}
 		if url != nil{
-			aCoder.encodeObject(url, forKey: "url")
+			aCoder.encode(url, forKey: "url")
 		}
 
 	}

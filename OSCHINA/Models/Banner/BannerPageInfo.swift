@@ -11,15 +11,15 @@ class BannerPageInfo: NSObject, NSCoding, Mappable {
 	var totalResults: Int?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return BannerPageInfo()
 	}
     required init?(_ map: Map) {
         super.init()
     }
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		resultsPerPage <- map["resultsPerPage"]
 		totalResults <- map["totalResults"]
 
@@ -30,8 +30,8 @@ class BannerPageInfo: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         resultsPerPage = aDecoder.decodeObjectForKey("resultsPerPage") as? Int
-         totalResults = aDecoder.decodeObjectForKey("totalResults") as? Int
+         resultsPerPage = aDecoder.decodeObject(forKey: "resultsPerPage") as? Int
+         totalResults = aDecoder.decodeObject(forKey: "totalResults") as? Int
 
 	}
 
@@ -39,12 +39,12 @@ class BannerPageInfo: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if resultsPerPage != nil {
-			aCoder.encodeObject(resultsPerPage, forKey: "resultsPerPage")
+			aCoder.encode(resultsPerPage, forKey: "resultsPerPage")
 		}
 		if totalResults != nil {
-			aCoder.encodeObject(totalResults, forKey: "totalResults")
+			aCoder.encode(totalResults, forKey: "totalResults")
 		}
 
 	}

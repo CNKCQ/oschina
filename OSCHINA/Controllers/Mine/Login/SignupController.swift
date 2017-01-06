@@ -27,20 +27,20 @@ class SignupController: BaseController {
         disposeBag = DisposeBag()
         title = "登录"
         userField = UITextField(frame: CGRect(x: 30, y: 120, width: view.bounds.width - 60, height: 38))
-        userField.borderStyle = .RoundedRect
+        userField.borderStyle = .roundedRect
         userLabel = UILabel(frame: CGRect(x: userField.frame.minX, y: userField.frame.maxY, width: userField.frame.width, height: 29))
         userLabel.text = "名字校验"
         pwdField = UITextField(frame: CGRect(x: userField.frame.minX, y: userLabel.frame.maxY + 10, width: userField.frame.width, height: userField.frame.height))
-        pwdField.borderStyle = .RoundedRect
+        pwdField.borderStyle = .roundedRect
         pwdLabel = UILabel(frame: CGRect(x: userField.frame.minX, y: pwdField.frame.maxY, width: userField.frame.width, height: 29))
         pwdLabel.text = "密码校验"
         repeatedField = UITextField(frame: CGRect(x: pwdLabel.frame.minX, y: pwdLabel.frame.maxY, width: pwdLabel.frame.width, height: 30))
-        repeatedField.borderStyle = .RoundedRect
+        repeatedField.borderStyle = .roundedRect
         repeatedLabel = UILabel(frame: CGRect(x: repeatedField.frame.minX, y: repeatedField.frame.maxY, width: repeatedField.frame.width, height: 29))
         repeatedLabel.text = "重复校验"
         loginButton = UIButton(frame: CGRect(x: pwdField.frame.minX, y: repeatedLabel.frame.maxY + 10, width: pwdField.frame.width, height: 38))
-        loginButton.addTarget(self, action: #selector(login), forControlEvents: .TouchUpInside)
-        loginButton.setTitle("登录", forState: .Normal)
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        loginButton.setTitle("登录", for: UIControlState())
         userField.text = "2280534011@qq.com"
         pwdField.text = "wcqvip"
         indicatorView = UIActivityIndicatorView()
@@ -49,8 +49,8 @@ class SignupController: BaseController {
         
         loginButton.layer.cornerRadius = 15
         loginButton.clipsToBounds = true
-        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.orangeColor()), forState: .Normal)
-        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.grayColor()), forState: .Highlighted)
+        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.orange), for: UIControlState())
+        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.gray), for: .highlighted)
         
         view.addSubview(userField)
         view.addSubview(userLabel)
@@ -127,9 +127,9 @@ class SignupController: BaseController {
         }).addDisposableTo(self.disposeBag)
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
+    override func willMove(toParentViewController parent: UIViewController?) {
         if let parent = parent {
-            assert(parent.isKindOfClass(UINavigationController), "Please read comments")
+            assert(parent.isKind(of: UINavigationController.self), "Please read comments")
         } else {
             self.disposeBag = DisposeBag()
         }

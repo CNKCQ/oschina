@@ -14,15 +14,15 @@ class BannerRootClass: NSObject, NSCoding, Mappable {
 	var time: String?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return BannerRootClass()
 	}
     required init?(_ map: Map) {
         super.init()
     }
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		code <- map["code"]
 		message <- map["message"]
 		result <- map["result"]
@@ -35,10 +35,10 @@ class BannerRootClass: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         code = aDecoder.decodeObjectForKey("code") as? Int
-         message = aDecoder.decodeObjectForKey("message") as? String
-         result = aDecoder.decodeObjectForKey("result") as? BannerResult
-         time = aDecoder.decodeObjectForKey("time") as? String
+         code = aDecoder.decodeObject(forKey: "code") as? Int
+         message = aDecoder.decodeObject(forKey: "message") as? String
+         result = aDecoder.decodeObject(forKey: "result") as? BannerResult
+         time = aDecoder.decodeObject(forKey: "time") as? String
 
 	}
 
@@ -46,18 +46,18 @@ class BannerRootClass: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if code != nil {
-			aCoder.encodeObject(code, forKey: "code")
+			aCoder.encode(code, forKey: "code")
 		}
 		if message != nil {
-			aCoder.encodeObject(message, forKey: "message")
+			aCoder.encode(message, forKey: "message")
 		}
 		if result != nil {
-			aCoder.encodeObject(result, forKey: "result")
+			aCoder.encode(result, forKey: "result")
 		}
 		if time != nil {
-			aCoder.encodeObject(time, forKey: "time")
+			aCoder.encode(time, forKey: "time")
 		}
 
 	}

@@ -28,16 +28,16 @@ class LoginController: BaseController {
         title = "登录"
         userField = UITextField(frame: CGRect(x: 30, y: 160, width: view.bounds.width - 150, height: 30))
         userField.centerX = view.centerX
-        userField.borderStyle = .RoundedRect
+        userField.borderStyle = .roundedRect
         userLabel = UILabel(frame: CGRect(x: userField.frame.minX, y: userField.frame.maxY, width: userField.frame.width, height: 29))
         userLabel.text = "名字校验"
         pwdField = UITextField(frame: CGRect(x: userField.frame.minX, y: userLabel.frame.maxY + 10, width: userField.frame.width, height: userField.frame.height))
-        pwdField.borderStyle = .RoundedRect
+        pwdField.borderStyle = .roundedRect
         pwdLabel = UILabel(frame: CGRect(x: userField.frame.minX, y: pwdField.frame.maxY, width: userField.frame.width, height: 29))
         pwdLabel.text = "密码校验"
         loginButton = UIButton(frame: CGRect(x: pwdField.frame.minX, y: pwdLabel.frame.maxY + 10, width: pwdField.frame.width, height: 30))
-        loginButton.addTarget(self, action: #selector(login), forControlEvents: .TouchUpInside)
-        loginButton.setTitle("登录", forState: .Normal)
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        loginButton.setTitle("登录", for: UIControlState())
         userField.text = "2280534011@qq.com"
         pwdField.text = "wcqvip"
         indicatorView = UIActivityIndicatorView()
@@ -45,11 +45,11 @@ class LoginController: BaseController {
         signupButton = UIButton(frame: CGRect(x: loginButton.x, y: view.bottom - loginButton.height - 15 - 49, width: loginButton.width, height: loginButton.height))
         loginButton.layer.cornerRadius = 15
         loginButton.clipsToBounds = true
-        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.orangeColor()), forState: .Normal)
-        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.grayColor()), forState: .Highlighted)
-        signupButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        signupButton.setTitle("注册", forState: .Normal)
-        signupButton.addTarget(self, action: #selector(signup), forControlEvents: .TouchUpInside)
+        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.orange), for: UIControlState())
+        loginButton.setBackgroundImage(UIImage.imageWithColor(UIColor.gray), for: .highlighted)
+        signupButton.setTitleColor(UIColor.blue, for: UIControlState())
+        signupButton.setTitle("注册", for: UIControlState())
+        signupButton.addTarget(self, action: #selector(signup), for: .touchUpInside)
 
         view.addSubview(userField)
         view.addSubview(userLabel)
@@ -131,9 +131,9 @@ class LoginController: BaseController {
         navigationController?.pushViewController(dest, animated: false)
     }
 
-    override func willMoveToParentViewController(parent: UIViewController?) {
+    override func willMove(toParentViewController parent: UIViewController?) {
         if let parent = parent {
-            assert(parent.isKindOfClass(UINavigationController), "Please read comments")
+            assert(parent.isKind(of: UINavigationController.self), "Please read comments")
         } else {
             self.disposeBag = DisposeBag()
         }

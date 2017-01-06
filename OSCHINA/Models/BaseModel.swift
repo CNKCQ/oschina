@@ -15,7 +15,7 @@ class BaseModel<T: Mappable>:  Mappable{
         
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         code   <-  map["error"]
         results <-  map["results"]
     }

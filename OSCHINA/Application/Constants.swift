@@ -16,7 +16,7 @@ let appColor = UIColor(red: 0.463, green: 0.761, blue: 0.529, alpha: 1.00)
 /****************************  font  ************************/
 
 /****************************  frame  ************************/
-let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
+let SCREEN_WIDTH = UIScreen.main.bounds.width
 
 
 

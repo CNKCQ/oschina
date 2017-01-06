@@ -19,16 +19,16 @@ class TweetObjList : NSObject, NSCoding, Mappable{
 	var pubDate : String?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return TweetObjList()
 	}
     required init?(_ map: Map) {
         super.init()
     }
 
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		appclient <- map["appclient"]
 		author <- map["author"]
@@ -48,15 +48,15 @@ class TweetObjList : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         appclient = aDecoder.decodeObjectForKey("appclient") as? Int
-         author = aDecoder.decodeObjectForKey("author") as? TweetAuthor
-         body = aDecoder.decodeObjectForKey("body") as? String
-         commentCount = aDecoder.decodeObjectForKey("comment_count") as? Int
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         isLike = aDecoder.decodeObjectForKey("is_like") as? Int
-         likeCount = aDecoder.decodeObjectForKey("like_count") as? Int
-         mUrl = aDecoder.decodeObjectForKey("m_url") as? String
-         pubDate = aDecoder.decodeObjectForKey("pub_date") as? String
+         appclient = aDecoder.decodeObject(forKey: "appclient") as? Int
+         author = aDecoder.decodeObject(forKey: "author") as? TweetAuthor
+         body = aDecoder.decodeObject(forKey: "body") as? String
+         commentCount = aDecoder.decodeObject(forKey: "comment_count") as? Int
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         isLike = aDecoder.decodeObject(forKey: "is_like") as? Int
+         likeCount = aDecoder.decodeObject(forKey: "like_count") as? Int
+         mUrl = aDecoder.decodeObject(forKey: "m_url") as? String
+         pubDate = aDecoder.decodeObject(forKey: "pub_date") as? String
 
 	}
 
@@ -64,34 +64,34 @@ class TweetObjList : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if appclient != nil{
-			aCoder.encodeObject(appclient, forKey: "appclient")
+			aCoder.encode(appclient, forKey: "appclient")
 		}
 		if author != nil{
-			aCoder.encodeObject(author, forKey: "author")
+			aCoder.encode(author, forKey: "author")
 		}
 		if body != nil{
-			aCoder.encodeObject(body, forKey: "body")
+			aCoder.encode(body, forKey: "body")
 		}
 		if commentCount != nil{
-			aCoder.encodeObject(commentCount, forKey: "comment_count")
+			aCoder.encode(commentCount, forKey: "comment_count")
 		}
 		if id != nil{
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if isLike != nil{
-			aCoder.encodeObject(isLike, forKey: "is_like")
+			aCoder.encode(isLike, forKey: "is_like")
 		}
 		if likeCount != nil{
-			aCoder.encodeObject(likeCount, forKey: "like_count")
+			aCoder.encode(likeCount, forKey: "like_count")
 		}
 		if mUrl != nil{
-			aCoder.encodeObject(mUrl, forKey: "m_url")
+			aCoder.encode(mUrl, forKey: "m_url")
 		}
 		if pubDate != nil{
-			aCoder.encodeObject(pubDate, forKey: "pub_date")
+			aCoder.encode(pubDate, forKey: "pub_date")
 		}
 
 	}

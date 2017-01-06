@@ -8,12 +8,12 @@ import UIKit
 extension UIView {
 
     class var reusableId: String {
-        return String(self)
+        return String(describing: self)
     }
 
-    func addAction(target: AnyObject?, action: Selector) {
+    func addAction(_ target: AnyObject?, action: Selector) {
         let tapGesture = UITapGestureRecognizer(target: target, action: action)
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
         addGestureRecognizer(tapGesture)
     }
 }

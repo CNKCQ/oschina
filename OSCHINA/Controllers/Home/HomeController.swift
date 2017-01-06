@@ -7,15 +7,15 @@ import PagingMenuController
 import UIKit
 
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
-    private var componentType: ComponentType {
+    fileprivate var componentType: ComponentType {
         return .All(menuOptions: MenuOptions(), pagingControllers: [NewsList(), BlogList(), EventList()])
     }
 
-    private struct MenuOptions: MenuViewCustomizable {
+    fileprivate struct MenuOptions: MenuViewCustomizable {
         var height: CGFloat {
             return 40
         }
-        var animationDuration: NSTimeInterval {
+        var animationDuration: TimeInterval {
             return 0
         }
         var displayMode: MenuDisplayMode {
@@ -29,7 +29,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
         }
     }
 
-    private struct NewsItem: MenuItemViewCustomizable {
+    fileprivate struct NewsItem: MenuItemViewCustomizable {
         var horizontalMargin: CGFloat {
             return SCREEN_WIDTH / 3
         }
@@ -38,7 +38,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
         }
     }
 
-    private struct BlogItem: MenuItemViewCustomizable {
+    fileprivate struct BlogItem: MenuItemViewCustomizable {
         var horizontalMargin: CGFloat {
             return SCREEN_WIDTH / 3
         }
@@ -47,7 +47,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
         }
     }
 
-    private struct EventItem: MenuItemViewCustomizable {
+    fileprivate struct EventItem: MenuItemViewCustomizable {
         var horizontalMargin: CGFloat {
             return SCREEN_WIDTH / 3
         }

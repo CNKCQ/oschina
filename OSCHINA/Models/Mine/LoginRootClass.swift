@@ -11,7 +11,7 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
 	var user: User?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return LoginRootClass()
 	}
 
@@ -19,9 +19,9 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
         super.init()
     }
 
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		code <- map["code"]
 		user <- map["obj_data"]
 
@@ -32,8 +32,8 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         code = aDecoder.decodeObjectForKey("code") as? Int
-         user = aDecoder.decodeObjectForKey("obj_data") as? User
+         code = aDecoder.decodeObject(forKey: "code") as? Int
+         user = aDecoder.decodeObject(forKey: "obj_data") as? User
 
 	}
 
@@ -41,12 +41,12 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if code != nil {
-			aCoder.encodeObject(code, forKey: "code")
+			aCoder.encode(code, forKey: "code")
 		}
 		if user != nil {
-			aCoder.encodeObject(user, forKey: "obj_data")
+			aCoder.encode(user, forKey: "obj_data")
 		}
 
 	}

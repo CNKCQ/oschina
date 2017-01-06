@@ -18,15 +18,15 @@ class BlogObjList : NSObject, NSCoding, Mappable{
 	var url : String?
 
 
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(_ map: Map) -> Mappable?{
 		return BlogObjList()
 	}
     required init?(_ map: Map) {
         super.init()
     }
-	private override init(){}
+	fileprivate override init(){}
 
-	func mapping(map: Map)
+	func mapping(_ map: Map)
 	{
 		author <- map["author"]
 		body <- map["body"]
@@ -45,14 +45,14 @@ class BlogObjList : NSObject, NSCoding, Mappable{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         author = aDecoder.decodeObjectForKey("author") as? BlogAuthor
-         body = aDecoder.decodeObjectForKey("body") as? String
-         commentCount = aDecoder.decodeObjectForKey("comment_count") as? Int
-         documentType = aDecoder.decodeObjectForKey("document_type") as? Int
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         pubDate = aDecoder.decodeObjectForKey("pub_date") as? String
-         title = aDecoder.decodeObjectForKey("title") as? String
-         url = aDecoder.decodeObjectForKey("url") as? String
+         author = aDecoder.decodeObject(forKey: "author") as? BlogAuthor
+         body = aDecoder.decodeObject(forKey: "body") as? String
+         commentCount = aDecoder.decodeObject(forKey: "comment_count") as? Int
+         documentType = aDecoder.decodeObject(forKey: "document_type") as? Int
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         pubDate = aDecoder.decodeObject(forKey: "pub_date") as? String
+         title = aDecoder.decodeObject(forKey: "title") as? String
+         url = aDecoder.decodeObject(forKey: "url") as? String
 
 	}
 
@@ -60,31 +60,31 @@ class BlogObjList : NSObject, NSCoding, Mappable{
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    @objc func encode(with aCoder: NSCoder)
 	{
 		if author != nil{
-			aCoder.encodeObject(author, forKey: "author")
+			aCoder.encode(author, forKey: "author")
 		}
 		if body != nil{
-			aCoder.encodeObject(body, forKey: "body")
+			aCoder.encode(body, forKey: "body")
 		}
 		if commentCount != nil{
-			aCoder.encodeObject(commentCount, forKey: "comment_count")
+			aCoder.encode(commentCount, forKey: "comment_count")
 		}
 		if documentType != nil{
-			aCoder.encodeObject(documentType, forKey: "document_type")
+			aCoder.encode(documentType, forKey: "document_type")
 		}
 		if id != nil{
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if pubDate != nil{
-			aCoder.encodeObject(pubDate, forKey: "pub_date")
+			aCoder.encode(pubDate, forKey: "pub_date")
 		}
 		if title != nil{
-			aCoder.encodeObject(title, forKey: "title")
+			aCoder.encode(title, forKey: "title")
 		}
 		if url != nil{
-			aCoder.encodeObject(url, forKey: "url")
+			aCoder.encode(url, forKey: "url")
 		}
 
 	}

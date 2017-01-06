@@ -34,7 +34,7 @@ public struct NetworkLog {
     static let RESET = ESCAPE + ";"   // Clear any foreground or background color
 
     typealias StatusCode = Int
-    static func out(statusCode: StatusCode, target: (baseURL: NSURL, path: String, method: String, parameters: [String: AnyObject]?), json: AnyObject) {
+    static func out(_ statusCode: StatusCode, target: (baseURL: NSURL, path: String, method: String, parameters: [String: AnyObject]?), json: AnyObject) {
         var codeColor = "fg255,0,0"
         if statusCode == 200 {
             codeColor = "fg0,255,0"

@@ -9,7 +9,7 @@ extension UIViewController {
     
     public func getCurrentViewController() -> UIViewController {
         // SO: http://stackoverflow.com/questions/24825123/get-the-current-view-controller-from-the-app-delegate
-        func findBestViewController(controller: UIViewController?) -> UIViewController? {
+        func findBestViewController(_ controller: UIViewController?) -> UIViewController? {
             if let presented = controller?.presentedViewController { // Presented界面
                 return findBestViewController(presented)
             } else {
@@ -35,7 +35,7 @@ extension UIViewController {
             return controller
         }
         
-        return findBestViewController(UIApplication.sharedApplication().keyWindow?.rootViewController)! // 假定永远有
+        return findBestViewController(UIApplication.shared.keyWindow?.rootViewController)! // 假定永远有
     }
 
 }

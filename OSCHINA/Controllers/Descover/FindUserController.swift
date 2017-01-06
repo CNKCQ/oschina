@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 class FindUserController: BaseController {
-    private lazy var disposeBag = DisposeBag()
+    fileprivate lazy var disposeBag = DisposeBag()
     var tableView: UITableView!
     var searchBar: UISearchBar!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FindObjList>>()
@@ -26,7 +26,7 @@ class FindUserController: BaseController {
         searchBar.placeholder = "请输入用户昵称"
         tableView = UITableView(frame: view.bounds)
         tableView.y = searchBar.bottom
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: String(UITableViewCell))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell))
         tableView.delegate = self
         tableView.dataSource = self
 //        let viewModel = FindViewModel()
@@ -45,32 +45,32 @@ class FindUserController: BaseController {
 }
 
 extension FindUserController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let  item = items {
             return item.count
         }
         return 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(UITableViewCell))!
-        let url = NSURL(string: items![indexPath.row].portrait!)!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell))!
+        let url = URL(string: items![indexPath.row].portrait!)!
         cell.imageView?.kf_setImageWithURL(url)
         cell.textLabel?.text = items![indexPath.row].name
         return cell
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
     }
 
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
     }
 }
 
 extension FindUserController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let viewModel = FindViewModel()
             if let text = searchBar.text {
             viewModel.search(text).subscribe(

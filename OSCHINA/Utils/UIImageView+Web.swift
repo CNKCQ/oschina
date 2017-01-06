@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func setImageWithURL(URL: NSURL?,
+    func setImageWithURL(_ URL: NSURL?,
                             placeholderImage: Image? = nil,
                             optionsInfo: KingfisherOptionsInfo? = nil,
                             progressBlock: DownloadProgressBlock? = nil,

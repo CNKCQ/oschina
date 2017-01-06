@@ -20,8 +20,8 @@ class EventList: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        tableView = UITableView(frame: view.bounds, style: .Plain)
+        self.view.backgroundColor = UIColor.white
+        tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerReusableCell(EventCell)
@@ -47,14 +47,14 @@ class EventList: BaseController {
 }
 
 extension EventList: UITableViewDelegate, UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventItems.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as EventCell
 
-        if let url = NSURL(string: eventItems[indexPath.row].cover!) {
+        if let url = URL(string: eventItems[indexPath.row].cover!) {
             cell.iconView.setImageWithURL(url)
         }
         cell.titleLabel?.text = eventItems[indexPath.row].title
@@ -64,14 +64,14 @@ extension EventList: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dest = WebController()
         dest.urlStr = eventItems[indexPath.row].url
         dest.title = eventItems[indexPath.row].title
         navigationController?.pushViewController(dest, animated: true)
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
 }

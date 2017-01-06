@@ -27,17 +27,17 @@ class NewsList: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        self.view.backgroundColor = UIColor.groupTableViewBackground
         tableView = UITableView(frame: view.bounds)
         tableView.height = view.height - 49 - 40 - 64
-        tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        tableView.backgroundColor = UIColor.groupTableViewBackground
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerReusableCell(NewCell)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 66
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = .none
         view.addSubview(tableView)
 //        let headerBanner = SycleAdContainer(frame: CGRect(x: 0, y: 0, width: view.width, height: 150))
         let bannerViewModel = BannerViewModel()
@@ -80,11 +80,11 @@ class NewsList: BaseController {
 }
 
 extension NewsList: UITableViewDelegate, UITableViewDataSource {
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItems.count
     }
 
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NewCell
         cell.titleLabel.text = newsItems[indexPath.row].title
         cell.contentLabel.text = newsItems[indexPath.row].body
@@ -93,7 +93,7 @@ extension NewsList: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dest = WebController()
         dest.urlStr = newsItems[indexPath.row].href
         dest.title = newsItems[indexPath.row].title

@@ -13,7 +13,7 @@ class TweetAuthor: NSObject, NSCoding, Mappable {
 	var portrait: String?
 
 
-	class func newInstance(map: Map) -> Mappable? {
+	class func newInstance(_ map: Map) -> Mappable? {
 		return TweetAuthor()
 	}
 
@@ -21,9 +21,9 @@ class TweetAuthor: NSObject, NSCoding, Mappable {
         super.init()
     }
 
-	private override init() {}
+	fileprivate override init() {}
 
-	func mapping(map: Map) {
+	func mapping(_ map: Map) {
 		id <- map["id"]
 		name <- map["name"]
 		portrait <- map["portrait"]
@@ -35,9 +35,9 @@ class TweetAuthor: NSObject, NSCoding, Mappable {
     * Fills the data from the passed decoder
     */
     @objc required init(coder aDecoder: NSCoder) {
-         id = aDecoder.decodeObjectForKey("id") as? Int
-         name = aDecoder.decodeObjectForKey("name") as? String
-         portrait = aDecoder.decodeObjectForKey("portrait") as? String
+         id = aDecoder.decodeObject(forKey: "id") as? Int
+         name = aDecoder.decodeObject(forKey: "name") as? String
+         portrait = aDecoder.decodeObject(forKey: "portrait") as? String
 
 	}
 
@@ -45,15 +45,15 @@ class TweetAuthor: NSObject, NSCoding, Mappable {
     * NSCoding required method.
     * Encodes mode properties into the decoder
     */
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    @objc func encode(with aCoder: NSCoder) {
 		if id != nil {
-			aCoder.encodeObject(id, forKey: "id")
+			aCoder.encode(id, forKey: "id")
 		}
 		if name != nil {
-			aCoder.encodeObject(name, forKey: "name")
+			aCoder.encode(name, forKey: "name")
 		}
 		if portrait != nil {
-			aCoder.encodeObject(portrait, forKey: "portrait")
+			aCoder.encode(portrait, forKey: "portrait")
 		}
 
 	}

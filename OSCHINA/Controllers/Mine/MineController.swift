@@ -11,11 +11,11 @@ import RxSwift
 import RxDataSources
 import Kingfisher
 
-private let tableViewOffset: CGFloat = UIScreen.mainScreen().bounds.height < 600 ? 89 : 95
+private let tableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 89 : 95
 private let beforeAppearOffset: CGFloat = 0
 
 class MineController: BaseController {
-    private lazy var disposeBag = DisposeBag()
+    fileprivate lazy var disposeBag = DisposeBag()
     var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
     var loginButton: UIButton!
@@ -36,29 +36,29 @@ class MineController: BaseController {
             ])
         ])
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.contentInset = UIEdgeInsets(top: tableViewOffset, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -beforeAppearOffset)
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.tableView.contentOffset = CGPoint(x: 0, y: -tableViewOffset)
         })
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = .None
+        edgesForExtendedLayout = UIRectEdge()
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.height))
-        backgroundView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        tableView = UITableView(frame: view.bounds, style: .Grouped)
+        backgroundView.backgroundColor = UIColor.groupTableViewBackground
+        tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         backgroundImageView = UIImageView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: backgroundView.width, height: 500)))
-        backgroundImageView.contentMode = .ScaleAspectFill
+        backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.image = UIImage(named: "Photo_light")
         backgroundImageView.centerX = backgroundView.centerX
         backgroundView.addSubview(backgroundImageView)
         tableView.backgroundView = backgroundView
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: String(UITableViewCell))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell))
         let dataSource = self.dataSource
         dataSource.configureCell = { (_, tableView, indexPath, element) in
             let cell = tableView.dequeueReusableCellWithIdentifier(String(UITableViewCell))!
@@ -97,11 +97,11 @@ class MineController: BaseController {
         }).addDisposableTo(disposeBag)
         headerView.addSubview(avartView)
         headerView.addSubview(loginButton)
-        loginButton.setTitle("登录", forState: .Normal)
+        loginButton.setTitle("登录", for: UIControlState())
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = headerView
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: 100))
-        footerView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        footerView.backgroundColor = UIColor.groupTableViewBackground
         tableView.tableFooterView = footerView
         view.addSubview(tableView)
     }
@@ -109,32 +109,32 @@ class MineController: BaseController {
     func login() {
         let dest = LoginController()
         dest.destBack = { user in
-            if let url = NSURL(string: user!.portrait!) {
+            if let url = URL(string: user!.portrait!) {
                 self.avartView.setImageWithURL(url)
             }
-            self.loginButton.setTitle(user?.name, forState: .Normal)
+            self.loginButton.setTitle(user?.name, for: UIControlState())
         }
         navigationController?.pushViewController(dest, animated: true)
     }
 }
 
 extension MineController: UITableViewDelegate {
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel(frame: CGRect.zero)
         return label
     }
 
-    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.backgroundColor = UIColor.groupTableViewBackground
     }
 
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(FLT_MIN)
     }
 }
 
 extension MineController {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         backgroundImageView.height = max(navigationController!.navigationBar.bounds.height + scrollView.contentInset.top - scrollView.contentOffset.y, 0)
         backgroundImageView.width = max(navigationController!.navigationBar.bounds.height - scrollView.contentInset.top - scrollView.contentOffset.y * 0.8, view.width)
     }
