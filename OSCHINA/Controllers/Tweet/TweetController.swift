@@ -12,7 +12,6 @@ import RxSwift
 
 class TweetController: BaseController {
     var tableView: UITableView!
-    let disposeBag = DisposeBag()
     var tweets: [TweetObjList] = [] {
         didSet {
             tableView.reloadData()

@@ -10,7 +10,7 @@ import RxSwift
 
 
 class BlogList: BaseController {
-    let disposeBag = DisposeBag()
+
     var blogItems: [BlogObjList] = [] {
         didSet {
             tableView.reloadData()
@@ -24,7 +24,7 @@ class BlogList: BaseController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(cellType: NewCell.self)
+//        tableView.register(cellType: NewCell.self)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
@@ -54,7 +54,7 @@ extension BlogList: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: NewCell.self)
+        let cell = tableView.dequeueReusableCell(with: EventCell.self)
             cell.titleLabel?.text = blogItems[indexPath.row].title
             cell.contentLabel?.text = blogItems[indexPath.row].body
             cell.setNeedsUpdateConstraints()

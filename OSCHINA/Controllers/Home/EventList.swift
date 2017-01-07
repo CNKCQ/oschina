@@ -10,7 +10,7 @@ import RxSwift
 
 
 class EventList: BaseController {
-    let disposeBag = DisposeBag()
+
     var eventItems: [EventObjList] = [] {
         didSet {
             tableView.reloadData()

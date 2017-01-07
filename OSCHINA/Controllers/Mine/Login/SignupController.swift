@@ -11,7 +11,6 @@ import Moya
 import RxSwift
 
 class SignupController: BaseController {
-    var disposeBag = DisposeBag()
     var userField: UITextField!
     var pwdField: UITextField!
     var userLabel: UILabel!

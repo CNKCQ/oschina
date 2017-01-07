@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 class FindUserController: BaseController {
-    fileprivate lazy var disposeBag = DisposeBag()
+
     var tableView: UITableView!
     var searchBar: UISearchBar!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FindObjList>>()

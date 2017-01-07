@@ -9,7 +9,7 @@ import RxCocoa
 import RxDataSources
 
 class DiscoverController: BaseController, UITableViewDelegate {
-    let disposeBag = DisposeBag()
+
     var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
 

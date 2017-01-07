@@ -9,36 +9,35 @@ import UIKit
 import Moya
 import ObjectMapper
 import RxSwift
+import RxDataSources
 //import AutoCycleAdview
 
 class NewsList: BaseController {
-    let disposeBag = DisposeBag()
-    var tableView: UITableView!
+
+    var collectionView: UICollectionView!
     var newsItems: [NewsItem] = [] {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
     var bannerItems: [BannerItem]? = [] {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackground
-        tableView = UITableView(frame: view.bounds)
-        tableView.height = view.height - 49 - 40 - 64
-        tableView.backgroundColor = UIColor.groupTableViewBackground
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(cellType: NewCell.self)
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 66
-        tableView.separatorStyle = .none
-        view.addSubview(tableView)
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: view.bounds.width, height: 120)
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.height = view.height - 49 - 40 - 64
+        collectionView.backgroundColor = UIColor.groupTableViewBackground
+        collectionView.register(cellType: NewCell.self)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        view.addSubview(collectionView)
 //        let headerBanner = SycleAdContainer(frame: CGRect(x: 0, y: 0, width: view.width, height: 150))
 //        let bannerViewModel = BannerViewModel()
 //        bannerViewModel.fetchBanner().subscribe(
@@ -66,38 +65,20 @@ class NewsList: BaseController {
                 if let result = entities {
                     self.newsItems = result
                 }
-                print(entities, "🌹")
 //                log.info("你好")
-            }, onError: { error in
-//                log.error("\(error)")
-            }, onCompleted: {
-//                log.info("completed")
-            }, onDisposed: {
-//                log.info("disposed")
-
-        }).addDisposableTo(self.disposeBag)
+            }).addDisposableTo(self.disposeBag)
     }
 
 }
 
-extension NewsList: UITableViewDelegate, UITableViewDataSource {
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsItems.count
     }
-
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: NewCell.self)
-        cell.titleLabel.text = newsItems[indexPath.row].title
-        cell.contentLabel.text = newsItems[indexPath.row].body
-        cell.setNeedsUpdateConstraints()
-        cell.updateConstraintsIfNeeded()
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: NewCell.self)
+        cell.set(with: newsItems[indexPath.row])
         return cell
-    }
-
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dest = WebController()
-        dest.urlStr = newsItems[indexPath.row].href
-        dest.title = newsItems[indexPath.row].title
-        navigationController?.pushViewController(dest, animated: true)
     }
 }

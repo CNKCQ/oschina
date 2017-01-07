@@ -15,7 +15,6 @@ private let tableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 89 : 
 private let beforeAppearOffset: CGFloat = 0
 
 class MineController: BaseController {
-    fileprivate lazy var disposeBag = DisposeBag()
     var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
     var loginButton: UIButton!
@@ -23,15 +22,15 @@ class MineController: BaseController {
     var backgroundImageView: UIImageView!
     var avartView: UIImageView!
     let items = Observable.just([
-        SectionModel(model: "", items: [
-            "我的消息",
-            "我的博客"
+        SectionModel(model: "title", items: [
+            "扫一扫",
+            "摇一摇"
             ]),
-        SectionModel(model: "", items: [
-            "我的活动",
-            "我的团队"
+        SectionModel(model: "title1", items: [
+            "开源软件",
+            "线下活动"
             ]),
-        SectionModel(model: "", items: [
+        SectionModel(model: "title2", items: [
             "设置"
             ])
         ])
@@ -58,30 +57,27 @@ class MineController: BaseController {
         backgroundImageView.centerX = backgroundView.centerX
         backgroundView.addSubview(backgroundImageView)
         tableView.backgroundView = backgroundView
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell()))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         let dataSource = self.dataSource
         dataSource.configureCell = { (_, tableView, indexPath, element) in
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell()))!
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self))!
             cell.textLabel?.text = element
             cell.accessoryType = .disclosureIndicator
             return cell
         }
-//        items
-//            .bindTo(tableView.rx_itemsWithDataSource(dataSource))
-//            .addDisposableTo(disposeBag)
-//
-//        tableView
-//            .rx_itemSelected
-//            .map { indexPath in
-//                return (indexPath, dataSource.itemAtIndexPath(indexPath))
-//            }
-//            .subscribeNext { indexPath, model in
-//                DefaultWireframe.presentAlert("taped @ \(model)")
-//            }
-//            .addDisposableTo(disposeBag)
-//        tableView
-//            .rx_setDelegate(self)
-//            .addDisposableTo(disposeBag)
+        items.bindTo(tableView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+        
+        tableView.rx.modelSelected(String.self).subscribe(onNext: { item in
+            switch item {
+            case "设置":
+                self.startActivity(SettingController())
+            default: break
+            }
+            }).addDisposableTo(disposeBag)
+        tableView
+            .rx.setDelegate(self)
+            .addDisposableTo(disposeBag)
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: 120))
         avartView = UIImageView()
         avartView.size = CGSize(width: 64, height: 64)
