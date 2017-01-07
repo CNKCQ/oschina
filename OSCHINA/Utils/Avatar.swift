@@ -33,8 +33,8 @@ extension UIView {
                          borderWidth: CGFloat,
                          borderColor: UIColor,
                          backgroundColor: UIColor) {
-        let width = self.frame.size.width
-        let height = self.frame.size.height
+        _ = self.frame.size.width
+        _ = self.frame.size.height
         
         UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()

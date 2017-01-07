@@ -25,7 +25,7 @@ class TweetController: BaseController {
         tableView = UITableView(frame: view.bounds)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerReusableCell(TweetCell)
+        tableView.register(cellType: TweetCell.self)
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
 //        let viewModel = TweetViewModel()
@@ -49,13 +49,13 @@ extension TweetController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(indexPath: indexPath) as TweetCell
+        return tableView.dequeueReusableCell(with: TweetCell.self)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as? TweetCell
         let data = tweets[indexPath.row]
-        cell?.imageView?.setImageWithURL(URL(string: data.author!.portrait!)!, placeholderImage: UIImage(named: "ic_me_avart_default"), optionsInfo: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+        _ = cell?.imageView?.setImageWithURL(URL(string: data.author!.portrait!)!, placeholderImage: UIImage(named: "ic_me_avart_default"), optionsInfo: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
             cell?.imageView?.image = image?.cs_imageWithCornerRadius(29 / 2, sizeToFit: CGSize(width: 29, height: 29))
         })
         cell?.textLabel?.text = data.author?.name

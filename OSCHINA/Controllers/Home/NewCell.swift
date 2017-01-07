@@ -29,7 +29,7 @@ class NewCell: UITableViewCell, Reusable {
         contentLabel.textColor = UIColor.gray
         contentLabel.numberOfLines = 0
         bottomView = UIView()
-//        bottomView.backgroundColor = UIColor.blueColor()
+        bottomView.backgroundColor = UIColor.blue
         contentView.addSubview(paddingView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
@@ -43,35 +43,35 @@ class NewCell: UITableViewCell, Reusable {
     }
 
     override func updateConstraints() {
-        contentView.snp_makeConstraints { (make) in
-            make.left.equalTo(self.snp_left).offset(10)
-            make.right.equalTo(self.snp_right).offset(-10)
-            make.top.equalTo(self.snp_top)
-            make.bottom.equalTo(self.snp_bottom)
+        contentView.snp.makeConstraints { make in
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).offset(-10)
+            make.top.equalTo(self.snp.top)
+            make.bottom.equalTo(self.snp.bottom)
         }
-        paddingView.snp_makeConstraints { (make) in
-            make.left.equalTo(contentView.snp_left)
-            make.right.equalTo(contentView.snp_right)
-            make.top.equalTo(contentView.snp_top)
+        paddingView.snp.makeConstraints { make in
+            make.left.equalTo(contentView.snp.left)
+            make.right.equalTo(contentView.snp.right)
+            make.top.equalTo(contentView.snp.top)
             make.height.equalTo(10)
         }
-        titleLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(paddingView.snp_bottom)
-            make.width.equalTo(contentView.snp_width).offset(-10)
-            make.left.equalTo(contentView.snp_left).offset(10)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(paddingView.snp.bottom)
+            make.width.equalTo(contentView.snp.width).offset(-10)
+            make.left.equalTo(contentView.snp.left).offset(10)
             make.height.equalTo(24)
         }
-        contentLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp_bottom)
-            make.left.equalTo(titleLabel.snp_left)
-            make.width.equalTo(titleLabel.snp_width)
+        contentLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.left.equalTo(titleLabel.snp.left)
+            make.width.equalTo(titleLabel.snp.width)
         }
-        bottomView.snp_makeConstraints { (make) in
-            make.top.equalTo(contentLabel.snp_bottom)
-            make.left.equalTo(contentLabel.snp_left)
-            make.width.equalTo(contentLabel.snp_width)
+        bottomView.snp.makeConstraints { make in
+            make.top.equalTo(contentLabel.snp.bottom)
+            make.left.equalTo(contentLabel.snp.left)
+            make.width.equalTo(contentLabel.snp.width)
             make.height.equalTo(1)
-            make.bottom.equalTo(contentView.snp_bottom)
+            make.bottom.equalTo(contentView.snp.bottom)
         }
         super.updateConstraints()
     }

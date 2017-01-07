@@ -108,7 +108,7 @@ class MineController: BaseController {
     }
 
     func login() {
-        let dest = LoginController()
+//        let dest = LoginController()
 //        dest.destBack = { user in
 //            if let url = URL(string: user!.portrait!) {
 //                _ = self.avartView.setImageWithURL(url)

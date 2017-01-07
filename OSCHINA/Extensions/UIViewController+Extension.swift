@@ -34,7 +34,6 @@ extension UIViewController {
             }
             return controller
         }
-        
         return findBestViewController(UIApplication.shared.keyWindow?.rootViewController)! // 假定永远有
     }
 

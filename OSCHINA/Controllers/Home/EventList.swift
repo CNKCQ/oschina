@@ -24,7 +24,7 @@ class EventList: BaseController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerReusableCell(EventCell)
+        tableView.register(cellType: EventCell.self)
         tableView.tableFooterView = UIView()
         tableView.height = view.height - 49 - 40 - 64
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -52,10 +52,9 @@ extension EventList: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as EventCell
-
+        let cell = tableView.dequeueReusableCell(with: EventCell.self)
         if let url = URL(string: eventItems[indexPath.row].cover!) {
-            cell.iconView.setImageWithURL(url)
+            _ = cell.iconView.setImageWithURL(url)
         }
         cell.titleLabel?.text = eventItems[indexPath.row].title
         cell.contentLabel?.text = eventItems[indexPath.row].url

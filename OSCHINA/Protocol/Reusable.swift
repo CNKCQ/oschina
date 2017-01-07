@@ -9,8 +9,6 @@ public protocol Reusable: class {
     static var reuseIdentifier: String { get }
 }
 
-public protocol NibReusable: Reusable, NibLoadable {}
-
 public extension Reusable {
     static var reuseIdentifier: String {
         return String(describing: self)

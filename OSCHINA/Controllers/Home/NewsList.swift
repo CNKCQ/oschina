@@ -33,7 +33,7 @@ class NewsList: BaseController {
         tableView.backgroundColor = UIColor.groupTableViewBackground
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerReusableCell(NewCell)
+        tableView.register(cellType: NewCell.self)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 66
@@ -59,22 +59,23 @@ class NewsList: BaseController {
 ////                log.info("disposed")
 //
 //        }).addDisposableTo(self.disposeBag)
-//
-//        let viewModel = NewsViewModel()
-//        viewModel.fetch().subscribe(
-//            onNext: { entities in
-//                if let result = entities {
-//                    self.newsItems = result
-//                }
-////                log.info("你好")
-//            }, onError: { error in
-////                log.error("\(error)")
-//            }, onCompleted: {
-////                log.info("completed")
-//            }, onDisposed: {
-////                log.info("disposed")
-//
-//        }).addDisposableTo(self.disposeBag)
+
+        let viewModel = NewsViewModel()
+        viewModel.fetch().subscribe(
+            onNext: { entities in
+                if let result = entities {
+                    self.newsItems = result
+                }
+                print(entities, "🌹")
+//                log.info("你好")
+            }, onError: { error in
+//                log.error("\(error)")
+            }, onCompleted: {
+//                log.info("completed")
+            }, onDisposed: {
+//                log.info("disposed")
+
+        }).addDisposableTo(self.disposeBag)
     }
 
 }
@@ -85,7 +86,7 @@ extension NewsList: UITableViewDelegate, UITableViewDataSource {
     }
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NewCell
+        let cell = tableView.dequeueReusableCell(with: NewCell.self)
         cell.titleLabel.text = newsItems[indexPath.row].title
         cell.contentLabel.text = newsItems[indexPath.row].body
         cell.setNeedsUpdateConstraints()
