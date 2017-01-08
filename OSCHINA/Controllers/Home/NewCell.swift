@@ -29,8 +29,6 @@ class NewCell: UICollectionViewCell, Reusable {
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
         contentView.backgroundColor = UIColor.white
-        contentView.layer.shadowColor = UIColor.gray.cgColor
-        contentView.layer.shadowOpacity = 0.7
     }
 
     required init?(coder aDecoder: NSCoder) {
