@@ -14,7 +14,7 @@ class NewCell: UICollectionViewCell, Reusable {
     var titleLabel: UILabel!
     var contentLabel: UILabel!
     var bottomView: UIView!
-    var paddingView: UIView!
+    
 
     
     override init(frame: CGRect) {
@@ -35,32 +35,34 @@ class NewCell: UICollectionViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func updateConstraints() {
-        contentView.snp.makeConstraints { make in
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
-        }
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top)
-            make.width.equalTo(contentView.snp.width)
-            make.left.equalTo(contentView.snp.left)
-            make.height.equalTo(24)
-        }
-        contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
-            make.left.equalTo(titleLabel.snp.left)
-            make.width.equalTo(titleLabel.snp.width)
-        }
-        super.updateConstraints()
-    }
+//    override func updateConstraints() {
+//        contentView.snp.makeConstraints { make in
+//            make.left.equalTo(self.snp.left)
+//            make.right.equalTo(self.snp.right)
+//            make.top.equalTo(self.snp.top)
+//            make.bottom.equalTo(self.snp.bottom)
+//        }
+//        titleLabel.snp.makeConstraints { make in
+//            make.top.equalTo(contentView.snp.top)
+//            make.width.equalTo(contentView.snp.width)
+//            make.left.equalTo(contentView.snp.left)
+//            make.height.equalTo(24)
+//        }
+//        contentLabel.snp.makeConstraints { make in
+//            make.top.equalTo(titleLabel.snp.bottom)
+//            make.left.equalTo(titleLabel.snp.left)
+//            make.width.equalTo(titleLabel.snp.width)
+//        }
+//        super.updateConstraints()
+//    }
     
     func set(with data: NewsItem) {
+        let layout = NewsLayout(data)
         titleLabel.text = data.title
         contentLabel.text = data.body
-        titleLabel.sizeToFit()
-        contentLabel.sizeToFit()
-        updateConstraints()
+        titleLabel.frame = layout.title
+        contentLabel.frame = layout.content
+        height = layout.height
+//        updateConstraints()
     }
 }

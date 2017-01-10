@@ -30,34 +30,17 @@ class NewsList: BaseController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackground
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.bounds.width, height: 120)
+        layout.itemSize = CGSize(width: view.bounds.width, height: 0)
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         collectionView.height = view.height - 49 - 40 - 64
         collectionView.backgroundColor = UIColor.groupTableViewBackground
         collectionView.register(cellType: NewCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-//        let headerBanner = SycleAdContainer(frame: CGRect(x: 0, y: 0, width: view.width, height: 150))
-//        let bannerViewModel = BannerViewModel()
-//        bannerViewModel.fetchBanner().subscribe(
-//            onNext: { entities in
-//                //                headerBanner.configAd(entities.fi, style: .Center) { (idx) in
-//                //                    print(idx)
-//                //                    print(imageUrls[idx])
-//                //                }
-////                log.warning(entities?.description)
-//                self.bannerItems = entities
-////                log.info("ok")
-//
-//            }, onError: { error in
-////                log.error("\(error)")
-//            }, onCompleted: {
-////                log.info("completed")
-//            }, onDisposed: {
-////                log.info("disposed")
-//
-//        }).addDisposableTo(self.disposeBag)
+ 
+
 
         let viewModel = NewsViewModel()
         viewModel.fetch().subscribe(
@@ -65,13 +48,12 @@ class NewsList: BaseController {
                 if let result = entities {
                     self.newsItems = result
                 }
-//                log.info("你好")
             }).addDisposableTo(self.disposeBag)
     }
 
 }
 
-extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsItems.count
     }
@@ -81,4 +63,10 @@ extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.set(with: newsItems[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = NewsLayout(newsItems[indexPath.item])
+        return CGSize(width: SCREEN_WIDTH, height: layout.height)
+    }
+    
 }
