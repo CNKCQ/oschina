@@ -40,6 +40,8 @@
 		3C61BDCD1D7D0EBA00548BE7 /* SigninDefaultValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61BDCC1D7D0EBA00548BE7 /* SigninDefaultValidationService.swift */; };
 		3C61BDCF1D7D0F3500548BE7 /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61BDCE1D7D0F3500548BE7 /* SigninViewModel.swift */; };
 		3C61BDD11D7D0F6D00548BE7 /* SigninProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61BDD01D7D0F6D00548BE7 /* SigninProtocol.swift */; };
+		3C6C1B281E24711A0015C8E8 /* SycleAdContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6C1B271E24711A0015C8E8 /* SycleAdContainer.swift */; };
+		3C6C1B2A1E2471ED0015C8E8 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6C1B291E2471ED0015C8E8 /* NewsHeader.swift */; };
 		3C80B3391D780D7B00B8B8AC /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3381D780D7B00B8B8AC /* NewCell.swift */; };
 		3C80B33D1D7819E500B8B8AC /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B33C1D7819E500B8B8AC /* TweetViewModel.swift */; };
 		3C80B33F1D781A2C00B8B8AC /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B33E1D781A2C00B8B8AC /* TweetCell.swift */; };
@@ -135,6 +137,8 @@
 		3C61BDCC1D7D0EBA00548BE7 /* SigninDefaultValidationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninDefaultValidationService.swift; sourceTree = "<group>"; };
 		3C61BDCE1D7D0F3500548BE7 /* SigninViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
 		3C61BDD01D7D0F6D00548BE7 /* SigninProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninProtocol.swift; sourceTree = "<group>"; };
+		3C6C1B271E24711A0015C8E8 /* SycleAdContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SycleAdContainer.swift; sourceTree = "<group>"; };
+		3C6C1B291E2471ED0015C8E8 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		3C80B3381D780D7B00B8B8AC /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
 		3C80B33C1D7819E500B8B8AC /* TweetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		3C80B33E1D781A2C00B8B8AC /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -341,8 +345,10 @@
 		3C6186441D59B99800982E39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C6C1B271E24711A0015C8E8 /* SycleAdContainer.swift */,
 			);
-			path = Views;
+			name = Views;
+			path = ../Views;
 			sourceTree = "<group>";
 		};
 		3C6186451D59B9A200982E39 /* ViewModels */ = {
@@ -422,6 +428,7 @@
 				3CDF82ED1D7A64C500313A66 /* BlogList.swift */,
 				3CDF82EF1D7A65E200313A66 /* EventList.swift */,
 				3C2D24941D891A6D00BE13E0 /* EventCell.swift */,
+				3C6C1B291E2471ED0015C8E8 /* NewsHeader.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -704,6 +711,7 @@
 				3C50B3481D7D5B80006FB6A4 /* BannerRootClass.swift in Sources */,
 				3C9386571D5DB6E500DDEE54 /* UITableView+Reusable.swift in Sources */,
 				3CDF82EE1D7A64C500313A66 /* BlogList.swift in Sources */,
+				3C6C1B281E24711A0015C8E8 /* SycleAdContainer.swift in Sources */,
 				3C1F4CC21D77F66F00ABDF1D /* NewsViewModel.swift in Sources */,
 				3C80B35C1D796AA100B8B8AC /* NSBundle+Extension.swift in Sources */,
 				3CF215D81E23B8A000CF4304 /* NewsLayout.swift in Sources */,
@@ -748,6 +756,7 @@
 				3CDF832A1D7AFE9D00313A66 /* SwiftAutoLayout.swift in Sources */,
 				3C61BDD11D7D0F6D00548BE7 /* SigninProtocol.swift in Sources */,
 				3C2D24731D86D30300BE13E0 /* FindObjList.swift in Sources */,
+				3C6C1B2A1E2471ED0015C8E8 /* NewsHeader.swift in Sources */,
 				3CDF83081D7A8F9800313A66 /* TweetDetail.swift in Sources */,
 				3CDF83291D7AFE9D00313A66 /* String+CacheMenu.swift in Sources */,
 				3CDF83281D7AFE9D00313A66 /* NSTimer+schedule.swift in Sources */,

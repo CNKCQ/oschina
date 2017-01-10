@@ -7,7 +7,7 @@ target 'OSCHINA' do
   # Swift
   pod 'Moya', '~> 8.0'
   pod 'Moya/RxSwift', '~> 8.0'
-  pod 'ObjectMapper'
+  pod 'ObjectMapper'º
   pod 'RxSwift', '~> 3.0'
   pod 'RxCocoa', '~> 3.0'
   pod 'RxBlocking', '~> 3.0'
