@@ -39,6 +39,13 @@ class NewsList: BaseController {
         collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.register(supplementaryViewType: NewsHeader.self, ofKind: UICollectionElementKindSectionHeader)
+        let bannerModel = BannerViewModel()
+        bannerModel.fetchBanner().subscribe(
+            onNext: { entities in
+                if let result = entities {
+                    self.bannerItems = result
+                }
+        }).addDisposableTo(self.disposeBag)
         let viewModel = NewsViewModel()
         viewModel.fetch().subscribe(
             onNext: { entities in
@@ -69,10 +76,17 @@ extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: NewsHeader.self) as NewsHeader
-            let imageUrls = ["http://ww3.sinaimg.cn/large/610dc034jw1f4saelbb4oj20zk0qoage.jpg", "http://ww1.sinaimg.cn/mw690/692a6bbcgw1f4fz7s830fj20gg0o00y5.jpg", "http://ww1.sinaimg.cn/mw690/692a6bbcgw1f4fz6g6wppj20ms0xp13n.jpg", "http://ww3.sinaimg.cn/mw690/81309c56jw1f4sx4ybttdj20ku0vd0ym.jpg", "http://ww4.sinaimg.cn/mw690/9844520fjw1f4fqribdg1j21911w0kjn.jpg"]
-            header.banner.configAd(imageUrls, style: .right, response: { index in
-                print(index, "🌹")
-            })
+            if let banners = bannerItems {
+                let banner = banners.flatMap({ ($0.img, $0.detail) })
+                header.banner.imagUrls = banner.0
+                header.banner.titles = banner.1
+                header.banner.pageControlAlignment = .right
+                header.banner.callback = { [weak self] index in
+                    let dest = WebController()
+                    dest.urlStr = banners[index].href
+                    self?.navigationController?.pushViewController(dest, animated: true)
+                }
+            }
             return header
         }
         return UICollectionReusableView()

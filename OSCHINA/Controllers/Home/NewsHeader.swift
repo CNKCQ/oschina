@@ -6,14 +6,15 @@
 //  Copyright © 2017年 KingCQ. All rights reserved.
 //
 
+import AutoCycleAdview
 import UIKit
 
 class NewsHeader: UICollectionReusableView, Reusable {
-    var banner: SycleAdContainer!
+    var banner: AutoCycleAdview!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        banner = SycleAdContainer(frame: frame)
+        banner = AutoCycleAdview(frame: frame)
         addSubview(banner)
     }
     

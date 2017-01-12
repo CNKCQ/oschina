@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.2.0)
+  - AutoCycleAdview (1.0.2):
+    - Kingfisher
   - Kingfisher (3.2.4)
   - MJRefresh (3.1.12)
   - Moya (8.0.0):
@@ -24,6 +26,7 @@ PODS:
   - SnapKit (3.1.2)
 
 DEPENDENCIES:
+  - AutoCycleAdview (~> 1.0.2)
   - Kingfisher
   - MJRefresh
   - Moya (~> 8.0)
@@ -38,6 +41,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AutoCycleAdview: ced3080f41aa8d96c5faa940749d9cb2895516c9
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Moya: 850a166ab8241bd1c1cea6dbe012e3a2ad62944a
@@ -50,6 +54,6 @@ SPEC CHECKSUMS:
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: e3c4fb4202eb1f82413cfa355492cc8814e180ea
+PODFILE CHECKSUM: 75e04c41156516de3eb81cd449c8fa1bb09ff699
 
 COCOAPODS: 1.2.0.beta.3

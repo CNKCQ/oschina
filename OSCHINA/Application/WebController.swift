@@ -39,4 +39,5 @@ extension WebController: WKUIDelegate {
         webView.load(navigationAction.request)
         return nil
     }
+
 }
