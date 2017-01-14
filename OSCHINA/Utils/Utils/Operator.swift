@@ -24,5 +24,4 @@ struct Operator {
         return ""
     }
     
-    
 }

@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-class SettingController: BaseController {
+class SettingController: BaseViewController {
     var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
     let items = Observable.just([
@@ -31,7 +31,6 @@ class SettingController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "设置"
-        navigationController?.navigationBar.tintColor = .black
         tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)

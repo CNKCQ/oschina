@@ -14,7 +14,7 @@ import RxDataSources
 private let tableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 89 : 95
 private let beforeAppearOffset: CGFloat = 0
 
-class MineController: BaseController {
+class MineController: BaseViewController {
     var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
     var loginButton: UIButton!

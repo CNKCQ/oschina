@@ -10,7 +10,7 @@ import UIKit
 import Moya
 import RxSwift
 
-class SignupController: BaseController {
+class SignupController: BaseViewController {
     var userField: UITextField!
     var pwdField: UITextField!
     var userLabel: UILabel!

@@ -11,16 +11,13 @@ import RxSwift
 import RxCocoa
 import RxBlocking
 
-class BaseController: UIViewController {
+class BaseViewController: BaseController {
     lazy var disposeBag = DisposeBag()
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = .black
         view.backgroundColor = UIColor.white
     }
     
-    func startActivity(_ dest: UIViewController, animated: Bool = true) {
-        dest.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(dest, animated: animated)
-    }
 }

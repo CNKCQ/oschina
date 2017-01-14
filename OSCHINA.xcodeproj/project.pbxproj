@@ -31,7 +31,7 @@
 		3C6186351D5985D600982E39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6186331D5985D600982E39 /* Main.storyboard */; };
 		3C61863A1D5985D600982E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6186381D5985D600982E39 /* LaunchScreen.storyboard */; };
 		3C61864A1D59BC5400982E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6186491D59BC5400982E39 /* AppDelegate.swift */; };
-		3C61864C1D59BC7900982E39 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61864B1D59BC7900982E39 /* BaseController.swift */; };
+		3C61864C1D59BC7900982E39 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61864B1D59BC7900982E39 /* BaseViewController.swift */; };
 		3C61864E1D59BE7F00982E39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C61864D1D59BE7F00982E39 /* Images.xcassets */; };
 		3C6186541D59CBFD00982E39 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6186531D59CBFD00982E39 /* Logger.swift */; };
 		3C6186561D59D68F00982E39 /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C6186551D59D68F00982E39 /* ToolsAnimation.plist */; };
@@ -80,7 +80,6 @@
 		3CDF82FE1D7A710000313A66 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF82FD1D7A710000313A66 /* BlogViewModel.swift */; };
 		3CDF83001D7A711600313A66 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF82FF1D7A711600313A66 /* EventViewModel.swift */; };
 		3CDF83081D7A8F9800313A66 /* TweetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83071D7A8F9800313A66 /* TweetDetail.swift */; };
-		3CDF830A1D7A96ED00313A66 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83091D7A96ED00313A66 /* WebController.swift */; };
 		3CDF830D1D7AC0E700313A66 /* SignupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF830C1D7AC0E700313A66 /* SignupProtocol.swift */; };
 		3CDF83101D7AC38E00313A66 /* SignupDefaultValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF830F1D7AC38E00313A66 /* SignupDefaultValidationService.swift */; };
 		3CDF83121D7AC88000313A66 /* NSURL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83111D7AC88000313A66 /* NSURL+Extension.swift */; };
@@ -89,12 +88,13 @@
 		3CDF831D1D7AFB9600313A66 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF831C1D7AFB9600313A66 /* SignupController.swift */; };
 		3CDF83281D7AFE9D00313A66 /* NSTimer+schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF831E1D7AFE9D00313A66 /* NSTimer+schedule.swift */; };
 		3CDF83291D7AFE9D00313A66 /* String+CacheMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF831F1D7AFE9D00313A66 /* String+CacheMenu.swift */; };
-		3CDF832A1D7AFE9D00313A66 /* SwiftAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83211D7AFE9D00313A66 /* SwiftAutoLayout.swift */; };
 		3CDF832B1D7AFE9D00313A66 /* UIColor+RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83221D7AFE9D00313A66 /* UIColor+RandomColor.swift */; };
 		3CDF832C1D7AFE9D00313A66 /* UIImageView+Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83231D7AFE9D00313A66 /* UIImageView+Web.swift */; };
 		3CDF832D1D7AFE9D00313A66 /* UIView+FrameLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83241D7AFE9D00313A66 /* UIView+FrameLayout.swift */; };
 		3CDF832E1D7AFE9D00313A66 /* FileTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83261D7AFE9D00313A66 /* FileTool.swift */; };
 		3CDF832F1D7AFE9D00313A66 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83271D7AFE9D00313A66 /* Operator.swift */; };
+		3CEE37751E2725F5003DE0BC /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE37741E2725F5003DE0BC /* WebController.swift */; };
+		3CEE37771E272BB7003DE0BC /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE37761E272BB7003DE0BC /* BaseController.swift */; };
 		3CF215D81E23B8A000CF4304 /* NewsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF215D71E23B8A000CF4304 /* NewsLayout.swift */; };
 		A64EE7DE9B08755D9C1FFDFC /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3344E4E7FBBA56320F2C2210 /* Pods_OSCHINA.framework */; };
 /* End PBXBuildFile section */
@@ -129,7 +129,7 @@
 		3C6186391D5985D600982E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C61863B1D5985D600982E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6186491D59BC5400982E39 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C61864B1D59BC7900982E39 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		3C61864B1D59BC7900982E39 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3C61864D1D59BE7F00982E39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C6186531D59CBFD00982E39 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3C6186551D59D68F00982E39 /* ToolsAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToolsAnimation.plist; sourceTree = "<group>"; };
@@ -179,7 +179,6 @@
 		3CDF82FD1D7A710000313A66 /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
 		3CDF82FF1D7A711600313A66 /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		3CDF83071D7A8F9800313A66 /* TweetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetail.swift; sourceTree = "<group>"; };
-		3CDF83091D7A96ED00313A66 /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		3CDF830C1D7AC0E700313A66 /* SignupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocol.swift; sourceTree = "<group>"; };
 		3CDF830F1D7AC38E00313A66 /* SignupDefaultValidationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDefaultValidationService.swift; sourceTree = "<group>"; };
 		3CDF83111D7AC88000313A66 /* NSURL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extension.swift"; sourceTree = "<group>"; };
@@ -188,12 +187,13 @@
 		3CDF831C1D7AFB9600313A66 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		3CDF831E1D7AFE9D00313A66 /* NSTimer+schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+schedule.swift"; sourceTree = "<group>"; };
 		3CDF831F1D7AFE9D00313A66 /* String+CacheMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CacheMenu.swift"; sourceTree = "<group>"; };
-		3CDF83211D7AFE9D00313A66 /* SwiftAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAutoLayout.swift; sourceTree = "<group>"; };
 		3CDF83221D7AFE9D00313A66 /* UIColor+RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RandomColor.swift"; sourceTree = "<group>"; };
 		3CDF83231D7AFE9D00313A66 /* UIImageView+Web.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Web.swift"; sourceTree = "<group>"; };
 		3CDF83241D7AFE9D00313A66 /* UIView+FrameLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FrameLayout.swift"; sourceTree = "<group>"; };
 		3CDF83261D7AFE9D00313A66 /* FileTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTool.swift; sourceTree = "<group>"; };
 		3CDF83271D7AFE9D00313A66 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		3CEE37741E2725F5003DE0BC /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
+		3CEE37761E272BB7003DE0BC /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		3CF215D71E23B8A000CF4304 /* NewsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLayout.swift; sourceTree = "<group>"; };
 		CBA93EBC24F3D87CF4B3325F /* Pods-OSCHINA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +264,7 @@
 		3C6186231D5985D600982E39 = {
 			isa = PBXGroup;
 			children = (
+				3CEE37731E2725F5003DE0BC /* iOSKit */,
 				3C61862E1D5985D600982E39 /* OSCHINA */,
 				3C61862D1D5985D600982E39 /* Products */,
 				FEB2557FF082C9EEC423734E /* Pods */,
@@ -304,12 +305,11 @@
 			isa = PBXGroup;
 			children = (
 				3C6186491D59BC5400982E39 /* AppDelegate.swift */,
-				3C61864B1D59BC7900982E39 /* BaseController.swift */,
+				3C61864B1D59BC7900982E39 /* BaseViewController.swift */,
 				3C6186571D59DA9500982E39 /* BaseTabBarController.swift */,
 				3C61865C1D59E26200982E39 /* BaseNavigationController.swift */,
 				3C93863D1D5DA5A400DDEE54 /* Constants.swift */,
 				3C4BCA921D6157DE00597109 /* Api.swift */,
-				3CDF83091D7A96ED00313A66 /* WebController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -364,7 +364,6 @@
 			children = (
 				3CDF831E1D7AFE9D00313A66 /* NSTimer+schedule.swift */,
 				3CDF831F1D7AFE9D00313A66 /* String+CacheMenu.swift */,
-				3CDF83201D7AFE9D00313A66 /* SwiftAutoLayout */,
 				3CDF83221D7AFE9D00313A66 /* UIColor+RandomColor.swift */,
 				3CDF83231D7AFE9D00313A66 /* UIImageView+Web.swift */,
 				3CDF83241D7AFE9D00313A66 /* UIView+FrameLayout.swift */,
@@ -528,14 +527,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		3CDF83201D7AFE9D00313A66 /* SwiftAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				3CDF83211D7AFE9D00313A66 /* SwiftAutoLayout.swift */,
-			);
-			path = SwiftAutoLayout;
-			sourceTree = "<group>";
-		};
 		3CDF83251D7AFE9D00313A66 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +534,16 @@
 				3CDF83271D7AFE9D00313A66 /* Operator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3CEE37731E2725F5003DE0BC /* iOSKit */ = {
+			isa = PBXGroup;
+			children = (
+				3CEE37741E2725F5003DE0BC /* WebController.swift */,
+				3CEE37761E272BB7003DE0BC /* BaseController.swift */,
+			);
+			name = iOSKit;
+			path = ../iOSKit/iOSKit;
 			sourceTree = "<group>";
 		};
 		A9CC7675A75277136E32AB56 /* Frameworks */ = {
@@ -597,6 +598,7 @@
 				TargetAttributes = {
 					3C61862B1D5985D600982E39 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 46A8679957;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -701,7 +703,7 @@
 				3CDF82FE1D7A710000313A66 /* BlogViewModel.swift in Sources */,
 				3CDF83101D7AC38E00313A66 /* SignupDefaultValidationService.swift in Sources */,
 				3CDF831D1D7AFB9600313A66 /* SignupController.swift in Sources */,
-				3C61864C1D59BC7900982E39 /* BaseController.swift in Sources */,
+				3C61864C1D59BC7900982E39 /* BaseViewController.swift in Sources */,
 				3CDF82F71D7A6FB600313A66 /* BlogRootClass.swift in Sources */,
 				3CDF832D1D7AFE9D00313A66 /* UIView+FrameLayout.swift in Sources */,
 				3C80B3471D781F2D00B8B8AC /* Avatar.swift in Sources */,
@@ -717,6 +719,7 @@
 				3C80B3431D781BF900B8B8AC /* TweetAuthor.swift in Sources */,
 				3CDF832C1D7AFE9D00313A66 /* UIImageView+Web.swift in Sources */,
 				3C80B3511D794C3700B8B8AC /* LoginViewModel.swift in Sources */,
+				3CEE37751E2725F5003DE0BC /* WebController.swift in Sources */,
 				3CDF82F61D7A6FB600313A66 /* BlogObjList.swift in Sources */,
 				3CDF832E1D7AFE9D00313A66 /* FileTool.swift in Sources */,
 				3C192CA31E213DF3000A4305 /* SettingController.swift in Sources */,
@@ -733,7 +736,6 @@
 				3C80B35D1D796AA100B8B8AC /* Date+Extension.swift in Sources */,
 				3CDF82EC1D7A63D900313A66 /* HomeController.swift in Sources */,
 				3C80B3451D781BF900B8B8AC /* TweetRootClass.swift in Sources */,
-				3CDF830A1D7A96ED00313A66 /* WebController.swift in Sources */,
 				3CDF82FB1D7A70A400313A66 /* EventObjList.swift in Sources */,
 				3CDF832B1D7AFE9D00313A66 /* UIColor+RandomColor.swift in Sources */,
 				3C93863E1D5DA5A400DDEE54 /* Constants.swift in Sources */,
@@ -749,7 +751,6 @@
 				3C80B3611D796AA100B8B8AC /* UIScrollView+Extenstion.swift in Sources */,
 				3C2D24951D891A6D00BE13E0 /* EventCell.swift in Sources */,
 				3CDF832F1D7AFE9D00313A66 /* Operator.swift in Sources */,
-				3CDF832A1D7AFE9D00313A66 /* SwiftAutoLayout.swift in Sources */,
 				3C61BDD11D7D0F6D00548BE7 /* SigninProtocol.swift in Sources */,
 				3C2D24731D86D30300BE13E0 /* FindObjList.swift in Sources */,
 				3C6C1B2A1E2471ED0015C8E8 /* NewsHeader.swift in Sources */,
@@ -769,6 +770,7 @@
 				3C80B35E1D796AA100B8B8AC /* UIImage+Extension.swift in Sources */,
 				3CDF830D1D7AC0E700313A66 /* SignupProtocol.swift in Sources */,
 				3C50B3461D7D5B80006FB6A4 /* BannerPageInfo.swift in Sources */,
+				3CEE37771E272BB7003DE0BC /* BaseController.swift in Sources */,
 				3C4BCA931D6157DE00597109 /* Api.swift in Sources */,
 				3C6186541D59CBFD00982E39 /* Logger.swift in Sources */,
 			);
@@ -887,6 +889,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 46A8679957;
 				INFOPLIST_FILE = OSCHINA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -905,6 +908,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 46A8679957;
 				INFOPLIST_FILE = OSCHINA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

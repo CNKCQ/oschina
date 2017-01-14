@@ -10,9 +10,8 @@ import Moya
 import ObjectMapper
 import RxSwift
 import RxDataSources
-//import AutoCycleAdview
 
-class NewsList: BaseController {
+class NewsList: BaseViewController {
 
     var collectionView: UICollectionView!
     var newsItems: [NewsItem] = [] {
@@ -54,6 +53,11 @@ class NewsList: BaseController {
                 }
             }).addDisposableTo(self.disposeBag)
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.frame = view.bounds
+    }
 
 }
 
@@ -68,6 +72,12 @@ extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dest = WebController()
+        dest.urlStr = newsItems[indexPath.row].href
+        self.navigationController?.pushViewController(dest, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = NewsLayout(newsItems[indexPath.item])
         return CGSize(width: SCREEN_WIDTH, height: layout.height)
@@ -77,12 +87,14 @@ extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: NewsHeader.self) as NewsHeader
             if let banners = bannerItems {
-                let banner = banners.flatMap({ ($0.img, $0.detail) })
-                header.banner.imagUrls = banner.0
-                header.banner.titles = banner.1
+                let imagUrls = banners.flatMap({ $0.img })
+                let titles = banners.flatMap({ $0.name })
+                header.banner.imagUrls = imagUrls
+                header.banner.titles = titles
                 header.banner.pageControlAlignment = .right
                 header.banner.callback = { [weak self] index in
                     let dest = WebController()
+                    dest.title = titles[index]
                     dest.urlStr = banners[index].href
                     self?.navigationController?.pushViewController(dest, animated: true)
                 }

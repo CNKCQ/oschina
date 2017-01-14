@@ -6,7 +6,7 @@ import Foundation
 import ObjectMapper
 
 
-class NewsItem : NSObject, NSCoding, Mappable{
+class NewsItem : NSObject, NSCoding, Mappable {
 
 	var author : String?
 	var body : String?
@@ -102,5 +102,9 @@ class NewsItem : NSObject, NSCoding, Mappable{
 		}
 
 	}
+    
+//    override var description: String {
+//        return "helo"
+//    }
 
 }
