@@ -87,3 +87,89 @@ extension OSCIOService: TargetType {
         return .request
     }
 }
+
+class GankIO {
+    static let HOST = "http://gank.io"
+    static let PATH_API = "/api"
+    static let PATH_SEARCH = "/search"
+    
+}
+
+enum GankIOService {
+    // 随机获取某类指定个数的数据
+    case RandomByKindAndCount(kind:String, count:Int)
+    
+    // 某天数据
+    case ByDay(year:Int, month:Int, day:Int)
+    
+    // 获取发过干货的日期
+    case HistoryDays
+    
+    // 分页获取某类数据
+    case ByPageAndKind(kind:String, page:Int, count:Int)
+    
+    // 获取某日网站的 html 数据
+    case HtmlByDay(year:Int, month:Int, day:Int)
+    
+    // 分页获取网站的 html 数据
+    case HtmlByPage(page:Int, count:Int)
+    
+    // 搜索
+    case Search(text: String)
+    
+}
+
+extension GankIOService: TargetType {
+    
+    var baseURL: URL {
+        return URL(string: GankIO.HOST)!
+    }
+    
+    var path: String {
+        switch self {
+        case .RandomByKindAndCount(let kind, let count):
+            return "\(GankIO.PATH_API)/random/data/\(kind)/\(count)"
+        case .ByDay(let year, let month, let day):
+            return "\(GankIO.PATH_API)/day/\(year)/\(month)/\(day)"
+        case .HistoryDays:
+            return "\(GankIO.PATH_API)/day/history"
+        case .ByPageAndKind(let kind, let page, let count):
+            return "\(GankIO.PATH_API)/data/\(kind)/\(count)/\(page)"
+        case .HtmlByDay(let year, let month, let day):
+            return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
+        case .HtmlByPage(let page, let count):
+            return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
+        case .Search(_):
+            return "\(GankIO.PATH_SEARCH)"
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        default:
+            return .get
+        }
+    }
+    
+    var parameters: [String: Any]? {
+        switch self {
+        case .Search(let text):
+            return ["q":text]
+        default:
+            return nil
+        }
+    }
+    
+    var sampleData: Data {
+        return "{}".data(using: String.Encoding.utf8)!
+    }
+    
+    public var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+    
+    public var task: Task {
+        return .request
+    }
+    
+}
