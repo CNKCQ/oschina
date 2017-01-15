@@ -1,0 +1,75 @@
+//
+//  CollectionList.swift
+//  OSCHINA
+//
+//  Created by KingCQ on 2017/1/15.
+//  Copyright © 2017年 KingCQ. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+import RxDataSources
+import MJRefresh
+
+
+class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    let whiteSpace = CGFloat(0.8)
+    var collectionView: UICollectionView!
+    
+    public var layout: UICollectionViewLayout {
+        return UICollectionViewLayout()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(cellType: C.self)
+        edgesForExtendedLayout = []
+        collectionView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            if self.collectionView.mj_header.isRefreshing() {
+                self.collectionView.mj_header.endRefreshing()
+                return
+            } else {
+                self.refresh()
+            }
+        })
+        let mjFooter = MJRefreshAutoStateFooter.init(refreshingBlock: {
+            if self.collectionView.mj_header.isRefreshing() {
+                self.collectionView.mj_footer.endRefreshing()
+                return
+            } else {
+                
+            }
+        })
+        collectionView.mj_footer = mjFooter
+        collectionView.mj_footer.isHidden = false
+        
+        view.addSubview(collectionView)
+        collectionView.mj_header.executeRefreshingCallback()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return numberOfItemsIn(section)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: C.self)
+        self.cell(cell, indexPath: indexPath)
+        return cell
+    }
+    
+    func cell(_ cell: C, indexPath: IndexPath) {}
+    
+    func numberOfItemsIn(_ section: Int) -> Int {
+        return 1
+    }
+    
+    func refresh() {}
+    
+    func loadMore() {}
+
+}

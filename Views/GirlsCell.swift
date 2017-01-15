@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class GirlsCell: UICollectionViewCell {
+class GirlsCell: CollectionCell {
     var imageView: UIImageView!
     var label: UILabel!
     

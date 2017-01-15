@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        assert(false, "false")
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        let rootViewController = BaseTabBarController()
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
         return true
     }
 }

@@ -27,6 +27,8 @@
 		3C48B0A41E2B6A9D00E6CBC5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */; };
 		3C48B0A61E2B720900E6CBC5 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A51E2B720900E6CBC5 /* WaterfallLayout.swift */; };
 		3C48B0A81E2B72EA00E6CBC5 /* GirlsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A71E2B72EA00E6CBC5 /* GirlsCell.swift */; };
+		3C48B0AA1E2B8F2B00E6CBC5 /* CollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */; };
+		3C48B0AC1E2BA02E00E6CBC5 /* ColloctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */; };
 		3C4BCA931D6157DE00597109 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BCA921D6157DE00597109 /* Api.swift */; };
 		3C50B3451D7D5B80006FB6A4 /* BannerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3411D7D5B80006FB6A4 /* BannerItem.swift */; };
 		3C50B3461D7D5B80006FB6A4 /* BannerPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3421D7D5B80006FB6A4 /* BannerPageInfo.swift */; };
@@ -127,6 +129,8 @@
 		3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		3C48B0A51E2B720900E6CBC5 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		3C48B0A71E2B72EA00E6CBC5 /* GirlsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GirlsCell.swift; sourceTree = "<group>"; };
+		3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionList.swift; sourceTree = "<group>"; };
+		3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColloctionCell.swift; sourceTree = "<group>"; };
 		3C4BCA921D6157DE00597109 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		3C4BCA941D61715500597109 /* OSCHINA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSCHINA-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C50B3411D7D5B80006FB6A4 /* BannerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerItem.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				3C61865C1D59E26200982E39 /* BaseNavigationController.swift */,
 				3C93863D1D5DA5A400DDEE54 /* Constants.swift */,
 				3C4BCA921D6157DE00597109 /* Api.swift */,
+				3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */,
+				3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -752,6 +758,7 @@
 				3CDF83141D7ACC8200313A66 /* BindingExtensions.swift in Sources */,
 				3C80B3601D796AA100B8B8AC /* UINavigationController +BackButtonHandler.swift in Sources */,
 				3C80B35D1D796AA100B8B8AC /* Date+Extension.swift in Sources */,
+				3C48B0AA1E2B8F2B00E6CBC5 /* CollectionList.swift in Sources */,
 				3CDF82EC1D7A63D900313A66 /* HomeController.swift in Sources */,
 				3C80B3451D781BF900B8B8AC /* TweetRootClass.swift in Sources */,
 				3CDF82FB1D7A70A400313A66 /* EventObjList.swift in Sources */,
@@ -765,6 +772,7 @@
 				3C192CA51E2147CC000A4305 /* UICollectionView+Reusable.swift in Sources */,
 				3C1F4CBF1D77C92C00ABDF1D /* NewsRootClass.swift in Sources */,
 				3C50B3471D7D5B80006FB6A4 /* BannerResult.swift in Sources */,
+				3C48B0AC1E2BA02E00E6CBC5 /* ColloctionCell.swift in Sources */,
 				3C61BDCD1D7D0EBA00548BE7 /* SigninDefaultValidationService.swift in Sources */,
 				3C80B3611D796AA100B8B8AC /* UIScrollView+Extenstion.swift in Sources */,
 				3C2D24951D891A6D00BE13E0 /* EventCell.swift in Sources */,
