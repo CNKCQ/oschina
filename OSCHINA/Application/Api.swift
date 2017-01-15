@@ -97,25 +97,25 @@ class GankIO {
 
 enum GankIOService {
     // 随机获取某类指定个数的数据
-    case RandomByKindAndCount(kind:String, count:Int)
+    case randomByKindAndCount(kind:String, count:Int)
     
     // 某天数据
-    case ByDay(year:Int, month:Int, day:Int)
+    case byDay(year:Int, month:Int, day:Int)
     
     // 获取发过干货的日期
-    case HistoryDays
+    case historyDays
     
     // 分页获取某类数据
-    case ByPageAndKind(kind:String, page:Int, count:Int)
+    case byPageAndKind(kind:String, page:Int, count:Int)
     
     // 获取某日网站的 html 数据
-    case HtmlByDay(year:Int, month:Int, day:Int)
+    case htmlByDay(year:Int, month:Int, day:Int)
     
     // 分页获取网站的 html 数据
-    case HtmlByPage(page:Int, count:Int)
+    case htmlByPage(page:Int, count:Int)
     
     // 搜索
-    case Search(text: String)
+    case search(text: String)
     
 }
 
@@ -127,19 +127,19 @@ extension GankIOService: TargetType {
     
     var path: String {
         switch self {
-        case .RandomByKindAndCount(let kind, let count):
+        case .randomByKindAndCount(let kind, let count):
             return "\(GankIO.PATH_API)/random/data/\(kind)/\(count)"
-        case .ByDay(let year, let month, let day):
+        case .byDay(let year, let month, let day):
             return "\(GankIO.PATH_API)/day/\(year)/\(month)/\(day)"
-        case .HistoryDays:
+        case .historyDays:
             return "\(GankIO.PATH_API)/day/history"
-        case .ByPageAndKind(let kind, let page, let count):
+        case .byPageAndKind(let kind, let page, let count):
             return "\(GankIO.PATH_API)/data/\(kind)/\(count)/\(page)"
-        case .HtmlByDay(let year, let month, let day):
+        case .htmlByDay(let year, let month, let day):
             return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
-        case .HtmlByPage(let page, let count):
+        case .htmlByPage(let page, let count):
             return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
-        case .Search(_):
+        case .search(_):
             return "\(GankIO.PATH_SEARCH)"
         }
     }
@@ -153,7 +153,7 @@ extension GankIOService: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-        case .Search(let text):
+        case .search(let text):
             return ["q":text]
         default:
             return nil
