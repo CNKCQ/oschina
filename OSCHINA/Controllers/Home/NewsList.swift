@@ -58,7 +58,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dest = WebController()
         dest.urlStr = newsItems[indexPath.row].href
         self.navigationController?.pushViewController(dest, animated: true)

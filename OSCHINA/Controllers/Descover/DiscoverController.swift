@@ -32,6 +32,12 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
         return self.articleViewModel.articleEntities.count
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dest = WebController()
+        dest.urlStr = articleViewModel.articleEntities[indexPath.item].url
+        navigationController?.pushViewController(dest, animated: true)
+    }
+    
     override func refresh() {
         self.articleViewModel.refresh().subscribe(
             onNext: { entities in

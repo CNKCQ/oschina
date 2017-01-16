@@ -62,6 +62,10 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         collectionView.frame = view.bounds
