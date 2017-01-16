@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import SwiftyBeaver
 import RxSwift
 
 @UIApplicationMain

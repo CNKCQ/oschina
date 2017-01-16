@@ -58,17 +58,18 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
 }
 
-class HomeController: BaseController {
+class HomeController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "综合"
-        let options = PagingMenuOptions()
-        let pagingMenuController = PagingMenuController(options: options)
-        pagingMenuController.view.frame.origin.y += 64
-        pagingMenuController.view.frame.size.height -= 64
-        addChildViewController(pagingMenuController)
-        view.addSubview(pagingMenuController.view)
-        pagingMenuController.didMove(toParentViewController: self)
+//        let options = PagingMenuOptions()
+//        let pagingMenuController = PagingMenuController(options: options)
+//        pagingMenuController.view.frame.origin.y += 64
+//        pagingMenuController.view.frame.size.height -= 64
+//        addChildViewController(pagingMenuController)
+//        pagingMenuController.view.backgroundColor = UIColor.clear
+//        view.addSubview(pagingMenuController.view)
+//        pagingMenuController.didMove(toParentViewController: self)
 
     }
 }

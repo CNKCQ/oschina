@@ -17,7 +17,7 @@ class BaseViewController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .black
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.groupTableViewBackground
     }
     
 }

@@ -27,6 +27,7 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = .clear
         collectionView.register(cellType: C.self)
         edgesForExtendedLayout = []
         collectionView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
@@ -47,7 +48,6 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         })
         collectionView.mj_footer = mjFooter
         collectionView.mj_footer.isHidden = false
-        
         view.addSubview(collectionView)
         collectionView.mj_header.executeRefreshingCallback()
     }
@@ -60,6 +60,11 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: C.self)
         self.cell(cell, indexPath: indexPath)
         return cell
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.frame = view.bounds
     }
     
     func cell(_ cell: C, indexPath: IndexPath) {}

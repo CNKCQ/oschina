@@ -11,66 +11,57 @@ import ObjectMapper
 import RxSwift
 import RxDataSources
 
-class NewsList: BaseViewController {
+class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
+    
+    let viewModel = NewsViewModel()
+    let bannerModel = BannerViewModel()
 
-    var collectionView: UICollectionView!
     var newsItems: [NewsItem] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
+    
     var bannerItems: [BannerItem]? = [] {
         didSet {
             collectionView.reloadData()
         }
     }
+    
+    override var layout: UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: view.bounds.width, height: 0)
+        return layout
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.groupTableViewBackground
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.bounds.width, height: 0)
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.height = view.height - 49 - 40 - 64
-        collectionView.backgroundColor = UIColor.groupTableViewBackground
-        collectionView.register(cellType: NewCell.self)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        view.addSubview(collectionView)
         collectionView.register(supplementaryViewType: NewsHeader.self, ofKind: UICollectionElementKindSectionHeader)
-        let bannerModel = BannerViewModel()
+    }
+    
+    override func numberOfItemsIn(_ section: Int) -> Int {
+        return newsItems.count
+    }
+    
+    override func cell(_ cell: NewCell, indexPath: IndexPath) {
+        cell.set(with: newsItems[indexPath.row])
+    }
+    
+    override func refresh() {
         bannerModel.fetchBanner().subscribe(
             onNext: { entities in
                 if let result = entities {
                     self.bannerItems = result
                 }
         }).addDisposableTo(self.disposeBag)
-        let viewModel = NewsViewModel()
         viewModel.fetch().subscribe(
             onNext: { entities in
                 if let result = entities {
                     self.newsItems = result
                 }
-            }).addDisposableTo(self.disposeBag)
+        }).addDisposableTo(self.disposeBag)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        collectionView.frame = view.bounds
-    }
-
-}
-
-extension NewsList: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsItems.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: NewCell.self)
-        cell.set(with: newsItems[indexPath.row])
-        return cell
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dest = WebController()

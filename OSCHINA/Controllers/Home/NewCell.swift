@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class NewCell: UICollectionViewCell, Reusable {
+class NewCell: CollectionCell {
 
     var titleLabel: UILabel!
     var contentLabel: UILabel!

@@ -14,7 +14,7 @@ class BaseTabBarController: UITabBarController {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = appColor
         selectedIndex = 0
-        let controller1 = HomeController()
+        let controller1 = NewsList()
         let controller2 = DiscoverController()
         controller2.title = "发现"
         let controller3 = MineController()
