@@ -36,6 +36,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "综合"
         collectionView.register(supplementaryViewType: NewsHeader.self, ofKind: UICollectionElementKindSectionHeader)
     }
     
@@ -48,18 +49,12 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     override func refresh() {
-        bannerModel.fetchBanner().subscribe(
-            onNext: { entities in
-                if let result = entities {
-                    self.bannerItems = result
-                }
-        }).addDisposableTo(self.disposeBag)
         viewModel.fetch().subscribe(
-            onNext: { entities in
-                if let result = entities {
-                    self.newsItems = result
-                }
-        }).addDisposableTo(self.disposeBag)
+            onNext: { result in
+            self.newsItems = result.0
+            self.bannerItems = result.1
+        })
+            .addDisposableTo(self.disposeBag)
     }
     
     
@@ -74,7 +69,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         return CGSize(width: SCREEN_WIDTH, height: layout.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: NewsHeader.self) as NewsHeader
             if let banners = bannerItems {

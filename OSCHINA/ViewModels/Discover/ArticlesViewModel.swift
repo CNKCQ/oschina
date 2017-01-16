@@ -43,6 +43,7 @@ class ArticlesViewModel: BaseViewModel {
                             throw response as! Error
                         }
                     }),
+                
                 resultSelector: { (girls, videos) -> [ArticleEntity] in
                     for item in girls{
                         item.desc = item.desc! + " " + self.getFirstVideoDescByPublishTime(videos: videos,publishedAt: item.publishedAt!)
@@ -58,7 +59,6 @@ class ArticlesViewModel: BaseViewModel {
                     }else{
                         self.articleEntities += entities
                         self.page = page
-                        
                     }
                 }
             })

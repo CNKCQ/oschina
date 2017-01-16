@@ -43,7 +43,7 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
                 self.collectionView.mj_footer.endRefreshing()
                 return
             } else {
-                
+                self.loadMore()
             }
         })
         collectionView.mj_footer = mjFooter
