@@ -86,6 +86,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
     deinit{
         print("died ---- \(self)")
     }
+    
 }
 
 extension String {

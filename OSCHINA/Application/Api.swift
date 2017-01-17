@@ -11,7 +11,8 @@ import Moya
 
 
 enum OSCIOService {
-    case newsList, newBanner, tweetList, blogList, eventList, eventBanner
+    case newsList(para: [String: Int])
+    case newBanner, tweetList, blogList, eventList, eventBanner
     case login(username: String, password: String)
     case findUser(name: String)
     case search(content: String)
@@ -26,8 +27,8 @@ extension OSCIOService: TargetType {
 
     var path: String {
         switch self {
-        case .newsList:
-            return "/news"
+        case .newsList(let para):
+            return "/news_list/?\(para.keys.first!)=\(para.values.first!)&pageSize=2"
         case .newBanner:
             return "/banner"
         case .tweetList:
@@ -59,13 +60,13 @@ extension OSCIOService: TargetType {
     var parameters: [String: Any]? {
         switch self {
         case .login(let username, let password):
-            return ["username": username as AnyObject, "pwd": password as AnyObject]
+            return ["username": username, "pwd": password]
         case .newBanner:
-            return ["catalog": 1 as AnyObject]
+            return ["catalog": 1]
         case .eventBanner:
-            return ["catalog": 3 as AnyObject]
+            return ["catalog": 3]
         case .findUser(let name):
-            return ["name":name as AnyObject]
+            return ["name":name]
         default:
              return nil
         }

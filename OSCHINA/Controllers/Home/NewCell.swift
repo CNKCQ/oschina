@@ -56,7 +56,7 @@ class NewCell: CollectionCell {
 //        super.updateConstraints()
 //    }
     
-    func set(with data: NewsItem) {
+    func set(with data: NewsObjList) {
         let layout = NewsLayout(data)
         titleLabel.text = data.title
         contentLabel.text = data.body

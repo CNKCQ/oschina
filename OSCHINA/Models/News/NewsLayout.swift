@@ -10,13 +10,13 @@ import UIKit
 
 class NewsLayout {
     
-    var data: NewsItem!
+    var data: NewsObjList!
     var title = CGRect()
     var content = CGRect()
     var height: CGFloat = 0
     let padding: CGFloat = 15
     
-    init(_ data: NewsItem) {
+    init(_ data: NewsObjList) {
         self.data = data
         layout()
     }

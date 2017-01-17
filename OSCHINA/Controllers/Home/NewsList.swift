@@ -16,7 +16,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     let viewModel = NewsViewModel()
     let bannerModel = BannerViewModel()
 
-    var newsItems: [NewsItem] = [] {
+    var newsItems: [NewsObjList] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -49,10 +49,19 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     override func refresh() {
-        viewModel.fetch().subscribe(
+        viewModel.refresh().subscribe(
             onNext: { result in
-            self.newsItems = result.0
-            self.bannerItems = result.1
+                self.newsItems = result.0
+                self.bannerItems = result.1
+        })
+            .addDisposableTo(self.disposeBag)
+    }
+    
+    override func loadMore() {
+        viewModel.loadMore().subscribe(
+            onNext: { result in
+                self.newsItems += result.0
+                self.bannerItems = result.1
         })
             .addDisposableTo(self.disposeBag)
     }
@@ -60,9 +69,10 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dest = WebController()
-        dest.urlStr = newsItems[indexPath.row].href
+//        dest.urlStr = newsItems[indexPath.row].href
         self.navigationController?.pushViewController(dest, animated: true)
     }
+        
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = NewsLayout(newsItems[indexPath.item])
@@ -93,5 +103,4 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: SCREEN_WIDTH, height: 180)
     }
-    
 }

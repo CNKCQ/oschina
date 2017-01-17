@@ -12,6 +12,9 @@ class NewsViewModel {
     lazy var disposeBag = DisposeBag()
     var provider: RxMoyaProvider<OSCIOService>
     var backgroundScheduler: OperationQueueScheduler!
+    var pageIndex = 0
+//    var pageSize = 2
+
 
 
     init() {
@@ -20,12 +23,25 @@ class NewsViewModel {
         self.provider = RxMoyaProvider<OSCIOService>()
     }
     
-    func fetch() -> Observable<([NewsItem], [BannerItem])> {
+    func refresh() -> Observable<([NewsObjList], [BannerItem])> {
+        let parameters = ["pageIndex": 0]
+        return fetch(parameters)
+    }
+    
+    func loadMore() -> Observable<([NewsObjList], [BannerItem])> {
+        pageIndex = pageIndex + 1
+        let parameters = ["pageIndex": pageIndex]
+        return fetch(parameters)
+    }
+    
+    func fetch(_ parameters: [String: Int]) -> Observable<([NewsObjList], [BannerItem])> {
+        // 界面需要等到多个接口并发取完数据，再更新
         return Observable
             .zip(
-                provider.request(OSCIOService.newsList).filter(statusCodes: 200...201).observeOn(backgroundScheduler).map({ response -> [NewsItem] in
+                provider.request(OSCIOService.newsList(para: parameters)).filter(statusCodes: 200...201).observeOn(backgroundScheduler).map({ response -> [NewsObjList] in
                     if let result = Mapper<NewsRootClass>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!) {
-                        return (result.result?.items)!
+                        return result.objList ?? []
+
                     } else {
 //                        throw response as! Error
                         return []
@@ -43,7 +59,7 @@ class NewsViewModel {
                             return []
                         }
                     }),
-                resultSelector: { news, banners -> ([NewsItem], [BannerItem]) in
+                resultSelector: { news, banners -> ([NewsObjList], [BannerItem]) in
                     return (news, banners)
             })
             .do(onNext:  { entities in
@@ -52,3 +68,6 @@ class NewsViewModel {
             .observeOn(MainScheduler.instance)
     }
 }
+
+// RxSwif 的使用场景 http://blog.csdn.net/lzyzsd/article/details/50120801
+

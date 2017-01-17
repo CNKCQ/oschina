@@ -31,8 +31,8 @@ class BaseViewModel {
 //        self.provider = RxMoyaProvider<GankIOService>() /// 不用Moya自带的log插件
     }
 
-    func parseObject<T: Mappable>(response: Response) throws -> T {
-        return try Mapper<T>().map(JSONString: response.mapString())!
-    }
+//    func parseObject<T: Mappable>(response: Response) throws -> T {
+//        return try Mapper<T>().map(JSONString: response.mapString())!
+//    }
 
 }

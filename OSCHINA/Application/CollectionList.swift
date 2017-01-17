@@ -63,14 +63,13 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         collectionView.frame = view.bounds
     }
-    
+
     func cell(_ cell: C, indexPath: IndexPath) {}
     
     func numberOfItemsIn(_ section: Int) -> Int {
@@ -79,6 +78,7 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
     
     func refresh() {}
     
+    /// 加载更多
     func loadMore() {}
 
 }
