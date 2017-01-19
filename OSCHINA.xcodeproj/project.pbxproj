@@ -88,7 +88,7 @@
 		3CDF83081D7A8F9800313A66 /* TweetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83071D7A8F9800313A66 /* TweetDetail.swift */; };
 		3CDF830D1D7AC0E700313A66 /* SignupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF830C1D7AC0E700313A66 /* SignupProtocol.swift */; };
 		3CDF83101D7AC38E00313A66 /* SignupDefaultValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF830F1D7AC38E00313A66 /* SignupDefaultValidationService.swift */; };
-		3CDF83121D7AC88000313A66 /* NSURL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83111D7AC88000313A66 /* NSURL+Extension.swift */; };
+		3CDF83121D7AC88000313A66 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83111D7AC88000313A66 /* String+Extension.swift */; };
 		3CDF83141D7ACC8200313A66 /* BindingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83131D7ACC8200313A66 /* BindingExtensions.swift */; };
 		3CDF83161D7ACDC800313A66 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF83151D7ACDC800313A66 /* SignupViewModel.swift */; };
 		3CDF831D1D7AFB9600313A66 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF831C1D7AFB9600313A66 /* SignupController.swift */; };
@@ -196,7 +196,7 @@
 		3CDF83071D7A8F9800313A66 /* TweetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetail.swift; sourceTree = "<group>"; };
 		3CDF830C1D7AC0E700313A66 /* SignupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocol.swift; sourceTree = "<group>"; };
 		3CDF830F1D7AC38E00313A66 /* SignupDefaultValidationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupDefaultValidationService.swift; sourceTree = "<group>"; };
-		3CDF83111D7AC88000313A66 /* NSURL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extension.swift"; sourceTree = "<group>"; };
+		3CDF83111D7AC88000313A66 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3CDF83131D7ACC8200313A66 /* BindingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingExtensions.swift; sourceTree = "<group>"; };
 		3CDF83151D7ACDC800313A66 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		3CDF831C1D7AFB9600313A66 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 				3C80B3591D796AA100B8B8AC /* UIView+Extension.swift */,
 				3C80B35A1D796AA100B8B8AC /* UIViewController+Extension.swift */,
 				3C9386551D5DB6E500DDEE54 /* UITableView+Reusable.swift */,
-				3CDF83111D7AC88000313A66 /* NSURL+Extension.swift */,
+				3CDF83111D7AC88000313A66 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -768,7 +768,7 @@
 				3CE34E861E2DB3F700733A01 /* NewsObjList.swift in Sources */,
 				3C80B3391D780D7B00B8B8AC /* NewCell.swift in Sources */,
 				3CDF83001D7A711600313A66 /* EventViewModel.swift in Sources */,
-				3CDF83121D7AC88000313A66 /* NSURL+Extension.swift in Sources */,
+				3CDF83121D7AC88000313A66 /* String+Extension.swift in Sources */,
 				3C6186581D59DA9500982E39 /* BaseTabBarController.swift in Sources */,
 				3C2D24761D86E6EE00BE13E0 /* UINavigationController+Extensions.swift in Sources */,
 				3CDF83141D7ACC8200313A66 /* BindingExtensions.swift in Sources */,

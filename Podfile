@@ -22,7 +22,7 @@ target 'OSCHINA' do
 #  pod 'XCGLogger'
   pod 'SnapKit'
   pod 'RxDataSources'
-  
+  pod 'AwsomeTextField'
   # OC
   pod 'MJRefresh'
   

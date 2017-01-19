@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Resueable
 extension UITableView {
     
     final func register<T: UITableViewCell>(cellType: T.Type)
@@ -57,4 +58,12 @@ extension UITableView {
         return view
     }
     
+}
+
+
+// MARK: - emptyCells
+extension UITableView {
+    func hideEmptyCells() {
+        tableFooterView = UIView(frame: CGRect.zero)
+    }
 }

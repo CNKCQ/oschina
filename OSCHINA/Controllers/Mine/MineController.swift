@@ -88,13 +88,15 @@ class MineController: BaseViewController {
         loginButton = UIButton(frame: CGRect(x: 15, y: avartView.bottom, width: view.bounds.width / 2, height: 25))
         avartView.addAction(self, action: #selector(login))
         loginButton.centerX = headerView.centerX
-        loginButton.addAction(self, action: #selector(login))
-//        loginButton.rx_tap.subscribeNext ({ [weak self] in
-//            self?.login()
-//        }).addDisposableTo(disposeBag)
+//        loginButton.addAction(self, action: #selector(login))
+        loginButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.present(Sigin(), animated: true, completion: nil)
+        })
+            .addDisposableTo(disposeBag)
         headerView.addSubview(avartView)
         headerView.addSubview(loginButton)
         loginButton.setTitle("登录", for: UIControlState())
+        
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = headerView
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: 100))
@@ -112,6 +114,8 @@ class MineController: BaseViewController {
 //            self.loginButton.setTitle(user?.name, for: UIControlState())
 //        }
 //        navigationController?.pushViewController(dest, animated: true)
+        let dest = Sigin()
+        self.present(dest, animated: true, completion: nil)
     }
 }
 
