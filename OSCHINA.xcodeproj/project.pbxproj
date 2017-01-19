@@ -55,7 +55,6 @@
 		3C80B3451D781BF900B8B8AC /* TweetRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3421D781BF900B8B8AC /* TweetRootClass.swift */; };
 		3C80B3471D781F2D00B8B8AC /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3461D781F2D00B8B8AC /* Avatar.swift */; };
 		3C80B34B1D792F9B00B8B8AC /* ic_me_avart_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C80B34A1D792F9B00B8B8AC /* ic_me_avart_default@2x.png */; };
-		3C80B34E1D794A5D00B8B8AC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B34D1D794A5D00B8B8AC /* LoginController.swift */; };
 		3C80B3511D794C3700B8B8AC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3501D794C3700B8B8AC /* LoginViewModel.swift */; };
 		3C80B35B1D796AA100B8B8AC /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3521D796AA000B8B8AC /* NSAttributedString+Extensions.swift */; };
 		3C80B35C1D796AA100B8B8AC /* NSBundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C80B3531D796AA100B8B8AC /* NSBundle+Extension.swift */; };
@@ -162,7 +161,6 @@
 		3C80B3421D781BF900B8B8AC /* TweetRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetRootClass.swift; sourceTree = "<group>"; };
 		3C80B3461D781F2D00B8B8AC /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		3C80B34A1D792F9B00B8B8AC /* ic_me_avart_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_me_avart_default@2x.png"; sourceTree = "<group>"; };
-		3C80B34D1D794A5D00B8B8AC /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3C80B3501D794C3700B8B8AC /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3C80B3521D796AA000B8B8AC /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		3C80B3531D796AA100B8B8AC /* NSBundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Extension.swift"; sourceTree = "<group>"; };
@@ -444,7 +442,6 @@
 			children = (
 				3CDF830E1D7AC35000313A66 /* Login */,
 				3C9386461D5DB22500DDEE54 /* MineController.swift */,
-				3C80B34D1D794A5D00B8B8AC /* LoginController.swift */,
 				3C192CA21E213DF3000A4305 /* SettingController.swift */,
 			);
 			path = Mine;
@@ -800,7 +797,6 @@
 				3C48B0A31E2B6A9D00E6CBC5 /* ArticlesViewModel.swift in Sources */,
 				3CDF83291D7AFE9D00313A66 /* String+CacheMenu.swift in Sources */,
 				3CDF83281D7AFE9D00313A66 /* NSTimer+schedule.swift in Sources */,
-				3C80B34E1D794A5D00B8B8AC /* LoginController.swift in Sources */,
 				3CE34E851E2DB3F700733A01 /* NewsAuthor.swift in Sources */,
 				3CDF82FC1D7A70A400313A66 /* EventRootClass.swift in Sources */,
 				3CDF83161D7ACDC800313A66 /* SignupViewModel.swift in Sources */,
