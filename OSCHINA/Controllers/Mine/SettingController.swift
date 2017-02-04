@@ -50,3 +50,4 @@ class SettingController: BaseViewController {
         }).addDisposableTo(disposeBag)
     }
 }
+
