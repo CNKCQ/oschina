@@ -49,12 +49,22 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     override func refresh() {
-        viewModel.refresh().subscribe(
-            onNext: { result in
-                self.newsItems = result.0
-                self.bannerItems = result.1
+        viewModel.banner().subscribe(
+            onNext: { bannerRoot in
+            self.bannerItems = bannerRoot.result?.items
         })
-            .addDisposableTo(self.disposeBag)
+        .addDisposableTo(self.disposeBag)
+        viewModel.news().subscribe(
+            onNext: { rootNew in
+            self.newsItems = rootNew.objList ?? []
+        })
+        .addDisposableTo(self.disposeBag)
+//        viewModel.refresh().subscribe(
+//            onNext: { result in
+//                self.newsItems = result.0
+//                self.bannerItems = result.1
+//        })
+//            .addDisposableTo(self.disposeBag)
     }
     
     override func loadMore() {

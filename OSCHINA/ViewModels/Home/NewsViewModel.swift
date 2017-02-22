@@ -67,6 +67,32 @@ class NewsViewModel {
             })
             .observeOn(MainScheduler.instance)
     }
+    
+    func banner() -> Observable<BannerRootClass> {
+        return request(OSCIOService.newBanner)
+        }
+    
+    func news() -> Observable<NewsRootClass> {
+        return request(OSCIOService.newsList(para: ["pageIndex": 0]))
+    }
+    
+    func request<M: Mappable>(_ token: OSCIOService) -> Observable<M> {
+        return Observable.create({ observer -> Disposable in
+            self.provider.request(token) { result in
+                result.analysis(ifSuccess: { response in
+                    guard let entity = Mapper<M>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!) else {
+                        fatalError()
+                    }
+                    observer.on(Event.next(entity))
+                }, ifFailure: { error in
+                    observer.on(Event.error(error))
+                })
+                observer.onCompleted()
+            }
+          
+            return Disposables.create()
+        })
+    }
 }
 
 // RxSwif 的使用场景 http://blog.csdn.net/lzyzsd/article/details/50120801
