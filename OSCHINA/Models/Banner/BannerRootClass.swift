@@ -6,11 +6,11 @@ import Foundation
 import ObjectMapper
 
 
-class BannerRootClass: NSObject, NSCoding, Mappable {
+class BannerRootClass<T: Mappable>: NSObject, NSCoding, Mappable {
 
 	var code: Int?
 	var message: String?
-	var result: BannerResult?
+	var result: ListModel<T>?
 	var time: String?
 
 
@@ -37,7 +37,7 @@ class BannerRootClass: NSObject, NSCoding, Mappable {
     @objc required init(coder aDecoder: NSCoder) {
          code = aDecoder.decodeObject(forKey: "code") as? Int
          message = aDecoder.decodeObject(forKey: "message") as? String
-         result = aDecoder.decodeObject(forKey: "result") as? BannerResult
+         result = aDecoder.decodeObject(forKey: "result") as? ListModel<T>
          time = aDecoder.decodeObject(forKey: "time") as? String
 
 	}

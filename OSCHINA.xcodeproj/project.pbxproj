@@ -20,6 +20,7 @@
 		3C2D24761D86E6EE00BE13E0 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D24751D86E6EE00BE13E0 /* UINavigationController+Extensions.swift */; };
 		3C2D24921D87DD7D00BE13E0 /* Photo_light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C2D24911D87DD7D00BE13E0 /* Photo_light@3x.png */; };
 		3C2D24951D891A6D00BE13E0 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D24941D891A6D00BE13E0 /* EventCell.swift */; };
+		3C2F18CF1E60673A00776E74 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2F18CE1E60673A00776E74 /* ListModel.swift */; };
 		3C48B0A01E2B646000E6CBC5 /* DiscoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B09F1E2B646000E6CBC5 /* DiscoverModel.swift */; };
 		3C48B0A31E2B6A9D00E6CBC5 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A11E2B6A9D00E6CBC5 /* ArticlesViewModel.swift */; };
 		3C48B0A41E2B6A9D00E6CBC5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */; };
@@ -31,7 +32,6 @@
 		3C4BCA931D6157DE00597109 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4BCA921D6157DE00597109 /* Api.swift */; };
 		3C50B3451D7D5B80006FB6A4 /* BannerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3411D7D5B80006FB6A4 /* BannerItem.swift */; };
 		3C50B3461D7D5B80006FB6A4 /* BannerPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3421D7D5B80006FB6A4 /* BannerPageInfo.swift */; };
-		3C50B3471D7D5B80006FB6A4 /* BannerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3431D7D5B80006FB6A4 /* BannerResult.swift */; };
 		3C50B3481D7D5B80006FB6A4 /* BannerRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3441D7D5B80006FB6A4 /* BannerRootClass.swift */; };
 		3C50B34A1D7D6CBD006FB6A4 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50B3491D7D6CBD006FB6A4 /* BannerViewModel.swift */; };
 		3C6186351D5985D600982E39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6186331D5985D600982E39 /* Main.storyboard */; };
@@ -123,6 +123,7 @@
 		3C2D24751D86E6EE00BE13E0 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		3C2D24911D87DD7D00BE13E0 /* Photo_light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo_light@3x.png"; sourceTree = "<group>"; };
 		3C2D24941D891A6D00BE13E0 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		3C2F18CE1E60673A00776E74 /* ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		3C48B09F1E2B646000E6CBC5 /* DiscoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverModel.swift; sourceTree = "<group>"; };
 		3C48B0A11E2B6A9D00E6CBC5 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
 		3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		3C4BCA941D61715500597109 /* OSCHINA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSCHINA-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C50B3411D7D5B80006FB6A4 /* BannerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerItem.swift; sourceTree = "<group>"; };
 		3C50B3421D7D5B80006FB6A4 /* BannerPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerPageInfo.swift; sourceTree = "<group>"; };
-		3C50B3431D7D5B80006FB6A4 /* BannerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerResult.swift; sourceTree = "<group>"; };
 		3C50B3441D7D5B80006FB6A4 /* BannerRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerRootClass.swift; sourceTree = "<group>"; };
 		3C50B3491D7D6CBD006FB6A4 /* BannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
 		3C61862C1D5985D600982E39 /* OSCHINA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSCHINA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,7 +284,6 @@
 			children = (
 				3C50B3411D7D5B80006FB6A4 /* BannerItem.swift */,
 				3C50B3421D7D5B80006FB6A4 /* BannerPageInfo.swift */,
-				3C50B3431D7D5B80006FB6A4 /* BannerResult.swift */,
 				3C50B3441D7D5B80006FB6A4 /* BannerRootClass.swift */,
 			);
 			path = Banner;
@@ -368,6 +367,7 @@
 				3C80B33A1D78192A00B8B8AC /* Tweet */,
 				3C1F4CAF1D77C80900ABDF1D /* News */,
 				3C1F4CAD1D77C43100ABDF1D /* BaseModel.swift */,
+				3C2F18CE1E60673A00776E74 /* ListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -782,9 +782,9 @@
 				3C9386431D5DB1DD00DDEE54 /* DiscoverController.swift in Sources */,
 				3C80B33F1D781A2C00B8B8AC /* TweetCell.swift in Sources */,
 				3C80B33D1D7819E500B8B8AC /* TweetViewModel.swift in Sources */,
+				3C2F18CF1E60673A00776E74 /* ListModel.swift in Sources */,
 				3C80B3671D796D6200B8B8AC /* User.swift in Sources */,
 				3C192CA51E2147CC000A4305 /* UICollectionView+Reusable.swift in Sources */,
-				3C50B3471D7D5B80006FB6A4 /* BannerResult.swift in Sources */,
 				3C48B0AC1E2BA02E00E6CBC5 /* ColloctionCell.swift in Sources */,
 				3C61BDCD1D7D0EBA00548BE7 /* SigninDefaultValidationService.swift in Sources */,
 				3C80B3611D796AA100B8B8AC /* UIScrollView+Extenstion.swift in Sources */,

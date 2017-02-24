@@ -23,52 +23,52 @@ class NewsViewModel {
         self.provider = RxMoyaProvider<OSCIOService>()
     }
     
-    func refresh() -> Observable<([NewsObjList], [BannerItem])> {
-        let parameters = ["pageIndex": 0]
-        return fetch(parameters)
-    }
+//    func refresh() -> Observable<([NewsObjList], [BannerItem])> {
+//        let parameters = ["pageIndex": 0]
+//        return fetch(parameters)
+//    }
+//    
+//    func loadMore() -> Observable<([NewsObjList], [BannerItem])> {
+//        pageIndex = pageIndex + 1
+//        let parameters = ["pageIndex": pageIndex]
+//        return fetch(parameters)
+//    }
+//
+//    func fetch(_ parameters: [String: Int]) -> Observable<([NewsObjList], [BannerItem])> {
+//        // 界面需要等到多个接口并发取完数据，再更新
+//        return Observable
+//            .zip(
+//                provider.request(OSCIOService.newsList(para: parameters)).filter(statusCodes: 200...201).observeOn(backgroundScheduler).map({ response -> [NewsObjList] in
+//                    if let result = Mapper<NewsRootClass>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!) {
+//                        return result.objList ?? []
+//
+//                    } else {
+////                        throw response as! Error
+//                        return []
+//                    }
+//                }),
+//                provider
+//                    .request(OSCIOService.newBanner)
+//                    .filter(statusCodes: 200...201)
+//                    .observeOn(backgroundScheduler)
+//                    .map({ response -> [BannerItem] in
+//                        if let result = Mapper<BannerRootClass>().map(JSONString: String(data: response.data,encoding:  String.Encoding.utf8)!){
+//                            return result.result!.items!
+//                        } else {
+////                            throw response as! Error
+//                            return []
+//                        }
+//                    }),
+//                resultSelector: { news, banners -> ([NewsObjList], [BannerItem]) in
+//                    return (news, banners)
+//            })
+//            .do(onNext:  { entities in
+//                print(entities)
+//            })
+//            .observeOn(MainScheduler.instance)
+//    }
     
-    func loadMore() -> Observable<([NewsObjList], [BannerItem])> {
-        pageIndex = pageIndex + 1
-        let parameters = ["pageIndex": pageIndex]
-        return fetch(parameters)
-    }
-    
-    func fetch(_ parameters: [String: Int]) -> Observable<([NewsObjList], [BannerItem])> {
-        // 界面需要等到多个接口并发取完数据，再更新
-        return Observable
-            .zip(
-                provider.request(OSCIOService.newsList(para: parameters)).filter(statusCodes: 200...201).observeOn(backgroundScheduler).map({ response -> [NewsObjList] in
-                    if let result = Mapper<NewsRootClass>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!) {
-                        return result.objList ?? []
-
-                    } else {
-//                        throw response as! Error
-                        return []
-                    }
-                }),
-                provider
-                    .request(OSCIOService.newBanner)
-                    .filter(statusCodes: 200...201)
-                    .observeOn(backgroundScheduler)
-                    .map({ response -> [BannerItem] in
-                        if let result = Mapper<BannerRootClass>().map(JSONString: String(data: response.data,encoding:  String.Encoding.utf8)!){
-                            return result.result!.items!
-                        } else {
-//                            throw response as! Error
-                            return []
-                        }
-                    }),
-                resultSelector: { news, banners -> ([NewsObjList], [BannerItem]) in
-                    return (news, banners)
-            })
-            .do(onNext:  { entities in
-                print(entities)
-            })
-            .observeOn(MainScheduler.instance)
-    }
-    
-    func banner() -> Observable<BannerRootClass> {
+    func banner() -> Observable<BannerRootClass<BannerItem>> {
         return request(OSCIOService.newBanner)
         }
     

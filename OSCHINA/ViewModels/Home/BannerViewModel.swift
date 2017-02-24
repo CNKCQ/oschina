@@ -18,19 +18,19 @@ class BannerViewModel {
         self.provider = RxMoyaProvider<OSCIOService>()
     }
 
-    func fetchBanner() -> Observable<[BannerItem]?> {
-        return Observable.create({ observer -> Disposable in
-            self.provider.request(OSCIOService.newBanner) { result in
-                result.analysis(ifSuccess: { response in
-                    let entity = Mapper<BannerRootClass>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!)
-                    observer.on(Event.next(entity?.result?.items))
-                }, ifFailure: { error in
-                    observer.on(Event.error(error))
-                })
-                observer.onCompleted()
-            }
-            return Disposables.create()
-        })
-    }
+//    func fetchBanner() -> Observable<[BannerItem]?> {
+//        return Observable.create({ observer -> Disposable in
+//            self.provider.request(OSCIOService.newBanner) { result in
+//                result.analysis(ifSuccess: { response in
+//                    let entity = Mapper<BannerRootClass>().map(JSONString: String(data: response.data, encoding:  String.Encoding.utf8)!)
+//                    observer.on(Event.next(entity?.result?.items))
+//                }, ifFailure: { error in
+//                    observer.on(Event.error(error))
+//                })
+//                observer.onCompleted()
+//            }
+//            return Disposables.create()
+//        })
+//    }
 }
 

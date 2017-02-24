@@ -49,16 +49,19 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     override func refresh() {
-        viewModel.banner().subscribe(
-            onNext: { bannerRoot in
-            self.bannerItems = bannerRoot.result?.items
-        })
-        .addDisposableTo(self.disposeBag)
-        viewModel.news().subscribe(
-            onNext: { rootNew in
-            self.newsItems = rootNew.objList ?? []
-        })
-        .addDisposableTo(self.disposeBag)
+        viewModel.banner().subscribe(onNext: { result in
+            self.bannerItems = result.result?.items
+        }).addDisposableTo(self.disposeBag)
+//        viewModel.banner().subscribe(
+//            onNext: { bannerRoot in
+//            self.bannerItems = bannerRoot.result?.items
+//        })
+//        .addDisposableTo(self.disposeBag)
+//        viewModel.news().subscribe(
+//            onNext: { rootNew in
+//            self.newsItems = rootNew.objList ?? []
+//        })
+//        .addDisposableTo(self.disposeBag)
 //        viewModel.refresh().subscribe(
 //            onNext: { result in
 //                self.newsItems = result.0
@@ -68,12 +71,12 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
     
     override func loadMore() {
-        viewModel.loadMore().subscribe(
-            onNext: { result in
-                self.newsItems += result.0
-                self.bannerItems = result.1
-        })
-            .addDisposableTo(self.disposeBag)
+//        viewModel.loadMore().subscribe(
+//            onNext: { result in
+//                self.newsItems += result.0
+//                self.bannerItems = result.1
+//        })
+//            .addDisposableTo(self.disposeBag)
     }
     
     
