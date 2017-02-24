@@ -27,7 +27,6 @@ class BannerRootClass<T: Mappable>: NSObject, NSCoding, Mappable {
 		message <- map["message"]
 		result <- map["result"]
 		time <- map["time"]
-
 	}
 
     /**
@@ -39,7 +38,6 @@ class BannerRootClass<T: Mappable>: NSObject, NSCoding, Mappable {
          message = aDecoder.decodeObject(forKey: "message") as? String
          result = aDecoder.decodeObject(forKey: "result") as? ListModel<T>
          time = aDecoder.decodeObject(forKey: "time") as? String
-
 	}
 
     /**
