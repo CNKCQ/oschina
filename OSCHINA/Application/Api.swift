@@ -20,6 +20,7 @@ enum OSCIOService {
 
 extension OSCIOService: TargetType {
 
+
     var baseURL: URL {
         // return NSURL(string: "http://www.oschina.net/action/api")! //XML格式
         return URL(string: "http://www.oschina.net/action/apiv2")! //JSON格式
