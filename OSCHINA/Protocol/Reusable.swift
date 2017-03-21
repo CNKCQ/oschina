@@ -6,6 +6,9 @@
 import UIKit
 
 public protocol Reusable: class {
+    
+    associatedtype reusableType = Self
+    
     static var reuseIdentifier: String { get }
 }
 
@@ -14,3 +17,14 @@ public extension Reusable {
         return String(describing: self)
     }
 }
+
+class Test {
+    func test<T: Reusable>() -> T where T == T.reusableType {
+        return ok() as! T
+    }
+}
+
+class ok: Reusable {
+
+}
+
