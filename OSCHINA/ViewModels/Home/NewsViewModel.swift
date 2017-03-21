@@ -70,7 +70,8 @@ class NewsViewModel {
     
     func banner() -> Observable<BannerRootClass<BannerItem>> {
         return request(OSCIOService.newBanner)
-        }
+    }
+
     
     func news() -> Observable<NewsRootClass> {
         return request(OSCIOService.newsList(para: ["pageIndex": 0]))
