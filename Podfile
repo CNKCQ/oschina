@@ -18,7 +18,7 @@ target 'OSCHINA' do
 #  pod 'KissXML/SwiftNSXML'
 #  pod 'SwiftyBeaver'
   pod 'PagingMenuController'               # https://github.com/kitasuke/PagingMenuController
-  pod 'AutoCycleAdview', :git => 'https://github.com/CNKCQ/AutoCycleAdview.git'
+  pod 'AutoCycleAdview'#, :git => 'https://github.com/CNKCQ/AutoCycleAdview.git'
 #  pod 'XCGLogger'
   pod 'SnapKit'
   pod 'RxDataSources'

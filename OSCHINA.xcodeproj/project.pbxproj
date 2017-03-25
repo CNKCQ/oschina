@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		015FC0930A4CFA7F1F0D99C9 /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5968EA7D0A726B9675E0FCFD /* Pods_OSCHINA.framework */; };
 		3C192CA31E213DF3000A4305 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C192CA21E213DF3000A4305 /* SettingController.swift */; };
 		3C192CA51E2147CC000A4305 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C192CA41E2147CC000A4305 /* UICollectionView+Reusable.swift */; };
 		3C1F4CAE1D77C43100ABDF1D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F4CAD1D77C43100ABDF1D /* BaseModel.swift */; };
@@ -85,6 +84,7 @@
 		3CEE37751E2725F5003DE0BC /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE37741E2725F5003DE0BC /* WebController.swift */; };
 		3CEE37771E272BB7003DE0BC /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE37761E272BB7003DE0BC /* BaseController.swift */; };
 		3CF215D81E23B8A000CF4304 /* NewsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF215D71E23B8A000CF4304 /* NewsLayout.swift */; };
+		9246F483AD7BFA995306A663 /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EF50D6A898A859D819F1E2 /* Pods_OSCHINA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,9 +169,9 @@
 		3CEE37741E2725F5003DE0BC /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		3CEE37761E272BB7003DE0BC /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		3CF215D71E23B8A000CF4304 /* NewsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLayout.swift; sourceTree = "<group>"; };
-		5968EA7D0A726B9675E0FCFD /* Pods_OSCHINA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSCHINA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FED1ED17698C807870C4C4A /* Pods-OSCHINA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.release.xcconfig"; sourceTree = "<group>"; };
-		B5519255A12E85E495B3EA9A /* Pods-OSCHINA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.debug.xcconfig"; sourceTree = "<group>"; };
+		B6EF50D6A898A859D819F1E2 /* Pods_OSCHINA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSCHINA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED8191F00F836C6FEBA3F39 /* Pods-OSCHINA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.release.xcconfig"; sourceTree = "<group>"; };
+		F6603218BC3A82C2781F84C3 /* Pods-OSCHINA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015FC0930A4CFA7F1F0D99C9 /* Pods_OSCHINA.framework in Frameworks */,
+				9246F483AD7BFA995306A663 /* Pods_OSCHINA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +254,8 @@
 				3CEE37731E2725F5003DE0BC /* iOSKit */,
 				3C61862E1D5985D600982E39 /* OSCHINA */,
 				3C61862D1D5985D600982E39 /* Products */,
-				B18FC559405C8F1DCC1DAE0C /* Pods */,
-				CD0523D6272D77936FF980ED /* Frameworks */,
+				E56607FE9A6032BFD287C00C /* Pods */,
+				DD1C50F89D8D5462838CC30E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -479,21 +479,21 @@
 			path = ../iOSKit/iOSKit;
 			sourceTree = "<group>";
 		};
-		B18FC559405C8F1DCC1DAE0C /* Pods */ = {
+		DD1C50F89D8D5462838CC30E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5519255A12E85E495B3EA9A /* Pods-OSCHINA.debug.xcconfig */,
-				5FED1ED17698C807870C4C4A /* Pods-OSCHINA.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		CD0523D6272D77936FF980ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5968EA7D0A726B9675E0FCFD /* Pods_OSCHINA.framework */,
+				B6EF50D6A898A859D819F1E2 /* Pods_OSCHINA.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E56607FE9A6032BFD287C00C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6603218BC3A82C2781F84C3 /* Pods-OSCHINA.debug.xcconfig */,
+				CED8191F00F836C6FEBA3F39 /* Pods-OSCHINA.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,12 +503,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C61863E1D5985D600982E39 /* Build configuration list for PBXNativeTarget "OSCHINA" */;
 			buildPhases = (
-				51FCE9593E549919C1476DE9 /* [CP] Check Pods Manifest.lock */,
+				59485ED5744D488B0F6A0298 /* [CP] Check Pods Manifest.lock */,
 				3C6186281D5985D600982E39 /* Sources */,
 				3C6186291D5985D600982E39 /* Frameworks */,
 				3C61862A1D5985D600982E39 /* Resources */,
-				DE5F04C1AED2217A17E1931C /* [CP] Embed Pods Frameworks */,
-				A1A1695626EC84D131E33D78 /* [CP] Copy Pods Resources */,
+				4B766939BCA527461B1F385C /* [CP] Embed Pods Frameworks */,
+				8FA6B4F669300425B6C8EA1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -571,7 +571,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51FCE9593E549919C1476DE9 /* [CP] Check Pods Manifest.lock */ = {
+		4B766939BCA527461B1F385C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59485ED5744D488B0F6A0298 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -586,7 +601,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A1A1695626EC84D131E33D78 /* [CP] Copy Pods Resources */ = {
+		8FA6B4F669300425B6C8EA1A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -599,21 +614,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE5F04C1AED2217A17E1931C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -806,7 +806,7 @@
 		};
 		3C61863F1D5985D600982E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5519255A12E85E495B3EA9A /* Pods-OSCHINA.debug.xcconfig */;
+			baseConfigurationReference = F6603218BC3A82C2781F84C3 /* Pods-OSCHINA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -825,7 +825,7 @@
 		};
 		3C6186401D5985D600982E39 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FED1ED17698C807870C4C4A /* Pods-OSCHINA.release.xcconfig */;
+			baseConfigurationReference = CED8191F00F836C6FEBA3F39 /* Pods-OSCHINA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
