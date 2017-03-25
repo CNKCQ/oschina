@@ -32,7 +32,7 @@ class ArticleEntity: Mappable {
         type <- map["type"]
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
     }
 }
 

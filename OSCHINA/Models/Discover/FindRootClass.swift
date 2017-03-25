@@ -14,7 +14,7 @@ class FindRootClass: NSObject, NSCoding, Mappable {
         return FindRootClass()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

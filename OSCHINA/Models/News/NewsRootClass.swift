@@ -10,7 +10,7 @@ class NewsRootClass: NSObject, NSCoding, Mappable {
     var code: Int?
     var objList: [NewsObjList]?
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

@@ -14,7 +14,7 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
         return LoginRootClass()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

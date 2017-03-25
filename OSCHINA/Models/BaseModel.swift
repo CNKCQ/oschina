@@ -11,7 +11,8 @@ class BaseModel<T: Mappable>: Mappable {
     var code: Bool?
     var results: [T]?
 
-    required init?(_: Map) {}
+    required init?(map: Map) {
+    }
 
     func mapping(map: Map) {
         code <- map["error"]

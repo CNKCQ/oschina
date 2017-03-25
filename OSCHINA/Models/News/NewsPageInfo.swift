@@ -14,7 +14,7 @@ class NewsPageInfo: NSObject, NSCoding, Mappable {
         return NewsPageInfo()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

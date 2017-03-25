@@ -27,7 +27,7 @@ PODS:
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
-  - AutoCycleAdview (~> 1.0.2)
+  - AutoCycleAdview (from `https://github.com/CNKCQ/AutoCycleAdview.git`)
   - AwsomeTextField
   - Kingfisher
   - MJRefresh
@@ -41,9 +41,18 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SnapKit
 
+EXTERNAL SOURCES:
+  AutoCycleAdview:
+    :git: https://github.com/CNKCQ/AutoCycleAdview.git
+
+CHECKOUT OPTIONS:
+  AutoCycleAdview:
+    :commit: a3955ed9b6a2d00354d0a5a9736176ef7a9e5c1a
+    :git: https://github.com/CNKCQ/AutoCycleAdview.git
+
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AutoCycleAdview: ced3080f41aa8d96c5faa940749d9cb2895516c9
+  AutoCycleAdview: '0694b43c648f803b4a583a2e73ed6d78220cd552'
   AwsomeTextField: a1e83c3d939ff0285d6b1c5fc1fe0a9b5a743312
   Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -57,6 +66,6 @@ SPEC CHECKSUMS:
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 487d963d56a6e7813b594eb4f6c1dbbd965c1951
+PODFILE CHECKSUM: a56fa3d03da5c55535e6d647f199379bb16bf728
 
 COCOAPODS: 1.2.0

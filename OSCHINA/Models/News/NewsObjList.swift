@@ -16,7 +16,7 @@ class NewsObjList: NSObject, NSCoding, Mappable {
     var type: Int?
     var url: String?
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

@@ -18,7 +18,7 @@ class FindObjList: NSObject, NSCoding, Mappable {
         return FindObjList()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

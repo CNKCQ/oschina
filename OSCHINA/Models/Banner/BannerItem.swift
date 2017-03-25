@@ -19,7 +19,7 @@ class BannerItem: NSObject, NSCoding, Mappable {
         return BannerItem()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

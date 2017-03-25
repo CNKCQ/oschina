@@ -20,7 +20,7 @@ class ListModel<T: Mappable>: NSObject, NSCoding, Mappable {
         return ListModel()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

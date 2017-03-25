@@ -11,7 +11,7 @@ class NewsAuthor: NSObject, NSCoding, Mappable {
     var name: String?
     var portrait: String?
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

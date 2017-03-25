@@ -14,7 +14,7 @@ class BannerPageInfo: NSObject, NSCoding, Mappable {
         return BannerPageInfo()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

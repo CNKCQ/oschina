@@ -22,7 +22,7 @@ class NewsItem: NSObject, NSCoding, Mappable {
         return NewsItem()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

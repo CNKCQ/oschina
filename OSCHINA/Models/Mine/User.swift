@@ -25,7 +25,7 @@ class User: NSObject, NSCoding, Mappable {
         return User()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 

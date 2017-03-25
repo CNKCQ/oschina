@@ -16,7 +16,7 @@ class BannerRootClass<T: Mappable>: NSObject, NSCoding, Mappable {
         return BannerRootClass()
     }
 
-    required init?(_: Map) {
+    required init?(map: Map) {
         super.init()
     }
 
