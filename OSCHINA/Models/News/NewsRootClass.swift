@@ -5,47 +5,41 @@
 import Foundation
 import ObjectMapper
 
+class NewsRootClass: NSObject, NSCoding, Mappable {
 
-class NewsRootClass : NSObject, NSCoding, Mappable{
+    var code: Int?
+    var objList: [NewsObjList]?
 
-
-	var code : Int?
-	var objList : [NewsObjList]?
-
-    required init?(map: Map) {
+    required init?(_: Map) {
         super.init()
     }
 
-	class func newInstance(map: Map) -> Mappable?{
-		return NewsRootClass()
-	}
-	private override init(){}
+    class func newInstance(map: Map) -> Mappable? {
+        return NewsRootClass()
+    }
 
-	func mapping(map: Map)
-	{
-		code <- map["code"]
-		objList <- map["obj_list"]
-		
-	}
+    private override init() {}
+
+    func mapping(map: Map) {
+        code <- map["code"]
+        objList <- map["obj_list"]
+    }
 
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     public func encode(with aCoder: NSCoder) {
-        if code != nil{
+        if code != nil {
             aCoder.encode(code, forKey: "code")
         }
-        if objList != nil{
+        if objList != nil {
             aCoder.encode(objList, forKey: "obj_list")
         }
     }
 
-   required init(coder aDecoder: NSCoder)
-	{
-         code = aDecoder.decodeObject(forKey: "code") as? Int
-         objList = aDecoder.decodeObject(forKey: "obj_list") as? [NewsObjList]
-
-	}
-
+    required init(coder aDecoder: NSCoder) {
+        code = aDecoder.decodeObject(forKey: "code") as? Int
+        objList = aDecoder.decodeObject(forKey: "obj_list") as? [NewsObjList]
+    }
 }

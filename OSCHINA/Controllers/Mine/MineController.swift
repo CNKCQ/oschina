@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
-//import Kingfisher
+// import Kingfisher
 
 private let tableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 89 : 95
 private let beforeAppearOffset: CGFloat = 0
@@ -24,16 +24,16 @@ class MineController: BaseViewController {
     let items = Observable.just([
         SectionModel(model: "title", items: [
             "扫一扫",
-            "摇一摇"
-            ]),
+            "摇一摇",
+        ]),
         SectionModel(model: "title1", items: [
             "开源软件",
-            "线下活动"
-            ]),
+            "线下活动",
+        ]),
         SectionModel(model: "title2", items: [
-            "设置"
-            ])
-        ])
+            "设置",
+        ]),
+    ])
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -59,7 +59,7 @@ class MineController: BaseViewController {
         tableView.backgroundView = backgroundView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         let dataSource = self.dataSource
-        dataSource.configureCell = { (_, tableView, indexPath, element) in
+        dataSource.configureCell = { _, tableView, _, element in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self))!
             cell.textLabel?.text = element
             cell.accessoryType = .disclosureIndicator
@@ -67,14 +67,14 @@ class MineController: BaseViewController {
         }
         items.bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
-        
+
         tableView.rx.modelSelected(String.self).subscribe(onNext: { item in
             switch item {
             case "设置":
                 self.startActivity(SettingController())
             default: break
             }
-            }).addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
         tableView
             .rx.setDelegate(self)
             .addDisposableTo(disposeBag)
@@ -88,7 +88,7 @@ class MineController: BaseViewController {
         loginButton = UIButton(frame: CGRect(x: 15, y: avartView.bottom, width: view.bounds.width / 2, height: 25))
         avartView.addAction(self, action: #selector(login))
         loginButton.centerX = headerView.centerX
-//        loginButton.addAction(self, action: #selector(login))
+        //        loginButton.addAction(self, action: #selector(login))
         loginButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.present(Sigin(), animated: true, completion: nil)
         })
@@ -96,7 +96,7 @@ class MineController: BaseViewController {
         headerView.addSubview(avartView)
         headerView.addSubview(loginButton)
         loginButton.setTitle("登录", for: UIControlState())
-        
+
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = headerView
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: 100))
@@ -106,14 +106,14 @@ class MineController: BaseViewController {
     }
 
     func login() {
-//        let dest = LoginController()
-//        dest.destBack = { user in
-//            if let url = URL(string: user!.portrait!) {
-//                _ = self.avartView.setImageWithURL(url)
-//            }
-//            self.loginButton.setTitle(user?.name, for: UIControlState())
-//        }
-//        navigationController?.pushViewController(dest, animated: true)
+        //        let dest = LoginController()
+        //        dest.destBack = { user in
+        //            if let url = URL(string: user!.portrait!) {
+        //                _ = self.avartView.setImageWithURL(url)
+        //            }
+        //            self.loginButton.setTitle(user?.name, for: UIControlState())
+        //        }
+        //        navigationController?.pushViewController(dest, animated: true)
         let dest = Sigin()
         self.present(dest, animated: true, completion: nil)
     }
@@ -125,11 +125,11 @@ extension MineController: UITableViewDelegate {
         return label
     }
 
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    func tableView(_: UITableView, willDisplayFooterView view: UIView, forSection _: Int) {
         view.backgroundColor = UIColor.groupTableViewBackground
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
         return CGFloat(FLT_MIN)
     }
 }

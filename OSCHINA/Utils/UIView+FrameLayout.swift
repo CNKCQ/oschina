@@ -53,6 +53,7 @@ extension UIView {
             self.frame = frame
         }
     }
+
     var y: CGFloat {
         get { return self.frame.minY }
         set {
@@ -86,7 +87,7 @@ extension UIView {
     }
 
     var bottom: CGFloat {
-        get { return self.frame.maxY}
+        get { return self.frame.maxY }
         set {
             var frame = self.frame
             frame.origin.y = newValue - self.frame.size.height
@@ -107,7 +108,7 @@ extension UIView {
         get { return self.frame.minX }
         set {
             var frame = self.frame
-            frame.origin.x  = newValue
+            frame.origin.x = newValue
             self.frame = frame
         }
     }

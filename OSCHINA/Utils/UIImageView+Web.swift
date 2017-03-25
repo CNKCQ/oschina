@@ -11,13 +11,11 @@ import Kingfisher
 
 extension UIImageView {
     func setImageWithURL(_ URL: URL?,
-                            placeholderImage: Image? = nil,
-                            optionsInfo: KingfisherOptionsInfo? = nil,
-                            progressBlock: DownloadProgressBlock? = nil,
-                            completionHandler: CompletionHandler? = nil) -> RetrieveImageTask {
+                         placeholderImage: Image? = nil,
+                         optionsInfo: KingfisherOptionsInfo? = nil,
+                         progressBlock: DownloadProgressBlock? = nil,
+                         completionHandler: CompletionHandler? = nil) -> RetrieveImageTask {
 
-        return  setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: optionsInfo, progressBlock: progressBlock, completionHandler: completionHandler)
-
+        return setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: optionsInfo, progressBlock: progressBlock, completionHandler: completionHandler)
     }
-
 }

@@ -48,6 +48,6 @@ extension UILabel {
         return UIBindingObserver(UIElement: self) { label, result in
             label.textColor = result.textColor
             label.text = result.description
-            }.asObserver()
+        }.asObserver()
     }
 }

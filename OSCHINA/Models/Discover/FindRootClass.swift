@@ -5,51 +5,45 @@
 import Foundation
 import ObjectMapper
 
-
 class FindRootClass: NSObject, NSCoding, Mappable {
 
-	var code: Int?
-	var objList: [FindObjList]?
+    var code: Int?
+    var objList: [FindObjList]?
 
+    class func newInstance(_ map: Map) -> Mappable? {
+        return FindRootClass()
+    }
 
-	class func newInstance(_ map: Map) -> Mappable? {
-		return FindRootClass()
-	}
-
-    required init?(map: Map) {
+    required init?(_: Map) {
         super.init()
     }
 
-	fileprivate override init() {}
+    fileprivate override init() {}
 
-	func mapping(map: Map) {
-		code <- map["code"]
-		objList <- map["obj_list"]
-
-	}
+    func mapping(map: Map) {
+        code <- map["code"]
+        objList <- map["obj_list"]
+    }
 
     /**
-    * NSCoding required initializer.
-    * Fills the data from the passed decoder
-    */
+     * NSCoding required initializer.
+     * Fills the data from the passed decoder
+     */
     @objc required init(coder aDecoder: NSCoder) {
-         code = aDecoder.decodeObject(forKey: "code") as? Int
-         objList = aDecoder.decodeObject(forKey: "obj_list") as? [FindObjList]
-
-	}
+        code = aDecoder.decodeObject(forKey: "code") as? Int
+        objList = aDecoder.decodeObject(forKey: "obj_list") as? [FindObjList]
+    }
 
     /**
-    * NSCoding required method.
-    * Encodes mode properties into the decoder
-    */
+     * NSCoding required method.
+     * Encodes mode properties into the decoder
+     */
     @objc func encode(with aCoder: NSCoder) {
-		if code != nil {
-			aCoder.encode(code, forKey: "code")
-		}
-		if objList != nil {
-			aCoder.encode(objList, forKey: "obj_list")
-		}
-
-	}
-
+        if code != nil {
+            aCoder.encode(code, forKey: "code")
+        }
+        if objList != nil {
+            aCoder.encode(objList, forKey: "obj_list")
+        }
+    }
 }

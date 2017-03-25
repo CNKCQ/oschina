@@ -3,11 +3,11 @@
 ////  Created by KingCQ on 16/9/3.
 ////
 //
-//import UIKit
-//import RxCocoa
-//import RxSwift
+// import UIKit
+// import RxCocoa
+// import RxSwift
 //
-//class SigninViewModel {
+// class SigninViewModel {
 //
 //    let validatedUsername: Observable<ValidationResult>
 //    let validatedPassword: Observable<ValidationResult>
@@ -81,4 +81,4 @@
 //            .distinctUntilChanged()
 //            .shareReplay(1)
 //    }
-//}
+// }

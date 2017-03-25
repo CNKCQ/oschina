@@ -17,10 +17,9 @@ extension String {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.floatValue
     }
-    
+
     func toDouble() -> Double? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.doubleValue
     }
 }
-

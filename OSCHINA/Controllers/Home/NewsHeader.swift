@@ -11,14 +11,14 @@ import UIKit
 
 class NewsHeader: UICollectionReusableView, Reusable {
     var banner: AutoCycleAdview!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         banner = AutoCycleAdview(frame: frame)
         addSubview(banner)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

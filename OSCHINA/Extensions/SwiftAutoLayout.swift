@@ -6,7 +6,6 @@
 //  Copyright © 2016年 Jack. All rights reserved.
 //
 
-
 import UIKit
 /**
  对齐类型枚举，设置控件相对于父视图的位置
@@ -70,23 +69,23 @@ public enum AlignType {
             } else {
                 return attributes.horizontals(.Left, to: .Right)
             }
-        // 仅内部 & 垂直参照需要
+            // 仅内部 & 垂直参照需要
         case .TopCenter:
             attributes.horizontals(.CenterX, to: .CenterX).verticals(.Top, to: .Top)
             return isInner ? attributes : attributes.verticals(.Bottom, to: .Top)
-        // 仅内部 & 垂直参照需要
+            // 仅内部 & 垂直参照需要
         case .BottomCenter:
             attributes.horizontals(.CenterX, to: .CenterX).verticals(.Bottom, to: .Bottom)
             return isInner ? attributes : attributes.verticals(.Top, to: .Bottom)
-        // 仅内部 & 水平参照需要
+            // 仅内部 & 水平参照需要
         case .CenterLeft:
             attributes.horizontals(.Left, to: .Left).verticals(.CenterY, to: .CenterY)
             return isInner ? attributes : attributes.horizontals(.Right, to: .Left)
-        // 仅内部 & 水平参照需要
+            // 仅内部 & 水平参照需要
         case .CenterRight:
             attributes.horizontals(.Right, to: .Right).verticals(.CenterY, to: .CenterY)
             return isInner ? attributes : attributes.horizontals(.Left, to: .Right)
-        // 仅内部参照需要
+            // 仅内部参照需要
         case .Center:
             return LayoutAttributes(horizontal: .CenterX, referHorizontal: .CenterX, vertical: .CenterY, referVertical: .CenterY)
         }
@@ -100,11 +99,11 @@ extension UIView {
      :param: insets    间距
      :returns: 约束数组
      */
-    public func Fill(referView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+    public func Fill(referView _: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         var cons = [NSLayoutConstraint]()
-        cons += NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(insets.left)-[subView]-\(insets.right)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView" : self])
-        cons += NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(insets.top)-[subView]-\(insets.bottom)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView" : self])
+        cons += NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(insets.left)-[subView]-\(insets.right)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView": self])
+        cons += NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(insets.top)-[subView]-\(insets.bottom)-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["subView": self])
         superview?.addConstraints(cons)
         return cons
     }
@@ -145,6 +144,7 @@ extension UIView {
     public func AlignHorizontal(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
         return AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
     }
+
     /**
      在当前视图内部水平平铺控件
      :param: views  子视图数组
@@ -159,7 +159,7 @@ extension UIView {
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -insets.bottom))
         // 添加后续视图的约束
         var preView = firstView
-        for i in 1..<views.count {
+        for i in 1 ..< views.count {
             let subView = views[i]
             cons += subView.sizeConstraints(firstView)
             subView.AlignHorizontal(type: AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
@@ -170,6 +170,7 @@ extension UIView {
         addConstraints(cons)
         return cons
     }
+
     /**
      在当前视图内部垂直平铺控件
      :param: views  子视图数组
@@ -184,7 +185,7 @@ extension UIView {
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -insets.right))
         // 添加后续视图的约束
         var preView = firstView
-        for i in 1..<views.count {
+        for i in 1 ..< views.count {
             let subView = views[i]
             cons += subView.sizeConstraints(firstView)
             subView.AlignVertical(type: AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))

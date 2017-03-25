@@ -12,15 +12,14 @@ import RxCocoa
 import RxDataSources
 import MJRefresh
 
-
 class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let whiteSpace = CGFloat(0.8)
     var collectionView: UICollectionView!
-    
+
     public var layout: UICollectionViewLayout {
         return UICollectionViewLayout()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
@@ -51,34 +50,33 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         view.addSubview(collectionView)
         collectionView.mj_header.executeRefreshingCallback()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfItemsIn(section)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: C.self)
         self.cell(cell, indexPath: indexPath)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         collectionView.frame = view.bounds
     }
 
-    func cell(_ cell: C, indexPath: IndexPath) {}
-    
-    func numberOfItemsIn(_ section: Int) -> Int {
+    func cell(_: C, indexPath _: IndexPath) {}
+
+    func numberOfItemsIn(_: Int) -> Int {
         return 1
     }
-    
+
     func refresh() {}
-    
+
     /// 加载更多
     func loadMore() {}
-
 }

@@ -10,29 +10,29 @@ import Foundation
 import ObjectMapper
 
 class ListModel<T: Mappable>: NSObject, NSCoding, Mappable {
-    
+
     var items: [T]?
     var nextPageToken: String?
     var pageInfo: BannerPageInfo?
     var prevPageToken: String?
-    
-    
+
     class func newInstance(_ map: Map) -> Mappable? {
         return ListModel()
     }
-    required init?(map: Map) {
+
+    required init?(_: Map) {
         super.init()
     }
+
     fileprivate override init() {}
-    
+
     func mapping(map: Map) {
         items <- map["items"]
         nextPageToken <- map["nextPageToken"]
         pageInfo <- map["pageInfo"]
         prevPageToken <- map["prevPageToken"]
-        
     }
-    
+
     /**
      * NSCoding required initializer.
      * Fills the data from the passed decoder
@@ -42,9 +42,8 @@ class ListModel<T: Mappable>: NSObject, NSCoding, Mappable {
         nextPageToken = aDecoder.decodeObject(forKey: "nextPageToken") as? String
         pageInfo = aDecoder.decodeObject(forKey: "pageInfo") as? BannerPageInfo
         prevPageToken = aDecoder.decodeObject(forKey: "prevPageToken") as? String
-        
     }
-    
+
     /**
      * NSCoding required method.
      * Encodes mode properties into the decoder
@@ -62,7 +61,5 @@ class ListModel<T: Mappable>: NSObject, NSCoding, Mappable {
         if prevPageToken != nil {
             aCoder.encode(prevPageToken, forKey: "prevPageToken")
         }
-        
     }
-    
 }

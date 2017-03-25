@@ -17,17 +17,17 @@ class SettingController: BaseViewController {
     let items = Observable.just([
         SectionModel(model: "title", items: [
             "我的消息",
-            "我的博客"
-            ]),
+            "我的博客",
+        ]),
         SectionModel(model: "title1", items: [
             "我的问答",
-            "我的活动"
-            ]),
+            "我的活动",
+        ]),
         SectionModel(model: "title2", items: [
-            "我的团队"
-            ])
-        ])
-    
+            "我的团队",
+        ]),
+    ])
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "设置"
@@ -36,7 +36,7 @@ class SettingController: BaseViewController {
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         let dataSource = self.dataSource
-        dataSource.configureCell = { (_, tableView, indexPath, element) in
+        dataSource.configureCell = { _, tableView, _, element in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self))!
             cell.textLabel?.text = element
             cell.accessoryType = .disclosureIndicator
@@ -44,10 +44,9 @@ class SettingController: BaseViewController {
         }
         items.bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
-        
+
         tableView.rx.modelSelected(String.self).subscribe(onNext: { item in
             print(item, "🌹")
         }).addDisposableTo(disposeBag)
     }
 }
-

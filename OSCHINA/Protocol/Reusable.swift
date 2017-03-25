@@ -6,9 +6,9 @@
 import UIKit
 
 public protocol Reusable: class {
-    
+
     associatedtype reusableType = Self
-    
+
     static var reuseIdentifier: String { get }
 }
 
@@ -25,6 +25,4 @@ class Test {
 }
 
 class ok: Reusable {
-
 }
-

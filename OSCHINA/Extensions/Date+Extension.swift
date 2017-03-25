@@ -4,7 +4,6 @@
 //
 import Foundation
 
-
 extension Date {
     /**
      Takes a past NSDate and creates a string representation of it.

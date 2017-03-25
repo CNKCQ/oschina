@@ -12,7 +12,7 @@ import RxSwift
 import RxDataSources
 
 class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
-    
+
     let viewModel = NewsViewModel()
     let bannerModel = BannerViewModel()
 
@@ -21,13 +21,13 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
             collectionView.reloadData()
         }
     }
-    
+
     var bannerItems: [BannerItem]? = [] {
         didSet {
             collectionView.reloadData()
         }
     }
-    
+
     override var layout: UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.bounds.width, height: 0)
@@ -39,59 +39,60 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         title = "综合"
         collectionView.register(supplementaryViewType: NewsHeader.self, ofKind: UICollectionElementKindSectionHeader)
     }
-    
-    override func numberOfItemsIn(_ section: Int) -> Int {
+
+    override func numberOfItemsIn(_: Int) -> Int {
         return newsItems.count
     }
-    
+
     override func cell(_ cell: NewCell, indexPath: IndexPath) {
         cell.set(with: newsItems[indexPath.row])
     }
-    
+
     override func refresh() {
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
         }).addDisposableTo(self.disposeBag)
-//        viewModel.banner().subscribe(
-//            onNext: { bannerRoot in
-//            self.bannerItems = bannerRoot.result?.items
-//        })
-//        .addDisposableTo(self.disposeBag)
-//        viewModel.news().subscribe(
-//            onNext: { rootNew in
-//            self.newsItems = rootNew.objList ?? []
-//        })
-//        .addDisposableTo(self.disposeBag)
-//        viewModel.refresh().subscribe(
-//            onNext: { result in
-//                self.newsItems = result.0
-//                self.bannerItems = result.1
-//        })
-//            .addDisposableTo(self.disposeBag)
+        viewModel.news().subscribe(onNext: { result in
+            self.newsItems = result.objList ?? []
+        }).addDisposableTo(self.disposeBag)
+        //        viewModel.banner().subscribe(
+        //            onNext: { bannerRoot in
+        //            self.bannerItems = bannerRoot.result?.items
+        //        })
+        //        .addDisposableTo(self.disposeBag)
+        //        viewModel.news().subscribe(
+        //            onNext: { rootNew in
+        //            self.newsItems = rootNew.objList ?? []
+        //        })
+        //        .addDisposableTo(self.disposeBag)
+        //        viewModel.refresh().subscribe(
+        //            onNext: { result in
+        //                self.newsItems = result.0
+        //                self.bannerItems = result.1
+        //        })
+        //            .addDisposableTo(self.disposeBag)
     }
-    
+
     override func loadMore() {
-//        viewModel.loadMore().subscribe(
-//            onNext: { result in
-//                self.newsItems += result.0
-//                self.bannerItems = result.1
-//        })
-//            .addDisposableTo(self.disposeBag)
+        //        viewModel.loadMore().subscribe(
+        //            onNext: { result in
+        //                self.newsItems += result.0
+        //                self.bannerItems = result.1
+        //        })
+        //            .addDisposableTo(self.disposeBag)
     }
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    override func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
         let dest = WebController()
-//        dest.urlStr = newsItems[indexPath.row].href
+        //        dest.urlStr = newsItems[indexPath.row].href
         self.navigationController?.pushViewController(dest, animated: true)
     }
-        
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = NewsLayout(newsItems[indexPath.item])
         return CGSize(width: SCREEN_WIDTH, height: layout.height)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: NewsHeader.self) as NewsHeader
@@ -112,8 +113,8 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         }
         return UICollectionReusableView()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: SCREEN_WIDTH, height: 180)
     }
 }

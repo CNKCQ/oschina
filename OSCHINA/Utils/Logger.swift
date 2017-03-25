@@ -3,9 +3,9 @@
 ////  Created by KingCQ on 16/8/9.
 ////
 //
-//import XCGLogger
+// import XCGLogger
 //
-//public let log: XCGLogger = {
+// public let log: XCGLogger = {
 //    let log = XCGLogger.defaultInstance()
 //    let logPath: NSURL = cacheDirectory.URLByAppendingPathComponent("XCGLogger.Log")
 //    // By using Swift build flags, different log levels can be used in debugging versus staging/production. Go to Build settings -> Swift Compiler - Custom Flags -> Other Swift Flags and add -DDEBUG to the Debug entry.
@@ -24,9 +24,9 @@
 //        .Severe: .whiteOnRed
 //    ]
 //    return log
-//}()
+// }()
 //
-//public struct NetworkLog {
+// public struct NetworkLog {
 //    static let ESCAPE = "\u{001b}["
 //
 //    static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
@@ -41,14 +41,14 @@
 //        }
 //        print("\(ESCAPE)\(codeColor);\(statusCode)\(RESET) \(ESCAPE)fg53,255,206;\(target.method)\(RESET) \(ESCAPE)fg69,69,69;\(target.baseURL)\(target.path) \(target.parameters ?? [:])\(RESET) \n\(ESCAPE)fg29,29,29;\(json)\(RESET)")
 //    }
-//}
+// }
 //
-//private var documentsDirectory: NSURL {
+// private var documentsDirectory: NSURL {
 //    let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
 //    return urls[urls.endIndex-1]
-//}
+// }
 //
-//private var cacheDirectory: NSURL {
+// private var cacheDirectory: NSURL {
 //    let urls = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
 //    return urls[urls.endIndex-1]
-//}
+// }

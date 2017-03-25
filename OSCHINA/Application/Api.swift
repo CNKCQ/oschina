@@ -5,10 +5,8 @@
 import Foundation
 import Moya
 
-
-///http://www.oschina.net/openapi/docs/
-///http://osc_api.mydoc.io/
-
+/// http://www.oschina.net/openapi/docs/
+/// http://osc_api.mydoc.io/
 
 enum OSCIOService {
     case newsList(para: [String: Int])
@@ -20,10 +18,9 @@ enum OSCIOService {
 
 extension OSCIOService: TargetType {
 
-
     var baseURL: URL {
         // return NSURL(string: "http://www.oschina.net/action/api")! //XML格式
-        return URL(string: "http://www.oschina.net/action/apiv2")! //JSON格式
+        return URL(string: "http://www.oschina.net/action/apiv2")! // JSON格式
     }
 
     var path: String {
@@ -40,11 +37,11 @@ extension OSCIOService: TargetType {
             return "/event_list"
         case .eventBanner:
             return "/banner"
-        case .login( _, _):
+        case .login:
             return "/login_validate"
-        case .findUser(_):
+        case .findUser:
             return "/find_user"
-        case .search(_):
+        case .search:
             return "/search_list"
         }
     }
@@ -67,9 +64,9 @@ extension OSCIOService: TargetType {
         case .eventBanner:
             return ["catalog": 3]
         case .findUser(let name):
-            return ["name":name]
+            return ["name": name]
         default:
-             return nil
+            return nil
         }
     }
 
@@ -80,11 +77,11 @@ extension OSCIOService: TargetType {
     var multipartBody: [MultipartFormData]? {
         return nil
     }
-    
+
     public var parameterEncoding: ParameterEncoding {
         return URLEncoding.default
     }
-    
+
     public var task: Task {
         return .request
     }
@@ -98,34 +95,33 @@ class GankIO {
 
 enum GankIOService {
     // 随机获取某类指定个数的数据
-    case randomByKindAndCount(kind:String, count:Int)
-    
+    case randomByKindAndCount(kind: String, count: Int)
+
     // 某天数据
-    case byDay(year:Int, month:Int, day:Int)
-    
+    case byDay(year: Int, month: Int, day: Int)
+
     // 获取发过干货的日期
     case historyDays
-    
+
     // 分页获取某类数据
-    case byPageAndKind(kind:String, page:Int, count:Int)
-    
+    case byPageAndKind(kind: String, page: Int, count: Int)
+
     // 获取某日网站的 html 数据
-    case htmlByDay(year:Int, month:Int, day:Int)
-    
+    case htmlByDay(year: Int, month: Int, day: Int)
+
     // 分页获取网站的 html 数据
-    case htmlByPage(page:Int, count:Int)
-    
+    case htmlByPage(page: Int, count: Int)
+
     // 搜索
     case search(text: String)
-    
 }
 
 extension GankIOService: TargetType {
-    
+
     var baseURL: URL {
         return URL(string: GankIO.HOST)!
     }
-    
+
     var path: String {
         switch self {
         case .randomByKindAndCount(let kind, let count):
@@ -140,37 +136,36 @@ extension GankIOService: TargetType {
             return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
         case .htmlByPage(let page, let count):
             return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
-        case .search(_):
+        case .search:
             return "\(GankIO.PATH_SEARCH)"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         default:
             return .get
         }
     }
-    
+
     var parameters: [String: Any]? {
         switch self {
         case .search(let text):
-            return ["q":text]
+            return ["q": text]
         default:
             return nil
         }
     }
-    
+
     var sampleData: Data {
         return "{}".data(using: String.Encoding.utf8)!
     }
-    
+
     public var parameterEncoding: ParameterEncoding {
         return URLEncoding.default
     }
-    
+
     public var task: Task {
         return .request
     }
-    
 }

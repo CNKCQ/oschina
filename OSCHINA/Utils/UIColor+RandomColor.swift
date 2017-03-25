@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIColor{
-    
+extension UIColor {
+
     /** 16进制颜色 */
     public class func colorWithHex(_ hexColor: Int, alpha: CGFloat = 1) -> UIColor {
         return UIColor(
@@ -19,11 +19,11 @@ extension UIColor{
             alpha: alpha
         )
     }
-    
+
     class func randomColor() -> UIColor {
         return UIColor(red: randomNumber(), green: randomNumber(), blue: randomNumber(), alpha: 1.0)
     }
-    
+
     class func randomNumber() -> CGFloat {
         return CGFloat(arc4random_uniform(256)) / CGFloat(255)
     }

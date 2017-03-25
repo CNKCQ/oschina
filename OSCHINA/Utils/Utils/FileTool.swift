@@ -6,22 +6,22 @@
 import UIKit
 
 class FileTool: NSObject {
-    
+
     static let fileManager = FileManager.default
-    
+
     /// 计算单个文件的大小
     class func fileSize(_ path: String) -> Double {
-        
+
         if fileManager.fileExists(atPath: path) {
             var dict = try? fileManager.attributesOfItem(atPath: path)
-            if let fileSize = dict![FileAttributeKey.size] as? Int{
+            if let fileSize = dict![FileAttributeKey.size] as? Int {
                 return Double(fileSize) / 1024.0 / 1024.0
             }
         }
-        
+
         return 0.0
     }
-    
+
     /// 计算整个文件夹的大小
     class func folderSize(_ path: String) -> Double {
         var folderSize: Double = 0
@@ -36,10 +36,10 @@ class FileTool: NSObject {
         }
         return 0
     }
-    
+
     /// 清除文件 同步
-    class func cleanFolder(_ path: String, complete:() -> ()) {
-        
+    class func cleanFolder(_ path: String, complete: () -> Void) {
+
         let chilerFiles = self.fileManager.subpaths(atPath: path)
         for fileName in chilerFiles! {
             let tmpPath = path as NSString
@@ -48,19 +48,18 @@ class FileTool: NSObject {
                 do {
                     try self.fileManager.removeItem(atPath: fileFullPathName)
                 } catch _ {
-                    
                 }
             }
         }
-        
+
         complete()
     }
-    
+
     /// 清除文件 异步
-    class func cleanFolderAsync(_ path: String, complete:@escaping () -> ()) {
-        
+    class func cleanFolderAsync(_ path: String, complete: @escaping () -> Void) {
+
         let queue = DispatchQueue(label: "cleanQueue", attributes: [])
-        queue.async { () -> Void in
+        queue.async { () in
             let chilerFiles = self.fileManager.subpaths(atPath: path)
             for fileName in chilerFiles! {
                 let tmpPath = path as NSString
@@ -72,7 +71,7 @@ class FileTool: NSObject {
                     }
                 }
             }
-            
+
             complete()
         }
     }

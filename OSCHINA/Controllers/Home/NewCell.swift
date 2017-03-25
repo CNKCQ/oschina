@@ -14,9 +14,7 @@ class NewCell: CollectionCell {
     var titleLabel: UILabel!
     var contentLabel: UILabel!
     var bottomView: UIView!
-    
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .groupTableViewBackground
@@ -31,31 +29,31 @@ class NewCell: CollectionCell {
         contentView.backgroundColor = UIColor.white
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-//    override func updateConstraints() {
-//        contentView.snp.makeConstraints { make in
-//            make.left.equalTo(self.snp.left)
-//            make.right.equalTo(self.snp.right)
-//            make.top.equalTo(self.snp.top)
-//            make.bottom.equalTo(self.snp.bottom)
-//        }
-//        titleLabel.snp.makeConstraints { make in
-//            make.top.equalTo(contentView.snp.top)
-//            make.width.equalTo(contentView.snp.width)
-//            make.left.equalTo(contentView.snp.left)
-//            make.height.equalTo(24)
-//        }
-//        contentLabel.snp.makeConstraints { make in
-//            make.top.equalTo(titleLabel.snp.bottom)
-//            make.left.equalTo(titleLabel.snp.left)
-//            make.width.equalTo(titleLabel.snp.width)
-//        }
-//        super.updateConstraints()
-//    }
-    
+    //    override func updateConstraints() {
+    //        contentView.snp.makeConstraints { make in
+    //            make.left.equalTo(self.snp.left)
+    //            make.right.equalTo(self.snp.right)
+    //            make.top.equalTo(self.snp.top)
+    //            make.bottom.equalTo(self.snp.bottom)
+    //        }
+    //        titleLabel.snp.makeConstraints { make in
+    //            make.top.equalTo(contentView.snp.top)
+    //            make.width.equalTo(contentView.snp.width)
+    //            make.left.equalTo(contentView.snp.left)
+    //            make.height.equalTo(24)
+    //        }
+    //        contentLabel.snp.makeConstraints { make in
+    //            make.top.equalTo(titleLabel.snp.bottom)
+    //            make.left.equalTo(titleLabel.snp.left)
+    //            make.width.equalTo(titleLabel.snp.width)
+    //        }
+    //        super.updateConstraints()
+    //    }
+
     func set(with data: NewsObjList) {
         let layout = NewsLayout(data)
         titleLabel.text = data.title
@@ -63,8 +61,6 @@ class NewCell: CollectionCell {
         titleLabel.frame = layout.title
         contentLabel.frame = layout.content
         height = layout.height
-//        updateConstraints()
+        //        updateConstraints()
     }
 }
-
-

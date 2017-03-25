@@ -12,7 +12,7 @@ import Kingfisher
 class GirlsCell: CollectionCell {
     var imageView: UIImageView!
     var label: UILabel!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -27,14 +27,15 @@ class GirlsCell: CollectionCell {
         addSubview(imageView)
         addSubview(label)
     }
-    
+
     func setData<T: ArticleEntity>(item: T) {
         imageView.kf.setImage(with: URL(string: item.url!)!)
         label.text = item.desc
         label.height = item.desc!.heightWithConstrainedWidth(width: frame.size.width, font: UIFont.systemFont(ofSize: 15))
-        imageView.height = frame.size.width  + label.height
+        imageView.height = frame.size.width + label.height
     }
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

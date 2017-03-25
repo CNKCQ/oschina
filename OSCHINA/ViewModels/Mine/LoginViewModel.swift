@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 import ObjectMapper
 
-//class LoginViewModel: NewsViewModel {
+// class LoginViewModel: NewsViewModel {
 //
 //    override init() {
 //        super.init()
@@ -31,4 +31,4 @@ import ObjectMapper
 ////        })
 //        return nil
 //    }
-//}
+// }

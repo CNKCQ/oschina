@@ -7,15 +7,14 @@ import Foundation
 import ObjectMapper
 
 class BaseModel<T: Mappable>: Mappable {
-    
+
     var code: Bool?
     var results: [T]?
-    
-    required init?(map: Map) {}
-    
+
+    required init?(_: Map) {}
+
     func mapping(map: Map) {
-        code   <-  map["error"]
-        results <-  map["results"]
+        code <- map["error"]
+        results <- map["results"]
     }
-    
 }

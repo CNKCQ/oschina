@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class ArticleEntity: Mappable {
-    
+
     var who: String?
     var id: String?
     var desc: String?
@@ -19,8 +19,7 @@ class ArticleEntity: Mappable {
     var createdAt: Date?
     var url: String?
     var type: String?
-    
-    
+
     // MARK: Mappable
     func mapping(map: Map) {
         who <- map["who"]
@@ -32,30 +31,28 @@ class ArticleEntity: Mappable {
         url <- map["url"]
         type <- map["type"]
     }
-    
-    required init?(map: Map) {
-        
+
+    required init?(_: Map) {
     }
 }
 
 public class DateUtil {
-    
-    static let  DATE_FORMATTER = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    
+
+    static let DATE_FORMATTER = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
     public static func stringToNSDate(dateString: String, formatter: String = DATE_FORMATTER) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
-        return dateFormatter.date( from: dateString )!
+        return dateFormatter.date(from: dateString)!
     }
-    
-    public static func nsDateToString(date: Date, formatter: String = "yyyy-MM-dd HH:mm:ss" ) -> String {
+
+    public static func nsDateToString(date: Date, formatter: String = "yyyy-MM-dd HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         return dateFormatter.string(from: date)
     }
-    
-    public static func areDatesSameDay(dateOne: Date, dateTwo: Date) -> Bool {
+
+    public static func areDatesSameDay(dateOne _: Date, dateTwo _: Date) -> Bool {
         return true
     }
-    
 }

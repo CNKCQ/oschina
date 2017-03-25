@@ -3,11 +3,11 @@
 ////  Created by KingCQ on 16/9/12.
 ////
 //
-//import UIKit
-//import RxSwift
-//import ObjectMapper
+// import UIKit
+// import RxSwift
+// import ObjectMapper
 //
-//class FindViewModel: NewsViewModel {
+// class FindViewModel: NewsViewModel {
 //    func search(_ name: String) -> Observable<[FindObjList]?> {
 //        return Observable.create({ observer -> Disposable in
 //            self.provider.request(OSCIOService.FindUser(name: name)) { response in
@@ -29,4 +29,4 @@
 //            return NopDisposable.instance
 //        })
 //    }
-//}
+// }
