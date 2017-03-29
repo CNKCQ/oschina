@@ -106,16 +106,6 @@ class MineController: BaseViewController {
     }
 
     func login() {
-        //        let dest = LoginController()
-        //        dest.destBack = { user in
-        //            if let url = URL(string: user!.portrait!) {
-        //                _ = self.avartView.setImageWithURL(url)
-        //            }
-        //            self.loginButton.setTitle(user?.name, for: UIControlState())
-        //        }
-        //        navigationController?.pushViewController(dest, animated: true)
-        let dest = Sigin()
-        self.present(dest, animated: true, completion: nil)
     }
 }
 
