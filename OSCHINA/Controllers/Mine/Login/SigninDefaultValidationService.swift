@@ -12,7 +12,6 @@ class Sigin: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let phoneField = AwsomeTextField(frame: CGRect(x: 40, y: 140, width: SCREEN_WIDTH - 80, height: 44))
         phoneField.activeborderColor = .green
         phoneField.placeholder = "用户名"
