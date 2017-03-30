@@ -120,7 +120,7 @@ extension MineController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return CGFloat(FLT_MIN)
+        return CGFloat(Float.leastNormalMagnitude)
     }
 }
 

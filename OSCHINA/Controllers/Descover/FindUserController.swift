@@ -28,10 +28,6 @@ class FindUserController: BaseController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell()))
         tableView.delegate = self
         tableView.dataSource = self
-        //        let viewModel = FindViewModel()
-        //        searchBar.rx_text.asDriver().throttle(0.3).distinctUntilChanged().flatMapLatest { text  in
-        //            viewModel.search(text).retry(3).retryOnBecomesReachable([], reachabilityService: Dependencies.sharedDependencies.reachabilityService).startWith([]).asDriver(onErrorJustReturn: [])
-        //        }
         searchBar.delegate = self
 
         tableView.tableFooterView = UIView()
