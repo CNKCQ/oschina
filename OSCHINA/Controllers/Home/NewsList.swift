@@ -55,22 +55,6 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         viewModel.news().subscribe(onNext: { result in
             self.newsItems = result.objList ?? []
         }).addDisposableTo(self.disposeBag)
-        //        viewModel.banner().subscribe(
-        //            onNext: { bannerRoot in
-        //            self.bannerItems = bannerRoot.result?.items
-        //        })
-        //        .addDisposableTo(self.disposeBag)
-        //        viewModel.news().subscribe(
-        //            onNext: { rootNew in
-        //            self.newsItems = rootNew.objList ?? []
-        //        })
-        //        .addDisposableTo(self.disposeBag)
-        //        viewModel.refresh().subscribe(
-        //            onNext: { result in
-        //                self.newsItems = result.0
-        //                self.bannerItems = result.1
-        //        })
-        //            .addDisposableTo(self.disposeBag)
     }
 
     override func loadMore() {
