@@ -10,11 +10,11 @@ class LoginRootClass: NSObject, NSCoding, Mappable {
     var code: Int?
     var user: User?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return LoginRootClass()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

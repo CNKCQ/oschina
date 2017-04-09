@@ -16,11 +16,11 @@ class ListModel<T: Mappable>: NSObject, NSCoding, Mappable {
     var pageInfo: BannerPageInfo?
     var prevPageToken: String?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return ListModel()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

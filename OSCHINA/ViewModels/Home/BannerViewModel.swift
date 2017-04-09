@@ -14,7 +14,7 @@ class BannerViewModel {
     init() {
         let operationQueue = OperationQueue()
         backgroundScheduler = OperationQueueScheduler(operationQueue: operationQueue)
-        self.provider = RxMoyaProvider<OSCIOService>()
+        provider = RxMoyaProvider<OSCIOService>()
     }
 
     //    func fetchBanner() -> Observable<[BannerItem]?> {

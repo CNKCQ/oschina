@@ -9,7 +9,7 @@
 private func swizzle(_ cls: UIViewController.Type) {
     [
         (#selector(cls.viewDidLoad), #selector(cls.os_viewDidLoad)),
-        (#selector(cls.viewWillAppear(_:)), #selector(cls.os_viewWillAppear(_:)))
+        (#selector(cls.viewWillAppear(_:)), #selector(cls.os_viewWillAppear(_:))),
     ].forEach { original, swizzled in
         let originalMethod = class_getInstanceMethod(cls, original)
         let swizzledMethod = class_getInstanceMethod(cls, swizzled)
@@ -23,19 +23,19 @@ private func swizzle(_ cls: UIViewController.Type) {
 }
 
 extension UIViewController {
-    
+
     open override class func initialize() {
         guard self === UIViewController.self else { return }
         swizzle(self)
     }
-    
+
     internal func os_viewDidLoad() {
-        self.os_viewDidLoad()
+        os_viewDidLoad()
         print("你好，\(#function)")
     }
-    
+
     internal func os_viewWillAppear(_ animated: Bool) {
-        self.os_viewWillAppear(animated)
+        os_viewWillAppear(animated)
         print("你好，\(#function)")
     }
 }

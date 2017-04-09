@@ -25,7 +25,7 @@ class ArticlesViewModel: BaseViewModel {
     private func getArticleInfoByPage(page: Int) -> Observable<[ArticleEntity]> {
         return Observable
             .zip(
-                provider.request(GankIOService.byPageAndKind(kind: "福利", page: page, count: self.offset)).filter(statusCodes: 200 ... 201).observeOn(backgroundWorkScheduler).map({ response -> [ArticleEntity] in
+                provider.request(GankIOService.byPageAndKind(kind: "福利", page: page, count: offset)).filter(statusCodes: 200 ... 201).observeOn(backgroundWorkScheduler).map({ response -> [ArticleEntity] in
                     if let result = Mapper<BaseModel<ArticleEntity>>().map(JSONString: String(data: response.data, encoding: String.Encoding.utf8)!) {
                         return result.results!
                     } else {
@@ -33,7 +33,7 @@ class ArticlesViewModel: BaseViewModel {
                     }
                 }),
                 provider
-                    .request(GankIOService.byPageAndKind(kind: "休息视频", page: page, count: self.offset))
+                    .request(GankIOService.byPageAndKind(kind: "休息视频", page: page, count: offset))
                     .filter(statusCodes: 200 ... 201)
                     .observeOn(backgroundWorkScheduler)
                     .map({ response -> [ArticleEntity] in

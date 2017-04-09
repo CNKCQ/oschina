@@ -13,7 +13,7 @@ extension UITableView {
 
     final func register<T: UITableViewCell>(cellType: T.Type)
         where T: Reusable {
-        self.register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
+        register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
 
     final func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath, cellType: T.Type = T.self) -> T
@@ -42,7 +42,7 @@ extension UITableView {
 
     final func register<T: UITableViewHeaderFooterView>(headerFooterViewType: T.Type)
         where T: Reusable {
-        self.register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
+        register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
     }
 
     final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ viewType: T.Type = T.self) -> T?

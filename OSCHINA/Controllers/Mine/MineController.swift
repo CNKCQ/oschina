@@ -110,7 +110,7 @@ class MineController: BaseViewController {
 }
 
 extension MineController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_: UITableView, viewForFooterInSection _: Int) -> UIView? {
         let label = UILabel(frame: CGRect.zero)
         return label
     }

@@ -18,11 +18,11 @@ class NewsItem: NSObject, NSCoding, Mappable {
     var type: Int?
     var viewCount: Int?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return NewsItem()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

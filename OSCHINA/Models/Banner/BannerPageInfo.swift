@@ -10,11 +10,11 @@ class BannerPageInfo: NSObject, NSCoding, Mappable {
     var resultsPerPage: Int?
     var totalResults: Int?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return BannerPageInfo()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

@@ -25,7 +25,7 @@ extension OSCIOService: TargetType {
 
     var path: String {
         switch self {
-        case .newsList(let para):
+        case let .newsList(para):
             return "/news_list/?\(para.keys.first!)=\(para.values.first!)&pageSize=2"
         case .newBanner:
             return "/banner"
@@ -57,13 +57,13 @@ extension OSCIOService: TargetType {
 
     var parameters: [String: Any]? {
         switch self {
-        case .login(let username, let password):
+        case let .login(username, password):
             return ["username": username, "pwd": password]
         case .newBanner:
             return ["catalog": 1]
         case .eventBanner:
             return ["catalog": 3]
-        case .findUser(let name):
+        case let .findUser(name):
             return ["name": name]
         default:
             return nil
@@ -124,17 +124,17 @@ extension GankIOService: TargetType {
 
     var path: String {
         switch self {
-        case .randomByKindAndCount(let kind, let count):
+        case let .randomByKindAndCount(kind, count):
             return "\(GankIO.PATH_API)/random/data/\(kind)/\(count)"
-        case .byDay(let year, let month, let day):
+        case let .byDay(year, month, day):
             return "\(GankIO.PATH_API)/day/\(year)/\(month)/\(day)"
         case .historyDays:
             return "\(GankIO.PATH_API)/day/history"
-        case .byPageAndKind(let kind, let page, let count):
+        case let .byPageAndKind(kind, page, count):
             return "\(GankIO.PATH_API)/data/\(kind)/\(count)/\(page)"
-        case .htmlByDay(let year, let month, let day):
+        case let .htmlByDay(year, month, day):
             return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
-        case .htmlByPage(let page, let count):
+        case let .htmlByPage(page, count):
             return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
         case .search:
             return "\(GankIO.PATH_SEARCH)"
@@ -150,7 +150,7 @@ extension GankIOService: TargetType {
 
     var parameters: [String: Any]? {
         switch self {
-        case .search(let text):
+        case let .search(text):
             return ["q": text]
         default:
             return nil

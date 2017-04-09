@@ -10,11 +10,11 @@ class NewsRootClass: NSObject, NSCoding, Mappable {
     var code: Int?
     var objList: [NewsObjList]?
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 
-    class func newInstance(map: Map) -> Mappable? {
+    class func newInstance(map _: Map) -> Mappable? {
         return NewsRootClass()
     }
 

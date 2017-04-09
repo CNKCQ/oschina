@@ -14,11 +14,11 @@ class FindObjList: NSObject, NSCoding, Mappable {
     var portrait: String?
     var relation: Int?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return FindObjList()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

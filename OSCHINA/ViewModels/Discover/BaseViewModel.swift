@@ -27,7 +27,7 @@ class BaseViewModel {
             }
         }
 
-        self.provider = RxMoyaProvider<GankIOService>(plugins: [networkActivityPlugin, NetworkLoggerPlugin.init()])
+        provider = RxMoyaProvider<GankIOService>(plugins: [networkActivityPlugin, NetworkLoggerPlugin.init()])
         //        self.provider = RxMoyaProvider<GankIOService>() /// 不用Moya自带的log插件
     }
 

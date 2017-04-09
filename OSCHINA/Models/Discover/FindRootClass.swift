@@ -10,11 +10,11 @@ class FindRootClass: NSObject, NSCoding, Mappable {
     var code: Int?
     var objList: [FindObjList]?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return FindRootClass()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

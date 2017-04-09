@@ -16,11 +16,11 @@ class NewsObjList: NSObject, NSCoding, Mappable {
     var type: Int?
     var url: String?
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 
-    class func newInstance(map: Map) -> Mappable? {
+    class func newInstance(map _: Map) -> Mappable? {
         return NewsObjList()
     }
 

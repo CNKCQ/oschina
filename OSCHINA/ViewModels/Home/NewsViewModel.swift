@@ -2,7 +2,6 @@
 ////  Copyright © 2016年 KingCQ. All rights reserved.
 ////  Created by KingCQ on 16/9/1.
 
-
 import Moya
 import ObjectMapper
 import RxSwift
@@ -18,7 +17,7 @@ class NewsViewModel {
     init() {
         let operationQueue = OperationQueue()
         backgroundScheduler = OperationQueueScheduler(operationQueue: operationQueue)
-        self.provider = RxMoyaProvider<OSCIOService>()
+        provider = RxMoyaProvider<OSCIOService>()
     }
 
     func banner() -> Observable<BannerRootClass<BannerItem>> {

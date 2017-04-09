@@ -15,11 +15,11 @@ class BannerItem: NSObject, NSCoding, Mappable {
     var pubDate: String?
     var type: Int?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return BannerItem()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

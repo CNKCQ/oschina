@@ -43,12 +43,12 @@ extension UIImage {
     }
 
     func imageClipOvalImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let ctx = UIGraphicsGetCurrentContext()
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         ctx?.addEllipse(in: rect)
         ctx?.clip()
-        self.draw(in: rect)
+        draw(in: rect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image!

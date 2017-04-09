@@ -21,11 +21,11 @@ class User: NSObject, NSCoding, Mappable {
     var portrait: String?
     var score: Int?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return User()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

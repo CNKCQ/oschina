@@ -40,13 +40,13 @@ class FileTool: NSObject {
     /// 清除文件 同步
     class func cleanFolder(_ path: String, complete: () -> Void) {
 
-        let chilerFiles = self.fileManager.subpaths(atPath: path)
+        let chilerFiles = fileManager.subpaths(atPath: path)
         for fileName in chilerFiles! {
             let tmpPath = path as NSString
             let fileFullPathName = tmpPath.appendingPathComponent(fileName)
-            if self.fileManager.fileExists(atPath: fileFullPathName) {
+            if fileManager.fileExists(atPath: fileFullPathName) {
                 do {
-                    try self.fileManager.removeItem(atPath: fileFullPathName)
+                    try fileManager.removeItem(atPath: fileFullPathName)
                 } catch _ {
                 }
             }

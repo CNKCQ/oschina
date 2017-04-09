@@ -11,11 +11,11 @@ class NewsAuthor: NSObject, NSCoding, Mappable {
     var name: String?
     var portrait: String?
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 
-    class func newInstance(map: Map) -> Mappable? {
+    class func newInstance(map _: Map) -> Mappable? {
         return NewsAuthor()
     }
 

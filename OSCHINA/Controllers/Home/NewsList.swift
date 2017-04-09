@@ -51,10 +51,10 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     override func refresh() {
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
-        }).addDisposableTo(self.disposeBag)
+        }).addDisposableTo(disposeBag)
         viewModel.news().subscribe(onNext: { result in
             self.newsItems = result.objList ?? []
-        }).addDisposableTo(self.disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
     override func loadMore() {
@@ -69,7 +69,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     override func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
         let dest = WebController()
         //        dest.urlStr = newsItems[indexPath.row].href
-        self.navigationController?.pushViewController(dest, animated: true)
+        navigationController?.pushViewController(dest, animated: true)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

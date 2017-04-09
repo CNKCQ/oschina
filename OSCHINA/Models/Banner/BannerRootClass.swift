@@ -12,11 +12,11 @@ class BannerRootClass<T: Mappable>: NSObject, NSCoding, Mappable {
     var result: ListModel<T>?
     var time: String?
 
-    class func newInstance(_ map: Map) -> Mappable? {
+    class func newInstance(_: Map) -> Mappable? {
         return BannerRootClass()
     }
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
         super.init()
     }
 

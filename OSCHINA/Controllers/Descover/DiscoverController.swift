@@ -29,7 +29,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
     }
 
     override func numberOfItemsIn(_: Int) -> Int {
-        return self.articleViewModel.articleEntities.count
+        return articleViewModel.articleEntities.count
     }
 
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -39,7 +39,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
     }
 
     override func refresh() {
-        self.articleViewModel.refresh().subscribe(
+        articleViewModel.refresh().subscribe(
             onNext: { entities in
                 print(entities)
                 self.collectionView.mj_footer.resetNoMoreData()
@@ -50,11 +50,11 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
             }, onCompleted: {
                 self.collectionView.mj_header.endRefreshing()
             }, onDisposed: {
-        }).addDisposableTo(self.disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
     override func loadMore() {
-        self.articleViewModel.loadMore().subscribe(onNext: { entities in
+        articleViewModel.loadMore().subscribe(onNext: { entities in
             if entities.isEmpty {
                 self.collectionView.mj_footer.endRefreshingWithNoMoreData()
             } else {
@@ -66,7 +66,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
             self.collectionView.mj_footer.endRefreshing()
         }, onCompleted: {
         }, onDisposed: {
-        }).addDisposableTo(self.disposeBag)
+        }).addDisposableTo(disposeBag)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout,
@@ -90,7 +90,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = boundingRect(with: constraintSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return boundingBox.height
     }
 }

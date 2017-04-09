@@ -11,7 +11,7 @@ class BaseModel<T: Mappable>: Mappable {
     var code: Bool?
     var results: [T]?
 
-    required init?(map: Map) {
+    required init?(map _: Map) {
     }
 
     func mapping(map: Map) {

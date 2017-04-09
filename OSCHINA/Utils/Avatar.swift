@@ -13,7 +13,7 @@ extension UIImage {
         UIGraphicsGetCurrentContext()?.addPath(path)
         UIGraphicsGetCurrentContext()?.clip()
 
-        self.draw(in: rect)
+        draw(in: rect)
         UIGraphicsGetCurrentContext()?.drawPath(using: .fillStroke)
 
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -24,7 +24,7 @@ extension UIImage {
 
 extension UIImageView {
     func cs_cornerRadiusImageView(_ radius: CGFloat) {
-        self.image = self.image?.cs_imageWithCornerRadius(radius, sizeToFit: self.bounds.size)
+        image = image?.cs_imageWithCornerRadius(radius, sizeToFit: bounds.size)
     }
 }
 
@@ -33,10 +33,10 @@ extension UIView {
                          borderWidth: CGFloat,
                          borderColor: UIColor,
                          backgroundColor: UIColor) {
-        _ = self.frame.size.width
-        _ = self.frame.size.height
+        _ = frame.size.width
+        _ = frame.size.height
 
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
 
         context?.setLineWidth(borderWidth)
@@ -47,6 +47,6 @@ extension UIView {
         UIGraphicsEndImageContext()
 
         let imageView: UIImageView = UIImageView(image: image)
-        self.insertSubview(imageView, at: 0)
+        insertSubview(imageView, at: 0)
     }
 }
