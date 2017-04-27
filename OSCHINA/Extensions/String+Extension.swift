@@ -13,12 +13,12 @@ extension String {
 
 // MARK: - convert
 extension String {
-    
+
     var float: Float? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.floatValue
     }
-    
+
     var double: Double? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.doubleValue
