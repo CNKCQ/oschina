@@ -13,12 +13,13 @@ extension String {
 
 // MARK: - convert
 extension String {
-    func toFloat() -> Float? {
+    
+    var float: Float? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.floatValue
     }
-
-    func toDouble() -> Double? {
+    
+    var double: Double? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.doubleValue
     }
@@ -26,7 +27,6 @@ extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-
         return boundingBox.height
     }
 }
