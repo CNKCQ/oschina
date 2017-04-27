@@ -22,7 +22,6 @@
 		3C48B0A01E2B646000E6CBC5 /* DiscoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B09F1E2B646000E6CBC5 /* DiscoverModel.swift */; };
 		3C48B0A31E2B6A9D00E6CBC5 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A11E2B6A9D00E6CBC5 /* ArticlesViewModel.swift */; };
 		3C48B0A41E2B6A9D00E6CBC5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */; };
-		3C48B0A61E2B720900E6CBC5 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A51E2B720900E6CBC5 /* WaterfallLayout.swift */; };
 		3C48B0A81E2B72EA00E6CBC5 /* GirlsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A71E2B72EA00E6CBC5 /* GirlsCell.swift */; };
 		3C48B0AA1E2B8F2B00E6CBC5 /* CollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */; };
 		3C48B0AC1E2BA02E00E6CBC5 /* ColloctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */; };
@@ -77,6 +76,7 @@
 		6339BAC9AA147F546F0659C4 /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945697BE4BB63BBD4ECC8727 /* Pods_OSCHINA.framework */; };
 		AADFBCD81EB1CB93000F057E /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADFBCD61EB1CB93000F057E /* BaseController.swift */; };
 		AADFBCD91EB1CB93000F057E /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADFBCD71EB1CB93000F057E /* WebController.swift */; };
+		AAE6428E1EB236F20029DF9D /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6428D1EB236F20029DF9D /* WaterfallLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,7 +95,6 @@
 		3C48B09F1E2B646000E6CBC5 /* DiscoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverModel.swift; sourceTree = "<group>"; };
 		3C48B0A11E2B6A9D00E6CBC5 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
 		3C48B0A21E2B6A9D00E6CBC5 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		3C48B0A51E2B720900E6CBC5 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		3C48B0A71E2B72EA00E6CBC5 /* GirlsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GirlsCell.swift; sourceTree = "<group>"; };
 		3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionList.swift; sourceTree = "<group>"; };
 		3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColloctionCell.swift; sourceTree = "<group>"; };
@@ -155,6 +154,7 @@
 		945697BE4BB63BBD4ECC8727 /* Pods_OSCHINA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSCHINA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADFBCD61EB1CB93000F057E /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		AADFBCD71EB1CB93000F057E /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
+		AAE6428D1EB236F20029DF9D /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		DCB43F12FD74C285C84FA848 /* Pods-OSCHINA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,6 +243,7 @@
 		3C6186231D5985D600982E39 = {
 			isa = PBXGroup;
 			children = (
+				AAE6428C1EB236F20029DF9D /* third_party */,
 				042F68D31E94C6FA00EB2177 /* iOSKit */,
 				3C61862E1D5985D600982E39 /* OSCHINA */,
 				3C61862D1D5985D600982E39 /* Products */,
@@ -406,7 +407,6 @@
 			children = (
 				3C9386421D5DB1DD00DDEE54 /* DiscoverController.swift */,
 				3C2D246B1D86AA4900BE13E0 /* FindUserController.swift */,
-				3C48B0A51E2B720900E6CBC5 /* WaterfallLayout.swift */,
 			);
 			name = Discover;
 			path = Descover;
@@ -453,6 +453,14 @@
 				3CDF83271D7AFE9D00313A66 /* Operator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AAE6428C1EB236F20029DF9D /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+				AAE6428D1EB236F20029DF9D /* WaterfallLayout.swift */,
+			);
+			path = third_party;
 			sourceTree = "<group>";
 		};
 		DC1C3CF3F8BC2D1F52381531 /* Frameworks */ = {
@@ -620,6 +628,7 @@
 				3C80B3471D781F2D00B8B8AC /* Avatar.swift in Sources */,
 				AADFBCD81EB1CB93000F057E /* BaseController.swift in Sources */,
 				3C50B3481D7D5B80006FB6A4 /* BannerRootClass.swift in Sources */,
+				AAE6428E1EB236F20029DF9D /* WaterfallLayout.swift in Sources */,
 				3C9386571D5DB6E500DDEE54 /* UITableView+Reusable.swift in Sources */,
 				3C1F4CC21D77F66F00ABDF1D /* NewsViewModel.swift in Sources */,
 				3C80B35C1D796AA100B8B8AC /* Bundle+Extension.swift in Sources */,
@@ -658,7 +667,6 @@
 				3CDF83291D7AFE9D00313A66 /* String+CacheMenu.swift in Sources */,
 				AADFBCD91EB1CB93000F057E /* WebController.swift in Sources */,
 				3CE34E851E2DB3F700733A01 /* NewsAuthor.swift in Sources */,
-				3C48B0A61E2B720900E6CBC5 /* WaterfallLayout.swift in Sources */,
 				3C1F4CAE1D77C43100ABDF1D /* BaseModel.swift in Sources */,
 				3C9386451D5DB20000DDEE54 /* NewsList.swift in Sources */,
 				3C50B3451D7D5B80006FB6A4 /* BannerItem.swift in Sources */,
