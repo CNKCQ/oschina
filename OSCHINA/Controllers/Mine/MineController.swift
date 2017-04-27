@@ -24,15 +24,15 @@ class MineController: BaseViewController {
     let items = Observable.just([
         SectionModel(model: "title", items: [
             "扫一扫",
-            "摇一摇",
+            "摇一摇"
         ]),
         SectionModel(model: "title1", items: [
             "开源软件",
-            "线下活动",
+            "线下活动"
         ]),
         SectionModel(model: "title2", items: [
-            "设置",
-        ]),
+            "设置"
+        ])
     ])
 
     override func viewWillAppear(_ animated: Bool) {

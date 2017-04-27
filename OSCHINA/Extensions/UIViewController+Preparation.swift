@@ -9,7 +9,7 @@
 private func swizzle(_ cls: UIViewController.Type) {
     [
         (#selector(cls.viewDidLoad), #selector(cls.os_viewDidLoad)),
-        (#selector(cls.viewWillAppear(_:)), #selector(cls.os_viewWillAppear(_:))),
+        (#selector(cls.viewWillAppear(_:)), #selector(cls.os_viewWillAppear(_:)))
     ].forEach { original, swizzled in
         let originalMethod = class_getInstanceMethod(cls, original)
         let swizzledMethod = class_getInstanceMethod(cls, swizzled)

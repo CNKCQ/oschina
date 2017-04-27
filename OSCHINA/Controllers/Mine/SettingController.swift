@@ -17,15 +17,15 @@ class SettingController: BaseViewController {
     let items = Observable.just([
         SectionModel(model: "title", items: [
             "我的消息",
-            "我的博客",
+            "我的博客"
         ]),
         SectionModel(model: "title1", items: [
             "我的问答",
-            "我的活动",
+            "我的活动"
         ]),
         SectionModel(model: "title2", items: [
-            "我的团队",
-        ]),
+            "我的团队"
+        ])
     ])
 
     override func viewDidLoad() {
