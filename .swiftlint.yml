@@ -1,17 +1,3 @@
-# disabled_rules:
-#   - cyclomatic_complexity
-#   - force_cast
-#   - todo
-#   - type_name
-#   - fixme
-#   - function_body_length
-#   - variable_name
-#   - line_length
-# excluded:
-#   - Carthage
-#   - Pods
-#   - third_party
-#   - catalog/third_party
 
 disabled_rules: # rule identifiers to exclude from running
   - colon
@@ -28,13 +14,16 @@ opt_in_rules: # some rules are only opt-in
   - empty_count
   # Find all the available rules by running:
   # swiftlint rules
-# included: # paths to include during linting. `--path` is ignored if present.
-#   - Source
+included: # paths to include during linting. `--path` is ignored if present.
+  # - Source
+  - OSCHINA
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
   - Source/ExcludedFolder
   - Source/ExcludedFile.swift
+  - third_party
+  - catalog/third_party
 
 # # configurable rules can be customized from this configuration file
 # # binary rules can set their severity level
