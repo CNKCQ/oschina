@@ -65,7 +65,7 @@ class MineController: BaseViewController {
             cell.accessoryType = .disclosureIndicator
             return cell
         }
-        items.bindTo(tableView.rx.items(dataSource: dataSource))
+        items.bind(to: tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
 
         tableView.rx.modelSelected(String.self).subscribe(onNext: { item in
