@@ -31,7 +31,7 @@ class GirlsCell: CollectionCell {
     func setData<T: ArticleEntity>(item: T) {
         imageView.kf.setImage(with: URL(string: item.url!)!)
         label.text = item.desc
-        label.height = item.desc!.heightWithConstrainedWidth(width: frame.size.width, font: UIFont.systemFont(ofSize: 15))
+        label.height = item.desc!.height(withConstrainedWidth: frame.size.width, font: UIFont.systemFont(ofSize: 15))
         imageView.height = frame.size.width + label.height
     }
 
