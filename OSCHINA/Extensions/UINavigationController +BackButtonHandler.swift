@@ -36,7 +36,7 @@ extension UINavigationController {
         } else {
             // Prevent the back button from staying in an disabled state
             for view in navigationBar.subviews {
-                if view.alpha < 1.0 {
+                while view.alpha < 1.0 {
                     UIView.animate(withDuration: 0.25, animations: { () in
                         view.alpha = 1.0
                     })
