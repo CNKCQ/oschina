@@ -74,7 +74,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = NewsLayout(newsItems[indexPath.item])
-        return CGSize(width: SCREEN_WIDTH, height: layout.height)
+        return CGSize(width: screenWidth, height: layout.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
@@ -99,6 +99,6 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
-        return CGSize(width: SCREEN_WIDTH, height: 180)
+        return CGSize(width: screenWidth, height: 180)
     }
 }

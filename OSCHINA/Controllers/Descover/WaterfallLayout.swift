@@ -299,7 +299,7 @@ class CHTCollectionViewWaterfallLayout: UICollectionViewLayout {
 
         var contentSize = self.collectionView!.bounds.size as CGSize
 
-        if columnHeights.count > 0 {
+        if !columnHeights.isEmpty {
             if let height = self.columnHeights[columnHeights.count - 1].first {
                 contentSize.height = height
                 return contentSize

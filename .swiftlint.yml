@@ -1,0 +1,23 @@
+disabled_rules:
+  - cyclomatic_complexity
+  - force_cast
+  - todo
+  - type_name
+  - fixme
+  - function_body_length
+  - variable_name
+  - line_length
+excluded:
+  - Carthage
+  - Pods
+  - third_party
+  - catalog/third_party
+#
+#
+#
+# line_length: 100
+#
+# force_cast: warning
+# force_try: warning
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)

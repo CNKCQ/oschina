@@ -25,9 +25,9 @@ class ArticleEntity: Mappable {
         who <- map["who"]
         id <- map["_id"]
         desc <- map["desc"]
-        publishedAt <- (map["publishedAt"], CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
+        publishedAt <- (map["publishedAt"], CustomDateFormatTransform(formatString: DateUtil.dateFormatter))
         used <- map["used"]
-        createdAt <- (map["createdAt"], CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
+        createdAt <- (map["createdAt"], CustomDateFormatTransform(formatString: DateUtil.dateFormatter))
         url <- map["url"]
         type <- map["type"]
     }
@@ -38,9 +38,9 @@ class ArticleEntity: Mappable {
 
 public class DateUtil {
 
-    static let DATE_FORMATTER = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
-    public static func stringToNSDate(dateString: String, formatter: String = DATE_FORMATTER) -> Date {
+    public static func stringToNSDate(dateString: String, formatter: String = dateFormatter) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         return dateFormatter.date(from: dateString)!

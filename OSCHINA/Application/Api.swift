@@ -89,8 +89,8 @@ extension OSCIOService: TargetType {
 
 class GankIO {
     static let HOST = "http://gank.io"
-    static let PATH_API = "/api"
-    static let PATH_SEARCH = "/search"
+    static let pathApi = "/api"
+    static let pathSearch = "/search"
 }
 
 enum GankIOService {
@@ -125,19 +125,19 @@ extension GankIOService: TargetType {
     var path: String {
         switch self {
         case let .randomByKindAndCount(kind, count):
-            return "\(GankIO.PATH_API)/random/data/\(kind)/\(count)"
+            return "\(GankIO.pathApi)/random/data/\(kind)/\(count)"
         case let .byDay(year, month, day):
-            return "\(GankIO.PATH_API)/day/\(year)/\(month)/\(day)"
+            return "\(GankIO.pathApi)/day/\(year)/\(month)/\(day)"
         case .historyDays:
-            return "\(GankIO.PATH_API)/day/history"
+            return "\(GankIO.pathApi)/day/history"
         case let .byPageAndKind(kind, page, count):
-            return "\(GankIO.PATH_API)/data/\(kind)/\(count)/\(page)"
+            return "\(GankIO.pathApi)/data/\(kind)/\(count)/\(page)"
         case let .htmlByDay(year, month, day):
-            return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
+            return "\(GankIO.pathApi)/history/content/day/\(year)/\(month)/\(day)"
         case let .htmlByPage(page, count):
-            return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
+            return "\(GankIO.pathApi)/history/content/\(count)/\(page)"
         case .search:
-            return "\(GankIO.PATH_SEARCH)"
+            return "\(GankIO.pathSearch)"
         }
     }
 
