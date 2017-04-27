@@ -6,12 +6,12 @@
 import WebKit
 
 class WebController: BaseController {
-    
+
     // see: https://www.natashatherobot.com/swift-magic-public-getter-private-setter/
     private(set) var webView: WKWebView!
-    
+
     var urlStr: String!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView = WKWebView(frame: view.bounds)
@@ -28,24 +28,23 @@ class WebController: BaseController {
 
 extension WebController: WKNavigationDelegate {
 
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    func webView(_: WKWebView, decidePolicyFor _: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
     }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+    func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
         title = title ?? webView.title
     }
 }
 
 extension WebController: WKUIDelegate {
 
-     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-         completionHandler()
+    func webView(_: WKWebView, runJavaScriptAlertPanelWithMessage _: String, initiatedByFrame _: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        completionHandler()
     }
 
-     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+    func webView(_ webView: WKWebView, createWebViewWith _: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures _: WKWindowFeatures) -> WKWebView? {
         webView.load(navigationAction.request)
         return nil
     }
-
 }

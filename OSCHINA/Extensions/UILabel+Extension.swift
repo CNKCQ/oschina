@@ -8,14 +8,14 @@ import UIKit
 extension UILabel {
 
     public func size(_ string: String, width: Double) -> CGSize {
-        return NSString(string: string).boundingRect(with: CGSize(width: width, height: DBL_MAX),
+        return NSString(string: string).boundingRect(with: CGSize(width: width, height: .greatestFiniteMagnitude),
                                                      options: .usesLineFragmentOrigin,
                                                      attributes: [NSFontAttributeName: font],
                                                      context: nil).size
     }
 
     public func size(_ string: String) -> CGSize {
-        return size(string, width: DBL_MAX)
+        return size(string, width: .greatestFiniteMagnitude)
     }
 
     public func setText(_ text: String?, fit: Bool = true) -> CGRect {

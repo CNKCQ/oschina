@@ -73,7 +73,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
                         sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let desc = articleViewModel.articleEntities[indexPath.item].desc!
         let width = (collectionView.bounds.width - whiteSpace * 3) / 2
-        
+
         let height = desc.height(withConstrainedWidth: width, font: UIFont.systemFont(ofSize: 15))
         return CGSize(width: width, height: width + height)
     }
@@ -92,9 +92,8 @@ extension String {
 
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+
         return boundingBox.height
     }
-
 }

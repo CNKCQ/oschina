@@ -9,16 +9,16 @@
 import UIKit
 
 class BaseController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     func startActivity(_ dest: UIViewController, _ animated: Bool = true) {
         dest.hidesBottomBarWhenPushed = true
         pushConfig(dest)
         navigationController?.pushViewController(dest, animated: animated)
     }
-    
-    func pushConfig(_ dest: UIViewController) {}
+
+    func pushConfig(_: UIViewController) {}
 }
