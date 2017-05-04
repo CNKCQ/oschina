@@ -23,10 +23,10 @@ class NewsViewModel {
     func banner() -> Observable<BannerRootClass<BannerItem>> {
         return request(OSCIOService.newBanner)
     }
-    
+
     func newsArr() -> Observable<[NewsObjList]> {
         return news().flatMap({ newRoot -> Observable<[NewsObjList]> in
-            return Variable(newRoot.objList!).asObservable()
+            Variable(newRoot.objList!).asObservable()
         })
     }
 

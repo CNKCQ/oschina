@@ -11,7 +11,6 @@ import ObjectMapper
 import RxSwift
 import RxDataSources
 
-
 class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 
     let viewModel = NewsViewModel()
@@ -50,11 +49,17 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
 
     override func refresh() {
-//        let tableView = UITableView(frame: view.bounds)
-//        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { row, new, cell in
-//                cell.textLabel?.text = new.body
-//            }.addDisposableTo(disposeBag)
         
+        
+        
+        let tableView = UITableView(frame: view.bounds)
+        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { row, new, cell in
+                cell.textLabel?.text = new.body
+            }.addDisposableTo(disposeBag)
+        
+        
+        
+
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
         }).addDisposableTo(disposeBag)
