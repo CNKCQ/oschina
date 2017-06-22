@@ -34,7 +34,7 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
 
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dest = WebController()
-        dest.urlStr = articleViewModel.articleEntities[indexPath.item].url
+        dest.urlStr = articleViewModel.articleEntities[indexPath.item].url ?? ""
         navigationController?.pushViewController(dest, animated: true)
     }
 

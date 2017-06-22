@@ -25,10 +25,10 @@ infoPlist = "%s/%s/Info.plist" % (project_path, project_name)
 fir_api_token = "349e895ca7aceeafd4bca1eac5e0ab3b"
 pgyer_user_key = '77052141e0dd09784a065d3df33b792f'
 pgyer_api_key = '1d20194f501175be5ff08473b986295a'
-from_address = "wangchengqvan@163.com"
-password = "wcq249718"
+from_address = "fromemail@163.com"
+password = "password"
 smtp_server = "smtp.163.com"
-to_address = ['1920452890@qq.com','2280534011@qq.com','1844368740@qq.com']
+to_address = ['to@qq.com','to2@qq.com','1844368740@qq.com']
 
 
 # 清理项目 创建build目录

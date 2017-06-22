@@ -10,7 +10,7 @@ class WebController: BaseController {
     // see: https://www.natashatherobot.com/swift-magic-public-getter-private-setter/
     private(set) var webView: WKWebView!
 
-    var urlStr: String!
+    var urlStr: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,10 @@ class WebController: BaseController {
         view.addSubview(webView)
         webView.navigationDelegate = self
         webView.uiDelegate = self
-        guard let url = URL(string: urlStr) else {
-            fatalError("urlStr can't be nil")
+        if let url = URL(string: urlStr) {
+            let request = URLRequest(url: url)
+            webView.load(request)
         }
-        let request = URLRequest(url: url)
-        webView.load(request)
     }
 }
 

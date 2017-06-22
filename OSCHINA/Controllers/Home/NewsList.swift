@@ -49,17 +49,10 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
 
     override func refresh() {
-        
-        
-        
         let tableView = UITableView(frame: view.bounds)
         viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { row, new, cell in
                 cell.textLabel?.text = new.body
             }.addDisposableTo(disposeBag)
-        
-        
-        
-
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
         }).addDisposableTo(disposeBag)
@@ -100,7 +93,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
                 header.banner.callback = { [weak self] index in
                     let dest = WebController()
                     dest.title = titles[index]
-                    dest.urlStr = banners[index].href
+                    dest.urlStr = banners[index].href ?? ""
                     self?.navigationController?.pushViewController(dest, animated: true)
                 }
             }
@@ -115,5 +108,5 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 }
 
 extension UITableViewCell {
-    static let reuseid = String(describing: self)
+    static let reuseid = String(describing: UITableViewCell.self)
 }
