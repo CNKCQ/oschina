@@ -5,8 +5,13 @@
 
 import WebKit
 
-class WebController: BaseController {
-
+class WebController: BaseController, Routerable {
+    var para: String = "" {
+        didSet {
+            self.urlStr = para
+        }
+    }
+    
     // see: https://www.natashatherobot.com/swift-magic-public-getter-private-setter/
     private(set) var webView: WKWebView!
 

@@ -50,9 +50,9 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 
     override func refresh() {
         let tableView = UITableView(frame: view.bounds)
-        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { row, new, cell in
-                cell.textLabel?.text = new.body
-            }.addDisposableTo(disposeBag)
+        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { _, new, cell in
+            cell.textLabel?.text = new.body
+        }.addDisposableTo(disposeBag)
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
         }).addDisposableTo(disposeBag)
@@ -70,10 +70,8 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         //            .addDisposableTo(self.disposeBag)
     }
 
-    override func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
-        let dest = WebController()
-        //        dest.urlStr = newsItems[indexPath.row].href
-        navigationController?.pushViewController(dest, animated: true)
+    override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router(intentType: WebController.self, para: newsItems[indexPath.row].url ?? "", style: .push)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

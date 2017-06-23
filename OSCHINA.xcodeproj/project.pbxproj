@@ -74,6 +74,7 @@
 		3CE34E871E2DB3F700733A01 /* NewsRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE34E841E2DB3F700733A01 /* NewsRootClass.swift */; };
 		3CF215D81E23B8A000CF4304 /* NewsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF215D71E23B8A000CF4304 /* NewsLayout.swift */; };
 		6339BAC9AA147F546F0659C4 /* Pods_OSCHINA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945697BE4BB63BBD4ECC8727 /* Pods_OSCHINA.framework */; };
+		AA17E8DB1EFBBBCE002D31F0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA17E8DA1EFBBBCE002D31F0 /* Router.swift */; };
 		AADFBCD81EB1CB93000F057E /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADFBCD61EB1CB93000F057E /* BaseController.swift */; };
 		AADFBCD91EB1CB93000F057E /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADFBCD71EB1CB93000F057E /* WebController.swift */; };
 		AAE6428E1EB236F20029DF9D /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6428D1EB236F20029DF9D /* WaterfallLayout.swift */; };
@@ -152,6 +153,7 @@
 		3CF215D71E23B8A000CF4304 /* NewsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLayout.swift; sourceTree = "<group>"; };
 		3D1045113A60295C23AA6059 /* Pods-OSCHINA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSCHINA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSCHINA/Pods-OSCHINA.debug.xcconfig"; sourceTree = "<group>"; };
 		945697BE4BB63BBD4ECC8727 /* Pods_OSCHINA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSCHINA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA17E8DA1EFBBBCE002D31F0 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AADFBCD61EB1CB93000F057E /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		AADFBCD71EB1CB93000F057E /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		AAE6428D1EB236F20029DF9D /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				3C4BCA921D6157DE00597109 /* Api.swift */,
 				3C48B0A91E2B8F2B00E6CBC5 /* CollectionList.swift */,
 				3C48B0AB1E2BA02E00E6CBC5 /* ColloctionCell.swift */,
+				AA17E8DA1EFBBBCE002D31F0 /* Router.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				3CDF832B1D7AFE9D00313A66 /* UIColor+RandomColor.swift in Sources */,
 				3C93863E1D5DA5A400DDEE54 /* Constants.swift in Sources */,
 				3C9386431D5DB1DD00DDEE54 /* DiscoverController.swift in Sources */,
+				AA17E8DB1EFBBBCE002D31F0 /* Router.swift in Sources */,
 				3C2F18CF1E60673A00776E74 /* ListModel.swift in Sources */,
 				3C80B3671D796D6200B8B8AC /* User.swift in Sources */,
 				3C3635001E8E226C001A7C5A /* UIViewController+Preparation.swift in Sources */,
