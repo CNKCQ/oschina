@@ -8,6 +8,7 @@ import UIKit
 
 // MARK: - Common UITableView text styling
 extension NSAttributedString {
+
     static func tableRowTitle(_ string: String) -> NSAttributedString {
         return NSAttributedString(string: string, attributes: [NSForegroundColorAttributeName: UIColor.black])
     }

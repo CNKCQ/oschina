@@ -6,6 +6,8 @@
 //  Copyright © 2017年 KingCQ. All rights reserved.
 //
 
+import UI_
+
 class CollectionCell: UICollectionViewCell, Reusable {
 
     override init(frame: CGRect) {

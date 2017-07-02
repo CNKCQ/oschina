@@ -24,15 +24,15 @@ class MineController: BaseViewController {
     let items = Observable.just([
         SectionModel(model: "title", items: [
             "扫一扫",
-            "摇一摇",
+            "摇一摇"
         ]),
         SectionModel(model: "title1", items: [
             "开源软件",
-            "线下活动",
+            "线下活动"
         ]),
         SectionModel(model: "title2", items: [
-            "设置",
-        ]),
+            "设置"
+        ])
     ])
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class MineController: BaseViewController {
         avartView.layer.masksToBounds = true
         avartView.image = UIImage(named: "default-portrait")
         loginButton = UIButton(frame: CGRect(x: 15, y: avartView.bottom, width: view.bounds.width / 2, height: 25))
-        avartView.addAction(self, action: #selector(login))
+//        avartView.addAction(self, action: #selector(login))
         loginButton.centerX = headerView.centerX
         //        loginButton.addAction(self, action: #selector(login))
         loginButton.rx.tap.subscribe(onNext: { [weak self] in
@@ -120,6 +120,7 @@ extension MineController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        test()
         return CGFloat(Float.leastNormalMagnitude)
     }
 }
@@ -130,3 +131,11 @@ extension MineController {
         backgroundImageView.width = max(navigationController!.navigationBar.bounds.height - scrollView.contentInset.top - scrollView.contentOffset.y * 0.8, view.width)
     }
 }
+
+@available(*, deprecated, message: "Don't use this anymore")
+func test() {
+    print("test the deprecated method")
+}
+
+@available(*, deprecated: 9.0, message: "don't")
+var name: String?

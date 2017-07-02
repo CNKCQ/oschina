@@ -43,11 +43,10 @@ protocol Routerable {
 
     associatedtype Parameterable
 
-    var para: Parameterable { set get }
+    var para: Parameterable { get set }
 
 }
 
 protocol Testable {
 
 }
-

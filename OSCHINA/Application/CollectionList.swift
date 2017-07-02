@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import MJRefresh
+import UI_
 
 class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let whiteSpace = CGFloat(0.8)

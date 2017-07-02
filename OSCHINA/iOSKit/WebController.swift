@@ -11,7 +11,7 @@ class WebController: BaseController, Routerable {
             self.urlStr = para
         }
     }
-    
+
     // see: https://www.natashatherobot.com/swift-magic-public-getter-private-setter/
     private(set) var webView: WKWebView!
 

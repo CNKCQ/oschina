@@ -38,7 +38,9 @@ class NewsViewModel {
         return Observable.create({ observer -> Disposable in
             self.provider.request(token) { result in
                 result.analysis(ifSuccess: { response in
-                    guard let entity = Mapper<M>().map(JSONString: String(data: response.data, encoding: String.Encoding.utf8)!) else {
+                    guard let entity = Mapper<M>().map(JSONString: String(
+                        data: response.data,
+                        encoding: String.Encoding.utf8)!) else {
                         fatalError()
                     }
                     observer.on(Event.next(entity))
@@ -47,9 +49,11 @@ class NewsViewModel {
                 })
                 observer.onCompleted()
             }
-
             return Disposables.create()
         })
+        .observeOn(backgroundScheduler)
+//            .observeOn(MainScheduler.asyncInstance)
+
     }
 }
 

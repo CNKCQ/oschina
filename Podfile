@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'OSCHINA' do
   # Swift
+  pod 'Foundation+', :git => 'https://github.com/CNKCQ/Foundation.plus.git'
+  pod 'UI+', :git => 'https://github.com/CNKCQ/UIKit.plus.git'
   pod 'Moya', '~> 8.0'
   pod 'Moya/RxSwift', '~> 8.0'
   pod 'ObjectMapper'

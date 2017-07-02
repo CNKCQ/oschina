@@ -8,6 +8,7 @@
 
 import AutoCycleAdview
 import UIKit
+import UI_
 
 class NewsHeader: UICollectionReusableView, Reusable {
     var banner: AutoCycleAdview!

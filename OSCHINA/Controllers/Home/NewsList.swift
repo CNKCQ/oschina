@@ -10,11 +10,12 @@ import Moya
 import ObjectMapper
 import RxSwift
 import RxDataSources
+import UI_
+import Foundation_
 
 class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
 
     let viewModel = NewsViewModel()
-    let bannerModel = BannerViewModel()
 
     var newsItems: [NewsObjList] = [] {
         didSet {
@@ -49,10 +50,31 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     }
 
     override func refresh() {
+
+//        let items = Observable.just([
+//            "First Item",
+//            "Second Item",
+//            "Third Item"
+//            ])
+
+//        items
+//            .bind(to: tableView.rx.items) { (tableView, row, element) in
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+//                cell.textLabel?.text = "\(element) @ row \(row)"
+//                return cell
+//            }
+//            .disposed(by: disposeBag)
+
         let tableView = UITableView(frame: view.bounds)
-        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { _, new, cell in
+        viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { _, new, cell in
             cell.textLabel?.text = new.body
         }.addDisposableTo(disposeBag)
+
+        viewModel.newsArr().bind(to: tableView.rx.items) { (tableView, row, element) in
+            let cell = tableView.dequeueReusableCell(for:  IndexPath(row: row, section: 0), cellType: UITableViewCell.self)
+            return cell
+        }.addDisposableTo(disposeBag)
+
         viewModel.banner().subscribe(onNext: { result in
             self.bannerItems = result.result?.items
         }).addDisposableTo(disposeBag)
@@ -103,8 +125,4 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: screenWidth, height: 180)
     }
-}
-
-extension UITableViewCell {
-    static let reuseid = String(describing: UITableViewCell.self)
 }

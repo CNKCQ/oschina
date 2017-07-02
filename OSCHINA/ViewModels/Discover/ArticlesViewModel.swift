@@ -22,6 +22,8 @@ class ArticlesViewModel: BaseViewModel {
         return getArticleInfoByPage(page: page + 1)
     }
 
+
+    /// 测试 zip 合并操作
     private func getArticleInfoByPage(page: Int) -> Observable<[ArticleEntity]> {
         return Observable
             .zip(
