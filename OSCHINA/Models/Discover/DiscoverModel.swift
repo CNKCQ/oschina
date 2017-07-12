@@ -38,7 +38,7 @@ class ArticleEntity: Mappable {
 
 public class DateUtil {
 
-    static let dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    public static let dateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
     public static func stringToNSDate(dateString: String, formatter: String = dateFormatter) -> Date {
         let dateFormatter = DateFormatter()

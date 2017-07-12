@@ -9,10 +9,10 @@ import UIKit
 // MARK: - Common UITableView text styling
 extension NSAttributedString {
     static func tableRowTitle(_ string: String) -> NSAttributedString {
-        return NSAttributedString(string: string, attributes: [NSForegroundColorAttributeName: UIColor.black])
+        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
     }
 
     static func disabledTableRowTitle(_ string: String) -> NSAttributedString {
-        return NSAttributedString(string: string, attributes: [NSForegroundColorAttributeName: UIColor.white])
+        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
 }

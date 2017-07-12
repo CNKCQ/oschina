@@ -53,9 +53,9 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { _, new, cell in
             cell.textLabel?.text = new.body
         }.addDisposableTo(disposeBag)
-        viewModel.banner().subscribe(onNext: { result in
-            self.bannerItems = result.result?.items
-        }).addDisposableTo(disposeBag)
+//        viewModel.banner().subscribe(onNext: { result in
+//            self.bannerItems = result.result?.items
+//        }).addDisposableTo(disposeBag)
         viewModel.news().subscribe(onNext: { result in
             self.newsItems = result.objList ?? []
         }).addDisposableTo(disposeBag)

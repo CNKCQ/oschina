@@ -8,13 +8,17 @@
 
 import Foundation
 
+class Robot {
+    private var  battery = 0.5
+}
+
 enum RouterStyle {
     case push
     case present
 }
 
 extension  UIViewController {
-
+    
     func router<T: Routerable>(intentType: T.Type, para: T.Parameterable, style: RouterStyle = .push, animated: Bool = true, completion: (() -> Void)? = nil) where T: UIViewController {
         var intent = intentType.init()
         intent.para = para
@@ -40,14 +44,9 @@ extension  UIViewController {
 }
 
 protocol Routerable {
-
     associatedtype Parameterable
 
     var para: Parameterable { set get }
-
 }
 
-protocol Testable {
-
-}
-
+extension UITableViewCell: Reusable {}

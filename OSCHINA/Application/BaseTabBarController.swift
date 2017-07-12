@@ -23,8 +23,8 @@ class BaseTabBarController: UITabBarController {
             (title: "发现", imge: UIImage(named: "tabbar-discover")!, simage: UIImage(named: "tabbar-discover-selected")!, controller2),
             (title: "我", imge: UIImage(named: "tabbar-me")!, simage: UIImage(named: "tabbar-me-selected")!, controller3),
         ]
-        controllers.forEach {
-            self.append($3, title: $0, image: $1, selectedImage: $2)
+        controllers.forEach { (arg) in
+            self.append(arg.3, title: arg.0, image: arg.1, selectedImage: arg.2)
         }
     }
 

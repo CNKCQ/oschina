@@ -89,10 +89,10 @@ class MineController: BaseViewController {
         avartView.addAction(self, action: #selector(login))
         loginButton.centerX = headerView.centerX
         //        loginButton.addAction(self, action: #selector(login))
-        loginButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.present(Sigin(), animated: true, completion: nil)
-        })
-            .addDisposableTo(disposeBag)
+//        loginButton.rx.tap.subscribe({ [weak self] in
+//            self?.present(Sigin(), animated: true, completion: nil)
+//        })
+//            .addDisposableTo(disposeBag)
         headerView.addSubview(avartView)
         headerView.addSubview(loginButton)
         loginButton.setTitle("登录", for: UIControlState())
@@ -105,7 +105,7 @@ class MineController: BaseViewController {
         view.addSubview(tableView)
     }
 
-    func login() {
+    @objc func login() {
     }
 }
 

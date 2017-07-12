@@ -3,43 +3,20 @@
 //	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
-import ObjectMapper
 
-class NewsRootClass: NSObject, NSCoding, Mappable {
+struct NewsRootClass: Codable {
 
     var code: Int?
     var objList: [NewsObjList]?
-
-    required init?(map _: Map) {
-        super.init()
+    
+    enum CodingKeys: String, CodingKey {
+        case code
+        case objList = "obj_list"
     }
-
-    class func newInstance(map _: Map) -> Mappable? {
-        return NewsRootClass()
-    }
-
-    private override init() {}
-
-    func mapping(map: Map) {
-        code <- map["code"]
-        objList <- map["obj_list"]
-    }
-
-    /**
-     * NSCoding required initializer.
-     * Fills the data from the passed decoder
-     */
-    public func encode(with aCoder: NSCoder) {
-        if code != nil {
-            aCoder.encode(code, forKey: "code")
-        }
-        if objList != nil {
-            aCoder.encode(objList, forKey: "obj_list")
-        }
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        code = aDecoder.decodeObject(forKey: "code") as? Int
-        objList = aDecoder.decodeObject(forKey: "obj_list") as? [NewsObjList]
-    }
+    
+//    func encode(to encode: Encoder) throws {
+//        var container = encode.container(keyedBy: CodingKeys.self)
+//        try container.encode(code, forKey: .code)
+//        try container.encode(objList, forKey: .objList)
+//    }
 }

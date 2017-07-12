@@ -14,7 +14,8 @@ class NewsHeader: UICollectionReusableView, Reusable {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        banner = AutoCycleAdview(frame: frame)
+        banner = AutoCycleAdview(frame: CGRect(origin: .zero, size: CGSize(width: screenWidth, height: 180)))
+        backgroundColor = .red
         addSubview(banner)
     }
 

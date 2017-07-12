@@ -29,13 +29,13 @@ class NewsLayout {
 
     func layoutTitle() {
         let text = data.title as NSString!
-        let textSize = text?.boundingRect(with: CGSize(width: screenWidth - 2 * padding, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UILabel().font], context: nil)
+        let textSize = text?.boundingRect(with: CGSize(width: screenWidth - 2 * padding, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UILabel().font], context: nil)
         title = CGRect(origin: CGPoint(x: padding, y: padding), size: (textSize?.size)!)
     }
 
     func layoutContent() {
         let text = data.body as NSString!
-        let textSize = text?.boundingRect(with: CGSize(width: screenWidth - 2 * padding, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UILabel().font], context: nil)
+        let textSize = text?.boundingRect(with: CGSize(width: screenWidth - 2 * padding, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UILabel().font], context: nil)
         content = CGRect(origin: CGPoint(x: title.minX, y: title.maxY), size: (textSize?.size)!)
     }
 }
