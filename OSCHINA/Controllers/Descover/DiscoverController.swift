@@ -39,34 +39,34 @@ class DiscoverController: CollectionList<GirlsCell>, CHTCollectionViewDelegateWa
     }
 
     override func refresh() {
-        articleViewModel.refresh().subscribe(
-            onNext: { entities in
-                print(entities)
-                self.collectionView.mj_footer.resetNoMoreData()
-                self.collectionView.reloadData()
-            }, onError: { error in
-                print(error)
-                self.collectionView.mj_header.endRefreshing()
-            }, onCompleted: {
-                self.collectionView.mj_header.endRefreshing()
-            }, onDisposed: {
-        }).addDisposableTo(disposeBag)
+//        articleViewModel.refresh().subscribe(
+//            onNext: { entities in
+//                print(entities)
+//                self.collectionView.mj_footer.resetNoMoreData()
+//                self.collectionView.reloadData()
+//            }, onError: { error in
+//                print(error)
+//                self.collectionView.mj_header.endRefreshing()
+//            }, onCompleted: {
+//                self.collectionView.mj_header.endRefreshing()
+//            }, onDisposed: {
+//        }).addDisposableTo(disposeBag)
     }
 
     override func loadMore() {
-        articleViewModel.loadMore().subscribe(onNext: { entities in
-            if entities.isEmpty {
-                self.collectionView.mj_footer.endRefreshingWithNoMoreData()
-            } else {
-                self.collectionView.mj_footer.endRefreshing()
-            }
-            self.collectionView.reloadData()
-        }, onError: { error in
-            print(error)
-            self.collectionView.mj_footer.endRefreshing()
-        }, onCompleted: {
-        }, onDisposed: {
-        }).addDisposableTo(disposeBag)
+//        articleViewModel.loadMore().subscribe(onNext: { entities in
+//            if entities.isEmpty {
+//                self.collectionView.mj_footer.endRefreshingWithNoMoreData()
+//            } else {
+//                self.collectionView.mj_footer.endRefreshing()
+//            }
+//            self.collectionView.reloadData()
+//        }, onError: { error in
+//            print(error)
+//            self.collectionView.mj_footer.endRefreshing()
+//        }, onCompleted: {
+//        }, onDisposed: {
+//        }).addDisposableTo(disposeBag)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout,

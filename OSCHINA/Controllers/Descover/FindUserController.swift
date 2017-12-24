@@ -12,8 +12,9 @@ class FindUserController: BaseController {
 
     var tableView: UITableView!
     var searchBar: UISearchBar!
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FindObjList>>()
-    var items: [FindObjList]? = [] {
+//    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FindObjList>>()
+    let dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, FindObjList>>? = nil
+    ;    var items: [FindObjList]? = [] {
         didSet {
             tableView.reloadData()
         }

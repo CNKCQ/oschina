@@ -3,7 +3,6 @@
 //	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
-import ObjectMapper
 
 struct BannerItem: Codable {
 
@@ -14,17 +13,14 @@ struct BannerItem: Codable {
     var name: String?
     var pubDate: String?
     var type: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case detail
-        case href
-        case id
-        case img
-        case name
-        case pubDate
-        case type
-    }
-    
-    
-    
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case detail
+//        case href
+//        case id
+//        case img
+//        case name
+//        case pubDate
+//        case type
+//    }
 }

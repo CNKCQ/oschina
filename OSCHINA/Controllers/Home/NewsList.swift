@@ -12,6 +12,7 @@ import RxSwift
 import RxDataSources
 
 class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
+    
 
     let viewModel = NewsViewModel()
     let bannerModel = BannerViewModel()
@@ -28,9 +29,8 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         }
     }
 
-    override var layout: UICollectionViewLayout {
+    override var layout: UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.bounds.width, height: 0)
         return layout
     }
 
@@ -51,23 +51,23 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
     override func refresh() {
         let tableView = UITableView(frame: view.bounds)
         viewModel.newsArr().bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseid, cellType: UITableViewCell.self)) { _, new, cell in
-            cell.textLabel?.text = new.body
-        }.addDisposableTo(disposeBag)
-//        viewModel.banner().subscribe(onNext: { result in
-//            self.bannerItems = result.result?.items
-//        }).addDisposableTo(disposeBag)
+        cell.textLabel?.text = new.body
+        }.disposed(by: disposeBag)
+        viewModel.outputs.banners.subscribe(onNext: { result in
+            self.bannerItems = result.result?.items
+        }).disposed(by: disposeBag)
         viewModel.news().subscribe(onNext: { result in
             self.newsItems = result.objList ?? []
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     override func loadMore() {
-        //        viewModel.loadMore().subscribe(
-        //            onNext: { result in
-        //                self.newsItems += result.0
-        //                self.bannerItems = result.1
-        //        })
-        //            .addDisposableTo(self.disposeBag)
+//        viewModel.loadMore().subscribe(
+//            onNext: { result in
+//                self.newsItems += result.0
+//                self.bannerItems = result.1
+//        })
+//            .addDisposableTo(self.disposeBag)
     }
 
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -78,8 +78,8 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         let layout = NewsLayout(newsItems[indexPath.item])
         return CGSize(width: screenWidth, height: layout.height)
     }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: NewsHeader.self) as NewsHeader
             if let banners = bannerItems {
@@ -99,7 +99,7 @@ class NewsList: CollectionList<NewCell>, UICollectionViewDelegateFlowLayout {
         }
         return UICollectionReusableView()
     }
-
+    
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: screenWidth, height: 180)
     }

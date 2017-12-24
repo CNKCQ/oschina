@@ -5,12 +5,12 @@ use_frameworks!
 
 target 'OSCHINA' do
   # Swift
-  pod 'Moya', '~> 8.0'
-  pod 'Moya/RxSwift', '~> 8.0'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
   pod 'ObjectMapper'
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
-  pod 'RxBlocking', '~> 3.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxBlocking'
   pod 'Kingfisher'
 #  pod 'CYLTabBarController'
 #  pod 'AMScrollingNavbar'
@@ -18,12 +18,12 @@ target 'OSCHINA' do
 #  pod 'KissXML/SwiftNSXML'
 #  pod 'SwiftyBeaver'
   pod 'PagingMenuController'               # https://github.com/kitasuke/PagingMenuController
-  pod 'AutoCycleAdview'#, :git => 'https://github.com/CNKCQ/AutoCycleAdview.git'
+  pod 'AutoCycleAdview', :git => 'https://github.com/CNKCQ/AutoCycleAdview.git', :branch=> "develop"
 #  pod 'XCGLogger'
   pod 'SnapKit'
   pod 'RxDataSources'
-  pod 'AwsomeTextField'
+  # pod 'AwsomeTextField'
   # OC
   pod 'MJRefresh'
-  
+
 end

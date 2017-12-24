@@ -8,13 +8,13 @@ import ObjectMapper
 import RxSwift
 
 class BannerViewModel {
-    var provider: RxMoyaProvider<OSCIOService>
+//    var provider: RxMoyaProvider<OSCIOService>
     var backgroundScheduler: OperationQueueScheduler!
 
     init() {
         let operationQueue = OperationQueue()
         backgroundScheduler = OperationQueueScheduler(operationQueue: operationQueue)
-        provider = RxMoyaProvider<OSCIOService>()
+//        provider = RxMoyaProvider<OSCIOService>()
     }
 
     //    func fetchBanner() -> Observable<[BannerItem]?> {

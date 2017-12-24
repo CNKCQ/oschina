@@ -17,7 +17,11 @@ enum OSCIOService {
 }
 
 extension OSCIOService: TargetType {
-
+    
+    var headers: [String : String]? {
+        return [:]
+    }
+    
     var baseURL: URL {
         // return NSURL(string: "http://www.oschina.net/action/api")! //XML格式
         return URL(string: "http://www.oschina.net/action/apiv2")! // JSON格式
@@ -28,7 +32,7 @@ extension OSCIOService: TargetType {
         case let .newsList(para):
             return "/news_list/?\(para.keys.first!)=\(para.values.first!)&pageSize=2"
         case .newBanner:
-            return "/banner"
+            return "/banner?catalog=1"
         case .tweetList:
             return "/tweet_list"
         case .blogList:
@@ -36,7 +40,7 @@ extension OSCIOService: TargetType {
         case .eventList:
             return "/event_list"
         case .eventBanner:
-            return "/banner"
+            return "//banner?catalog=1"
         case .login:
             return "/login_validate"
         case .findUser:
@@ -83,7 +87,7 @@ extension OSCIOService: TargetType {
     }
 
     public var task: Task {
-        return .request
+        return .requestPlain
     }
 }
 
@@ -117,7 +121,11 @@ enum GankIOService {
 }
 
 extension GankIOService: TargetType {
-
+    
+    var headers: [String : String]? {
+        return [:]
+    }
+    
     var baseURL: URL {
         return URL(string: GankIO.HOST)!
     }
@@ -166,6 +174,6 @@ extension GankIOService: TargetType {
     }
 
     public var task: Task {
-        return .request
+        return .requestPlain
     }
 }

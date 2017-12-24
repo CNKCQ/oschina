@@ -8,18 +8,18 @@
 
 import Foundation
 
-//struct ListModel: Codable {
-//
-//    var items: [BannerItem]?
-//    var nextPageToken: String?
-//    var pageInfo: BannerPageInfo?
-//    var prevPageToken: String?
-//    
+struct ListModel: Codable {
+
+    var items: [BannerItem]?
+    var nextPageToken: String?
+    var pageInfo: BannerPageInfo?
+    var prevPageToken: String?
+    
 //    enum CodingKeys: String, CodingKey {
 //        case items
 //        case nextPageToken
 //        case pageInfo
 //        case prevPageToken
 //    }
-//}
+}
 

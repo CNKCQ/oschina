@@ -16,7 +16,8 @@ private let beforeAppearOffset: CGFloat = 0
 
 class MineController: BaseViewController {
     var tableView: UITableView!
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
+//    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
+    let dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, String>>? = nil
     var loginButton: UIButton!
     var backgroundView: UIView!
     var backgroundImageView: UIImageView!
@@ -59,13 +60,16 @@ class MineController: BaseViewController {
         tableView.backgroundView = backgroundView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         let dataSource = self.dataSource
-        dataSource.configureCell = { _, tableView, _, element in
+        dataSource?.configureCell = { _, tableView, _, element in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self))!
             cell.textLabel?.text = element
             cell.accessoryType = .disclosureIndicator
             return cell
         }
-        items.bind(to: tableView.rx.items(dataSource: dataSource))
+        guard let dSource = dataSource else {
+            return
+        }
+        items.bind(to: tableView.rx.items(dataSource: dSource))
             .addDisposableTo(disposeBag)
 
         tableView.rx.modelSelected(String.self).subscribe(onNext: { item in

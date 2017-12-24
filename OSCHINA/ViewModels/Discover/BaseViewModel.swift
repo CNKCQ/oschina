@@ -8,7 +8,7 @@ import Moya
 import ObjectMapper
 
 class BaseViewModel {
-    var provider: RxMoyaProvider<GankIOService>
+    var provider: MoyaProvider<GankIOService>
     var page = 1
     var offset = 20
     var backgroundWorkScheduler: OperationQueueScheduler!
@@ -18,7 +18,7 @@ class BaseViewModel {
         operationQueue.maxConcurrentOperationCount = 3
         operationQueue.qualityOfService = QualityOfService.userInitiated
         backgroundWorkScheduler = OperationQueueScheduler(operationQueue: operationQueue)
-        let networkActivityPlugin = NetworkActivityPlugin { change in
+        let networkActivityPlugin = NetworkActivityPlugin { change, arg  in
             switch change {
             case .ended:
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -27,7 +27,7 @@ class BaseViewModel {
             }
         }
 
-        provider = RxMoyaProvider<GankIOService>(plugins: [networkActivityPlugin, NetworkLoggerPlugin.init()])
+        provider = MoyaProvider<GankIOService>(plugins: [networkActivityPlugin, NetworkLoggerPlugin.init()])
         //        self.provider = RxMoyaProvider<GankIOService>() /// 不用Moya自带的log插件
     }
 

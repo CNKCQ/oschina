@@ -6,9 +6,32 @@ import Moya
 import RxSwift
 import Alamofire
 
-class NewsViewModel {
+protocol NewsViewModelInputs {
+    
+}
+
+protocol NewsViewModelOutputs {
+    
+    var banners: Observable<BannerRootClass> { set get }
+    
+    var newers: Observable<NewsRootClass> { set get }
+}
+
+protocol NewsViewModelType {
+    
+    var inputs: NewsViewModelInputs { get }
+    
+    var outputs: NewsViewModelOutputs { get }
+}
+
+class NewsViewModel: NewsViewModelType, NewsViewModelInputs, NewsViewModelOutputs {
+    
+    var newers: Observable<NewsRootClass>
+    
+    var banners: Observable<BannerRootClass>
+    
     lazy var disposeBag = DisposeBag()
-    var provider: RxMoyaProvider<OSCIOService>
+    var provider: MoyaProvider<OSCIOService>
     var backgroundScheduler: OperationQueueScheduler!
     var pageIndex = 0
     //    var pageSize = 2
@@ -16,12 +39,22 @@ class NewsViewModel {
     init() {
         let operationQueue = OperationQueue()
         backgroundScheduler = OperationQueueScheduler(operationQueue: operationQueue)
-        provider = RxMoyaProvider<OSCIOService>()
+        provider = MoyaProvider<OSCIOService>()
+        self.banners = Observable<BannerRootClass>.empty()
+        self.newers = Observable<NewsRootClass>.just(NewsRootClass())
     }
 
-//    func banner() -> Observable<BannerRootClass> {
-//        return request(OSCIOService.newBanner)
-//    }
+    func setBanners() {
+        banners = request(OSCIOService.newBanner)
+    }
+    
+    func setNewers() {
+        self.newers = request(OSCIOService.newBanner)
+    }
+    
+    func banner() -> Observable<BannerRootClass> {
+        return request(OSCIOService.newBanner)
+    }
 
     func newsArr() -> Observable<[NewsObjList]> {
         return news().flatMap({ newRoot -> Observable<[NewsObjList]> in
@@ -54,6 +87,11 @@ class NewsViewModel {
             return Disposables.create()
         })
     }
+    
+    var inputs: NewsViewModelInputs { return self }
+    
+    var outputs: NewsViewModelOutputs { return self }
+
 }
 
 // RxSwif 的使用场景 http://blog.csdn.net/lzyzsd/article/details/50120801

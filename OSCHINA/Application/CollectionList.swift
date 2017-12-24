@@ -30,7 +30,7 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
         collectionView.register(cellType: C.self)
         edgesForExtendedLayout = []
         collectionView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-            if self.collectionView.mj_header.isRefreshing() {
+            if self.collectionView.mj_header.isRefreshing {
                 self.collectionView.mj_header.endRefreshing()
                 return
             } else {
@@ -38,7 +38,7 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
             }
         })
         let mjFooter = MJRefreshAutoStateFooter.init(refreshingBlock: {
-            if self.collectionView.mj_header.isRefreshing() {
+            if self.collectionView.mj_header.isRefreshing {
                 self.collectionView.mj_footer.endRefreshing()
                 return
             } else {
@@ -62,6 +62,10 @@ class CollectionList<C: CollectionCell>: BaseViewController, UICollectionViewDel
     }
 
     func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
 
     override func viewWillLayoutSubviews() {

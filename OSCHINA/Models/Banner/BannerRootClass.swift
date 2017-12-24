@@ -4,19 +4,19 @@
 
 import Foundation
 
-//struct BannerRootClass: Codable {
-//
-//    var code: Int?
-//    var message: String?
-//    var result: ListModel?
-//    var time: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case code
-//        case message
-//        case result
-//        case time
-//    }
-//
-//}
+struct BannerRootClass: Codable {
+
+    var code: Int?
+    var message: String?
+    var result: ListModel?
+    var time: String?
+
+    enum CodingKeys: String, CodingKey {
+        case code
+        case message
+        case result
+        case time
+    }
+
+}
 
